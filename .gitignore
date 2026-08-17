@@ -1,0 +1,45 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Stock source clips for the Remotion renders (~190MB, re-downloadable from
+# Mixkit — see the ids in demo-video/src/HeroLoop.jsx)
+demo-video/public/stock/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+#Ignore cursor AI rules
+.cursor/rules/codacy.mdc
+.vercel
+.env*
+
+# Local AI-tooling directories (agent skills, editor assistants) — not part of the site
+.agents/
+.claude/
+.codex/
+.cursor/
+
+# Impeccable design-tool caches (config.json + design.json stay tracked as shared design artifacts)
+.impeccable/critique/
+.impeccable/live/
+.impeccable/hook.cache.json

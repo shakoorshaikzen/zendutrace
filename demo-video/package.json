@@ -1,0 +1,18 @@
+{
+  "name": "xentag-demo-video",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.js",
+    "render": "remotion render src/index.js XenTagDemo ../public/assets/xentag-demo.mp4 --codec h264 --crf 20 --pixel-format yuv420p",
+    "poster": "ffmpeg -y -ss 3.2 -i ../public/assets/xentag-demo.mp4 -frames:v 1 -update 1 ../public/assets/xentag-demo-poster.png",
+    "render:film": "remotion render src/index.js XenTagFilm ../public/assets/xentag-film.mp4 --codec h264 --crf 20 --pixel-format yuv420p",
+    "render:hero": "remotion render src/index.js XenTagHeroLoop ../public/assets/hero-loop.mp4 --codec h264 --crf 21 --pixel-format yuv420p",
+    "poster:film": "ffmpeg -y -ss 3.2 -i ../public/assets/xentag-film.mp4 -frames:v 1 -update 1 ../public/assets/xentag-film-poster.png && magick ../public/assets/xentag-film-poster.png -strip -quality 82 ../public/assets/xentag-film-poster.webp"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.0",
+    "@remotion/cli": "^4.0.0"
+  }
+}

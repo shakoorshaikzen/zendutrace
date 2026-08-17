@@ -1,0 +1,98 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "#ededea",
+        "createdAt": "2026-08-05T22:48:51.910Z",
+        "reason": "User confirmed: paper tone of the hero physical-label artwork render"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "8px",
+        "createdAt": "2026-08-05T22:48:51.942Z",
+        "reason": "User confirmed: micro-print on the aria-hidden physical-label render"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "7px",
+        "createdAt": "2026-08-05T22:48:51.969Z",
+        "reason": "User confirmed: micro-print on the aria-hidden physical-label render"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "6px",
+        "createdAt": "2026-08-05T22:48:51.997Z",
+        "reason": "User confirmed: micro-print on the aria-hidden physical-label render"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#2a241c",
+        "createdAt": "2026-08-05T22:49:01.271Z",
+        "reason": "User confirmed: stamp-ink pigment in the demo carton illustration"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#cbb58e",
+        "createdAt": "2026-08-05T22:49:01.306Z",
+        "reason": "User confirmed: cardboard pigment in the demo carton illustration"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#0a3d62",
+        "createdAt": "2026-08-05T22:49:54.992Z",
+        "reason": "User confirmed: Geotab partner brand-mark color on integration chips"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#8a5a00",
+        "createdAt": "2026-08-05T22:49:55.026Z",
+        "reason": "User confirmed: Power BI partner brand-mark color on integration chips"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#0176d3",
+        "createdAt": "2026-08-05T22:49:55.060Z",
+        "reason": "User confirmed: Salesforce partner brand-mark color on integration chips"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#0a6ed1",
+        "createdAt": "2026-08-05T22:49:55.095Z",
+        "reason": "User confirmed: SAP partner brand-mark color on integration chips"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#165c38",
+        "createdAt": "2026-08-05T22:49:55.129Z",
+        "reason": "User confirmed: NetSuite partner brand-mark color on integration chips"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#611f69",
+        "createdAt": "2026-08-05T22:49:55.165Z",
+        "reason": "User confirmed: Slack partner brand-mark color on integration chips"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#0b6b3a",
+        "createdAt": "2026-08-05T22:49:55.199Z",
+        "reason": "User confirmed: Google Sheets partner brand-mark color on integration chips"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#000",
+        "createdAt": "2026-08-05T22:49:55.233Z",
+        "reason": "User confirmed: alpha channel in mq-mask mask-image gradient, not a rendered color"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#101a26",
+        "createdAt": "2026-08-05T22:52:06.508Z",
+        "reason": "User confirmed: navy backdrop of the BLE network illustration in TraceModal"
+      }
+    ]
+  }
+}

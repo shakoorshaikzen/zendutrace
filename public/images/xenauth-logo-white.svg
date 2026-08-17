@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="352" height="81" viewBox="0 0 352 81" fill="none">
+  <defs>
+    <mask id="xa-cut">
+      <rect width="81" height="81" fill="white"/>
+      <path d="M40.5 19 L57 25.5 V38 C57 49.5 50.5 57.5 40.5 62.5 C30.5 57.5 24 49.5 24 38 V25.5 Z" fill="none" stroke="black" stroke-width="5" stroke-linejoin="round"/>
+      <circle cx="40.5" cy="35.5" r="4" fill="black"/>
+      <path d="M40.5 39 V47.5" stroke="black" stroke-width="4.5" stroke-linecap="round"/>
+    </mask>
+  </defs>
+  <circle cx="40.5" cy="40.5" r="40.5" fill="#FFFFFF" mask="url(#xa-cut)"/>
+  <text x="100" y="55" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="800" font-size="42" letter-spacing="1.5" fill="#FFFFFF">XENAUTH</text>
+</svg>

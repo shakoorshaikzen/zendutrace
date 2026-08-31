@@ -14,6 +14,7 @@ export default function AutoPlayVideo({
   controls = false,
   loop = true,
   onReady,
+  onError,
   preload = 'auto',
   reduceMotion = false,
   pauseWhenHidden = true,
@@ -77,6 +78,7 @@ export default function AutoPlayVideo({
       preload={reduceMotion ? 'metadata' : preload}
       aria-label={ariaLabel}
       aria-hidden={ariaHidden}
+      onError={onError}
       style={style}
     />
   );

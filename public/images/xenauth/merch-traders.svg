@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+  <!-- Merch traders: drawn placeholder tile in the XenAuth dieline language.
+       Replaces a missing photograph; swap for a real shoot when one exists. -->
+  <rect width="600" height="800" fill="#101013"/>
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(255,255,255,0.05)"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="800" fill="url(#dots)"/>
+  <rect x="0.5" y="0.5" width="599" height="799" fill="none" stroke="rgba(255,255,255,0.08)"/>
+  <!-- tee and cap, hairline dieline -->
+  <g stroke="rgba(255,255,255,0.38)" stroke-width="3" fill="none" stroke-linejoin="round">
+    <path d="M232 264 l68 -34 68 34 54 54 -44 44 -24 -22 v190 h-108 v-190 l-24 22 -44 -44 z"/>
+    <path d="M268 232 a32 20 0 0 0 64 0" opacity="0.7"/>
+    <path d="M404 560 a66 58 0 0 1 132 0 v18 h-132 z"/>
+    <path d="M404 578 h-44 a10 10 0 0 1 0 -20 h44" opacity="0.7"/>
+  </g>
+  <rect x="262" y="360" width="76" height="76" rx="10" stroke="#2DD4BF" stroke-width="3" fill="rgba(45,212,191,0.08)"/>
+  <g stroke="rgba(255,255,255,0.16)" stroke-width="2.4"><path d="M276 390 h48 M276 406 h34"/></g>
+  <!-- the family mark: the tap, lower right -->
+  <g stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M508 700 a26 26 0 0 1 26 15"/>
+    <path d="M496 726 a44 44 0 0 1 44 26"/>
+  </g>
+  <circle cx="547" cy="744" r="7" fill="#2DD4BF"/>
+</svg>

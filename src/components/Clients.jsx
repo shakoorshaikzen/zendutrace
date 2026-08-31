@@ -36,13 +36,14 @@ function LogoRun({ ariaHidden }) {
 
 export default function Clients() {
   return (
-    <section id="customers" style={{ background: '#FFFFFF', borderTop: '1px solid rgba(13,16,20,0.06)', borderBottom: '1px solid rgba(13,16,20,0.06)', overflow: 'hidden' }}>
+    <section id="customers" style={{ background: 'var(--bone)', borderTop: '1px solid rgba(20,17,13,0.08)', borderBottom: '1px solid rgba(20,17,13,0.08)', overflow: 'hidden' }}>
       <div style={{ maxWidth: 1240, margin: '0 auto', padding: '84px 32px 0' }}>
-        <div style={{ textAlign: 'center', maxWidth: '44rem', margin: '0 auto' }}>
-          <h2 style={{ margin: 0, fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 'clamp(32px,4.2vw,52px)', lineHeight: 0.98, letterSpacing: '-0.025em', color: '#0F1114' }}>
+        {/* Same heading voice and alignment as every other section h2. */}
+        <div style={{ maxWidth: '54rem' }}>
+          <h2 style={{ margin: 0, fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 'clamp(34px,4.4vw,56px)', lineHeight: 1.04, letterSpacing: '-0.012em', color: '#14110D', maxWidth: '22ch' }}>
             Trusted across the ZenduIT + GoFleet network
           </h2>
-          <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.6, color: '#5C636B', maxWidth: '36rem', marginLeft: 'auto', marginRight: 'auto' }}>
+          <p style={{ marginTop: 16, fontSize: 17, lineHeight: 1.65, color: '#3B352D', maxWidth: '56ch' }}>
             XenTag is built by the same operations team supporting fleets and field assets across North America.
           </p>
         </div>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+  <!-- Cosmetics: drawn placeholder tile in the XenAuth dieline language.
+       Replaces a missing photograph; swap for a real shoot when one exists. -->
+  <rect width="600" height="800" fill="#101013"/>
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(255,255,255,0.05)"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="800" fill="url(#dots)"/>
+  <rect x="0.5" y="0.5" width="599" height="799" fill="none" stroke="rgba(255,255,255,0.08)"/>
+  <!-- perfume flacon + jar, hairline dieline -->
+  <g stroke="rgba(255,255,255,0.38)" stroke-width="3" fill="none" stroke-linejoin="round">
+    <rect x="212" y="290" width="176" height="240" rx="18"/>
+    <path d="M258 290 v-44 h84 v44"/>
+    <rect x="272" y="196" width="56" height="50" rx="8"/>
+    <path d="M232 348 h136" opacity="0.5"/>
+    <rect x="404" y="428" width="118" height="102" rx="12"/>
+    <path d="M398 428 h130 v-26 h-130 z"/>
+  </g>
+  <g stroke="rgba(255,255,255,0.16)" stroke-width="2.4" fill="none">
+    <path d="M240 396 h120 M240 428 h84"/>
+  </g>
+  <rect x="240" y="470" width="88" height="30" rx="6" stroke="#2DD4BF" stroke-width="3" fill="rgba(45,212,191,0.08)"/>
+  <!-- the family mark: the tap, lower right -->
+  <g stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M508 700 a26 26 0 0 1 26 15"/>
+    <path d="M496 726 a44 44 0 0 1 44 26"/>
+  </g>
+  <circle cx="547" cy="744" r="7" fill="#2DD4BF"/>
+</svg>

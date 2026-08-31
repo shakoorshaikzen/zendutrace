@@ -1,94 +1,165 @@
 :root{
-  --ink:#0F1114;
-  --ink-soft:#2F343A;
-  --muted:#5C636B;
+  --ink:#14110D;
+  --ink-soft:#3B352D;
+  --muted:#6B6156;
   --paper:#FFFFFF;
   --surface:#FFFFFF;
-  --cloud:#F1F3F5;
-  --line:rgba(15,17,20,.12);
-  --line-soft:rgba(15,17,20,.07);
-  --ember:#C2410C;
-  --ember-dark:#9A3412;
-  --ember-bright:#FF7A2E;
-  --night:#0A0B0E;
-  --night-panel:#15171B;
-  --radius-sm:9px;
-  --radius-md:12px;
-  --section-space:104px;
-  --font-display:"Archivo","Source Sans 3","Helvetica Neue",Helvetica,sans-serif;
-  --font-body:"Source Sans 3","Helvetica Neue",Helvetica,sans-serif;
+  --bone:#F5F2EA;
+  --cloud:#F0ECE1;
+  --line:rgba(20,17,13,.14);
+  --line-soft:rgba(20,17,13,.08);
+  --ember:#BC3E10;
+  --ember-dark:#8E2D10;
+  --ember-hover:#DA4A10;
+  --ember-bright:#F9762F;
+  --ember-soft:#F8B181;
+  /* Signal Green reads 3.73:1 on its own 12% tint — below the 4.5:1 floor for
+     10px status-chip text. This is its on-tint derivation, at 5.60:1. */
+  --signal-green-deep:#166B47;
+  --night:#151210;
+  --night-raise:#1B1714;
+  --night-panel:#231D18;
+  --night-edge:#2E2720;
+  --radius-sm:6px;
+  --radius-md:8px;
+  --section-space:clamp(60px,6.4vw,88px); /* tightened Aug 31: 96-136 read as dead air between sections */
+  /* Page rhythm has chapters: tightly-coupled pairs sit closer, the stakes
+     band gets air on both sides, so the scroll stops running one tempo. */
+  --section-space-out:clamp(44px,4.8vw,64px);
+  --section-space-tight:clamp(40px,4.4vw,56px);
+  --section-space-wide:clamp(72px,8vw,104px);
+  --rail-inset:max(20px,calc(50% - 660px));
+  --font-display:"Archivo","Helvetica Neue",Helvetica,sans-serif;
+  --font-body:"IBM Plex Sans","Helvetica Neue",Helvetica,sans-serif;
   --font-machine:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+
+  /* ── Tracking curve ───────────────────────────────────────────────────
+     Optical tracking is a function of size, not a per-element nudge: tight
+     at display sizes, crossing zero around 17px, opening again as text gets
+     small. Replaces the flat -0.012em that used to be stamped on everything. */
+  --ls-display:-0.028em;
+  --ls-headline:-0.022em;
+  --ls-figure:-0.020em;
+  --ls-title:-0.016em;
+  --ls-subtitle:-0.010em;
+  --ls-lead:-0.006em;
+  --ls-body:-0.003em;
+  --ls-small:0em;
+  --ls-micro:0.006em;
+  --ls-machine:0.02em;
+  --ls-label:0.09em;
 }
+
+/* ── Type roles ─────────────────────────────────────────────────────────
+   Twelve roles, four text weights. Archivo is the display voice and now
+   works both ends of its width axis: extended for headings, condensed for
+   figures and machine labels — that contrast is the point. IBM Plex Sans
+   sets every human sentence. JetBrains Mono appears only where values must
+   align in a column.
+   line-height lives on the same rule as font-size on purpose: calc(1em+4px)
+   resolves against the element's own size and silently mis-computes if it
+   is inherited from a parent. */
+.t-display{font-family:var(--font-display);font-size:clamp(34px,4.2vw,58px);font-stretch:125%;font-weight:800;line-height:1.02;letter-spacing:var(--ls-subtitle);text-transform:uppercase}
+.t-headline{font-family:var(--font-display);font-size:clamp(34px,4.4vw,56px);font-stretch:110%;font-weight:750;line-height:calc(1em + 4px);letter-spacing:var(--ls-headline)}
+.t-title{font-family:var(--font-display);font-size:clamp(24px,2.4vw,32px);font-stretch:100%;font-weight:700;line-height:calc(1em + 4px);letter-spacing:var(--ls-title)}
+.t-subtitle{font-family:var(--font-display);font-size:20px;font-stretch:100%;font-weight:650;line-height:1.15;letter-spacing:var(--ls-subtitle)}
+/* the new role: condensed 800 beside extended 800 is the contrast the page was missing */
+.t-figure{font-family:var(--font-display);font-size:clamp(52px,6vw,88px);font-stretch:82%;font-weight:800;line-height:0.88;letter-spacing:var(--ls-figure);font-variant-numeric:tabular-nums}
+.t-value{font-family:var(--font-display);font-size:17px;font-stretch:92%;font-weight:700;line-height:1.2;letter-spacing:var(--ls-subtitle);font-variant-numeric:tabular-nums}
+/* short all-caps machine strings only — never a human sentence */
+.t-label{font-family:var(--font-display);font-size:11.5px;font-stretch:88%;font-weight:600;line-height:1.3;letter-spacing:var(--ls-label);text-transform:uppercase;font-variant-numeric:tabular-nums}
+.t-lead{font-family:var(--font-body);font-size:19px;font-weight:450;line-height:1.5;letter-spacing:var(--ls-lead)}
+.t-body{font-family:var(--font-body);font-size:16px;font-weight:450;line-height:1.6;letter-spacing:var(--ls-body)}
+.t-small{font-family:var(--font-body);font-size:13.5px;font-weight:450;line-height:1.5;letter-spacing:var(--ls-small)}
+.t-micro{font-family:var(--font-body);font-size:12px;font-weight:500;line-height:1.4;letter-spacing:var(--ls-micro)}
+.t-machine{font-family:var(--font-machine);font-size:12px;font-weight:500;letter-spacing:var(--ls-machine);
+  font-variant-numeric:lining-nums tabular-nums slashed-zero;font-feature-settings:'zero' 1,'calt' 0}
+/* light-on-dark blooms optically: give the positive branch back half a step */
+.on-dark .t-small,.on-dark .t-micro,.on-dark .t-machine{letter-spacing:calc(var(--ls-small) + 0.004em)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-section[id]{scroll-margin-top:96px}
+/* the floating nav island occupies 18px offset + 70px shell */
+section[id]{scroll-margin-top:108px}
 html,body{
-  background:var(--paper);
+  background:var(--bone);
   color:var(--ink);
   font-family:var(--font-body);
   font-size:16px;
-  line-height:1.55;
-  letter-spacing:-0.005em;
+  line-height:1.6;
+  letter-spacing:var(--ls-body);
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
+  /* Plex's variable range stops at 700 and Archivo at 900; without this a
+     call past either end synthesizes a faux bold that looks subtly wrong. */
+  font-synthesis:none;
 }
-::selection{background:rgba(194,65,12,0.18)}
+::selection{background:rgba(188,62,16,0.18)}
 a{text-decoration:none}
 button,input,select,textarea{font:inherit}
 p{text-wrap:pretty}
-input:focus-visible{border-color:rgba(255,122,46,0.75)!important;box-shadow:0 0 0 3px rgba(255,122,46,0.18)}
-a:focus-visible,button:focus-visible{outline:2px solid #FF7A2E;outline-offset:2px}
-h1,h2,h3{
-  text-wrap:balance;
-  font-family:var(--font-display)!important;
-  font-weight:700;
-  letter-spacing:-0.025em;
-}
+input:focus-visible{border-color:rgba(249,118,47,0.75)!important;box-shadow:0 0 0 3px rgba(249,118,47,0.18)}
+a:focus-visible,button:focus-visible{outline:2px solid #F9762F;outline-offset:2px}
+/* Headings carry their own leading. h3/h4 used to inherit body 1.55, which is
+   the mechanical reason a 32px card h3 computed 49.6px and read soft next to
+   the dark consoles. calc(1em + 4px) must stay on the rule that sets the size. */
+h1,h2,h3,h4{text-wrap:balance;font-family:var(--font-display)}
+h1{font-stretch:125%;font-weight:800;font-size:clamp(34px,4.2vw,58px);line-height:1.02;letter-spacing:var(--ls-subtitle)}
+h2{font-stretch:110%;font-weight:750;line-height:calc(1em + 4px);letter-spacing:var(--ls-headline)}
+h3{font-stretch:100%;font-weight:700;line-height:calc(1em + 4px);letter-spacing:var(--ls-title)}
 h4,h5,h6{
   font-family:var(--font-display);
-  font-weight:700;
-  letter-spacing:-0.02em;
+  font-weight:650;
+  line-height:1.15;
+  letter-spacing:var(--ls-subtitle);
+  font-stretch:100%;
 }
-.font-display{font-family:var(--font-display)!important;font-weight:700;letter-spacing:-0.025em}
+.font-display{font-family:var(--font-display)!important;font-weight:800;letter-spacing:var(--ls-headline);font-stretch:110%}
+/* Payoff words inside a heading: ink weight + a thick ember underline,
+   never a second text color. One per heading. */
+.h2-mark{
+  color:inherit!important;
+  text-decoration:underline;
+  text-decoration-color:var(--ember);
+  text-decoration-thickness:.075em;
+  text-underline-offset:.16em;
+  text-decoration-skip-ink:none;
+}
 .font-machine{font-family:var(--font-machine)!important;font-variant-numeric:tabular-nums;letter-spacing:0}
 ::-webkit-scrollbar{width:10px;height:10px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:rgba(15,17,20,.28);border:3px solid transparent;border-radius:999px;background-clip:padding-box}
+::-webkit-scrollbar-thumb{background:rgba(18,17,16,.28);border:3px solid transparent;border-radius:999px;background-clip:padding-box}
 #root{width:100%;position:relative;isolation:isolate}
 main:focus{outline:none}
 
-/* Warehouse atmosphere: warm paper field + film grain + soft bay light */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:40;
-  opacity:.045;
-  mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.section-shell{position:relative;padding-top:var(--section-space)!important;padding-bottom:var(--section-space)!important}
-/* Spec-sheet seams: a hairline rule with register crosses where sections meet,
-   the way a dieline sheet marks its trim lines. */
-.section-shell::before{
+/* Asymmetric on purpose: 136 above / 96 below. Equal padding floats a heading
+   between two chapters instead of letting it own the one it introduces, and
+   abutting sections were paying 272px of dead air against a 64px heading gap. */
+.section-shell{position:relative;padding-top:var(--section-space)!important;
+  padding-bottom:var(--section-space-out)!important}
+/* Broadsheet rails: every content section is framed by two vertical hairlines
+   at its container edges, so the bone ground reads as a set measure. Dark
+   full-bleed bands carry no rails — they are their own plates. */
+.section-shell::before,.section-shell::after{
   content:"";
   position:absolute;
   top:0;
-  left:clamp(20px,4vw,32px);
-  right:clamp(20px,4vw,32px);
-  height:11px;
-  transform:translateY(-50%);
+  bottom:0;
+  width:1px;
+  background:rgba(20,17,13,.1);
   pointer-events:none;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11'%3E%3Cpath d='M5.5 0v11M0 5.5h11' stroke='%230F1114' stroke-opacity='.26' stroke-width='1'/%3E%3C/svg%3E") left center no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11'%3E%3Cpath d='M5.5 0v11M0 5.5h11' stroke='%230F1114' stroke-opacity='.26' stroke-width='1'/%3E%3C/svg%3E") right center no-repeat,
-    linear-gradient(rgba(15,17,20,.09),rgba(15,17,20,.09)) center/calc(100% - 40px) 1px no-repeat;
 }
-.section-heading{text-align:left!important;margin-left:0!important;margin-right:0!important;margin-bottom:56px!important;max-width:54rem!important}
-.section-heading h2{max-width:20ch;font-size:clamp(32px,4.2vw,52px)!important;line-height:1.02!important;letter-spacing:-0.03em!important}
-.section-heading p{max-width:56ch;font-size:17px!important;line-height:1.65!important}
+.section-shell::before{left:0}
+.section-shell::after{right:0}
+@media(max-width:1080px){.section-shell::before,.section-shell::after{display:none}}
+.section-heading{text-align:left!important;margin-left:0!important;margin-right:0!important;margin-bottom:64px!important;max-width:54rem!important}
+/* line-height was 1.04 on a fluid clamp — a ratio tuned for the 56px end gives
+   only 35.4px of leading at the 34px end. A constant increment is right at both. */
+.section-heading h2{max-width:22ch;font-size:clamp(34px,4.4vw,56px)!important;font-weight:750!important;line-height:calc(1em + 4px)!important;letter-spacing:var(--ls-headline)!important}
+/* the deck is now a real role (19px Plex) rather than a patch compensating for
+   a text face that rendered small */
+/* one token for the most-repeated gesture: eight sections rendered three
+   different heading-to-deck gaps (12/14/16), which reads as wobble */
+.section-heading p{margin-top:16px!important;max-width:56ch;font-size:19px!important;font-weight:450;line-height:1.5!important;letter-spacing:var(--ls-lead)}
 
 /* Night console bands: flat, precise surfaces — depth comes from hairlines, not washes */
 .night-surface{
@@ -96,85 +167,200 @@ body::before{
   background:var(--night)!important;
 }
 
-/* Curved band treatment: the risk stats ride inside an inset rounded console,
-   and the footer meets the page with a curved shoulder. */
-#risk{
-  max-width:1480px;
-  margin:0 clamp(16px,3vw,40px);
-  border-radius:28px;
-}
-@media(min-width:1560px){#risk{margin:0 auto}}
 footer.night-surface{
-  border-radius:28px 28px 0 0;
   border-top:0!important;
 }
-#risk::before,.cta-panel::before,footer.night-surface::before{
+.cta-panel::before,footer.night-surface::before{
   content:"";
   position:absolute;
   top:0;
   left:10%;
   right:10%;
   height:1px;
-  background:linear-gradient(90deg,transparent,rgba(255,122,46,.45),transparent);
-  pointer-events:none;
-}
-/* Light falls from the lit edge into the console */
-#risk::after,.cta-panel::after,.platform-grid::after,footer.night-surface::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:110px;
-  background:linear-gradient(180deg,rgba(255,122,46,.05),transparent);
-  border-radius:inherit;
+  background:linear-gradient(90deg,transparent,rgba(249,118,47,.45),transparent);
   pointer-events:none;
 }
 
+/* Spec ledger under the hero: five label facts as a stat row — the value
+   carries the display voice, the qualifier reads as its caption below. */
+.trust-item{
+  display:flex;
+  flex-direction:column-reverse;
+  gap:6px;
+  padding:0 clamp(18px,2.4vw,34px);
+}
+.trust-item+.trust-item{border-left:1px solid rgba(20,17,13,.12)}
+.trust-item:first-child{padding-left:0}
+.trust-item:last-child{padding-right:0}
+/* The <li> carries uppercase for the caption; without this guard it leaked onto
+   the value too, stacking two all-caps registers and collapsing the ledger's
+   whole value-over-caption contrast into one texture. */
+.trust-item strong{
+  display:block;
+  font-family:var(--font-display);
+  font-stretch:92%;
+  font-weight:700!important;
+  font-size:clamp(19px,1.7vw,24px);
+  line-height:1.12;
+  letter-spacing:var(--ls-subtitle);
+  text-transform:none;
+  font-variant-numeric:tabular-nums;
+  color:var(--ink)!important;
+}
+@media(max-width:1120px){
+  .trust-strip{flex-wrap:wrap;row-gap:18px}
+}
+@media(max-width:720px){
+  .trust-strip{display:grid!important;grid-template-columns:1fr 1fr;column-gap:24px;row-gap:18px;justify-items:start}
+  .trust-item{padding:0;border-left:0}
+}
+@media(max-width:440px){
+  .trust-strip{grid-template-columns:1fr}
+}
+
 /* Product dossiers: generous rounded panels, tinted per product. */
-.products-section{padding-bottom:72px!important}
+
 .products-grid{gap:24px}
 .product-card-glow{display:none}
 .product-card-visual{min-height:250px}
 
 /* A continuous three-step operating sequence in soft tiles. */
-.how-grid{gap:20px}
+.how-grid{gap:0}
+.how-grid>.process-step+.process-step{border-left:1px solid rgba(18,17,16,.09)}
 .process-step-visual{height:194px!important}
 .how-conn{gap:20px}
-.connectivity-card{border-radius:20px!important;overflow:hidden}
+.connectivity-card{border-radius:8px !important;overflow:hidden}
 .connectivity-card--light{background:var(--cloud)!important}
-.connectivity-card--dark{background:#111316!important}
+.connectivity-card--dark{background:#1D1814!important}
 
 /* Field photography stays dominant; the selector reads as a quiet rail. */
 .industry-tabs{gap:6px!important}
-.industry-tab{border:0!important;border-radius:12px!important;background:transparent!important;box-shadow:none!important;min-height:56px}
-.industry-tab:hover{background:rgba(15,17,20,0.04)!important}
-.industry-tab[aria-pressed="true"]{background:rgba(194,65,12,0.07)!important}
-.industry-stage{border-radius:20px!important;border:0!important;box-shadow:none!important;min-height:470px!important}
+.industry-tab{isolation:isolate}
+.industry-tab{border:0!important;border-radius:6px !important;background:transparent!important;box-shadow:none!important;min-height:56px}
+.industry-tab:hover{background:rgba(18,17,16,0.04)!important}
+
+.industry-stage{border-radius:8px !important;border:0!important;box-shadow:none!important;min-height:470px!important}
 .industry-stage img{filter:saturate(.94) contrast(1.05)}
 .industry-grid-overlay{display:none}
 
-/* Integrations hub: the label node feeds ember pulses out to the tool chips. */
-@keyframes beamflow{from{stroke-dashoffset:400}to{stroke-dashoffset:0}}
-.integration-cell:hover{background:rgba(255,255,255,0.07)!important;border-color:rgba(255,255,255,0.18)!important}
-.integration-cell:hover .integration-mark{background:var(--chip)!important;color:#fff!important}
-.integration-mark{border-radius:var(--radius-sm)!important}
+/* ── Integrations hub ────────────────────────────────────────────────────
+   The label node feeds ember beams out to the tool cards. Beams are measured
+   beziers; the pulse is the ember "live" language — a short bright dash
+   travelling the hairline, one per beam, staggered.
+
+   COLOUR POLICY: brand colour exists in exactly one place — inside the bone
+   plate, on the mark. The plate is always neutral and always identical, which
+   is what collapses the 8.7x luminance spread between raw brand colours into
+   zero. Never tint a plate per vendor. */
+.integ-bento{position:relative;border-radius:var(--radius-md);overflow:hidden;
+  border:1px solid rgba(20,17,13,.2);background:#151210}
+
+/* the readout bar: what turns a concept diagram into an instrument */
+.integ-chrome{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  height:44px;padding:0 clamp(18px,2.4vw,28px);border-bottom:1px solid rgba(255,255,255,.06)}
+.integ-chrome-live{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-machine);
+  font-size:12px;font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.46)}
+.integ-chrome-live i{width:7px;height:7px;border-radius:50%;background:#1E8A5B;
+  box-shadow:0 0 8px rgba(47,191,131,.7)}
+.integ-chrome-meta{font-family:var(--font-machine);font-size:12px;font-weight:500;letter-spacing:.06em;
+  color:rgba(255,255,255,.34)}
+
+.integ-hub{position:relative;display:grid;grid-template-columns:1fr 300px 1fr;gap:clamp(24px,3.4vw,56px);
+  align-items:center;padding:clamp(26px,3.2vw,44px)}
+.integ-beams{position:absolute;inset:0;pointer-events:none}
+.integ-col{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}
+.integ-node{display:flex;align-items:center;gap:13px;padding:13px 14px;border-radius:var(--radius-md);
+  border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.02);
+  transition:background-color .125s ease-out,border-color .125s ease-out}
+.integ-node:hover{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.16);transition-duration:0s}
+/* the plate is bone and neutral for all eight — the mark carries the colour */
+.integ-node-chip{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:var(--radius-sm);background:var(--bone);
+  border:1px solid rgba(20,17,13,.08)}
+.integ-node-mono{font-family:var(--font-display);font-stretch:88%;font-weight:700;font-size:16px}
+.integ-node-id{display:flex;flex-direction:column;gap:1px;min-width:0}
+.integ-node-id strong{font-family:var(--font-body);font-weight:600;font-size:16px;line-height:1.3;
+  color:rgba(255,255,255,.94)}
+.integ-node-id em{font-style:normal;font-family:var(--font-machine);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.42)}
+
+.integ-stage{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;min-height:0}
+.integ-label{position:relative;display:flex;flex-direction:column;gap:9px;width:212px;padding:16px 18px 14px;
+  border-radius:var(--radius-md);background:#FDFCFA;box-shadow:0 18px 50px -18px rgba(0,0,0,.7)}
+.integ-label-head{display:flex;align-items:center;gap:7px}
+.integ-label-word{font-family:var(--font-display);font-weight:800;font-size:12px;letter-spacing:.08em;color:#14110D}
+.integ-label-dot{margin-left:auto;width:7px;height:7px;border-radius:50%;background:#1E8A5B}
+.integ-barcode{display:flex;align-items:flex-end;gap:2px;height:30px}
+.integ-barcode i{display:block;height:100%;background:#14110D}
+.integ-label-serial{font-size:11.5px;letter-spacing:.08em;color:#3B352D}
+
+/* ── The open-API band ───────────────────────────────────────────────────
+   The code half used to be a bare <pre> floating in a box, so its syntax ramp
+   read as accidental. A header bar, a line-number gutter and a real copy
+   control are what make monospace read as an instrument rather than as text. */
+.api-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#14110D;
+  border-top:1px solid rgba(255,255,255,.06)}
+.api-copy-col{min-width:0;padding:clamp(30px,3.4vw,44px);display:flex;flex-direction:column;justify-content:center}
+.api-h3{margin:0;font-family:var(--font-display);font-stretch:100%;font-weight:700;
+  font-size:clamp(24px,2.4vw,32px);line-height:calc(1em + 4px);letter-spacing:var(--ls-title);color:#fff}
+.api-lede{margin:12px 0 0;max-width:26rem;font-family:var(--font-body);font-size:16px;font-weight:450;
+  line-height:1.6;color:rgba(255,255,255,.72)}
+.api-stack{margin:20px 0 0;font-family:var(--font-machine);font-size:12px;font-weight:500;
+  letter-spacing:var(--ls-machine);color:rgba(255,255,255,.78)}
+.api-stack span{color:rgba(255,255,255,.35)}
+
+.api-code{min-width:0;display:flex;flex-direction:column;background:#231D18;border-left:1px solid rgba(255,255,255,.06)}
+.api-bar{display:flex;align-items:center;gap:12px;height:40px;padding:0 16px;
+  border-bottom:1px solid rgba(255,255,255,.06)}
+.api-bar-glyph{flex-shrink:0;color:rgba(255,255,255,.38)}
+.api-bar-endpoint{flex:1;min-width:0;font-family:var(--font-machine);font-size:12px;font-weight:500;
+  letter-spacing:var(--ls-machine);color:rgba(255,255,255,.62);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.api-copy{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;height:28px;padding:0 10px;
+  border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);
+  color:rgba(255,255,255,.62);font-family:var(--font-machine);font-size:12px;font-weight:500;
+  letter-spacing:var(--ls-machine);cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.32);
+  transition:background-color .14s ease,color .14s ease}
+.api-copy:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.86)}
+.api-copy:focus-visible{outline:2px solid var(--ember-bright);outline-offset:2px}
+.api-copy-dot{width:6px;height:6px;border-radius:50%;background:#2FBF83;box-shadow:0 0 8px rgba(47,191,131,.8)}
+
+.api-pre{margin:0;padding:18px 16px 22px;overflow-x:auto;
+  font-family:var(--font-machine);font-size:12px;line-height:1.75}
+.api-line{display:flex;gap:16px}
+/* the gutter is what makes a code block read as a file rather than as a quote */
+.api-ln{flex-shrink:0;width:18px;text-align:right;font-style:normal;color:rgba(255,255,255,.28);
+  border-right:1px solid rgba(255,255,255,.06);padding-right:16px}
+.api-code-text{min-width:0;white-space:pre;color:rgba(255,255,255,.72)}
+.api-t-k{color:#F8B181}
+.api-t-s{color:rgba(255,255,255,.88)}
+.api-t-p{color:rgba(255,255,255,.5)}
+.api-t-ok{color:#2FBF83}
+.api-t-d{color:rgba(255,255,255,.45)}
+
+@media(max-width:1080px){.integ-hub{grid-template-columns:1fr 220px 1fr;gap:20px}}
 @media(max-width:900px){
   .integ-beams{display:none}
-  .integ-hub{grid-template-columns:1fr 1fr!important;gap:12px!important}
-  .integ-hub>div:nth-of-type(2){grid-column:1/-1;order:-1;padding:6px 0 20px}
+  .integ-hub{grid-template-columns:1fr 1fr;gap:14px;padding:22px}
+  .integ-stage{order:-1;grid-column:1/3;padding:6px 0 14px}
 }
-@media(max-width:460px){.integ-hub{grid-template-columns:1fr!important}}
+@media(max-width:640px){
+  .integ-hub{grid-template-columns:1fr}
+  .integ-stage{grid-column:1/2}
+  .integ-chrome{height:auto;padding:12px 18px;gap:6px}
+  .api-code{border-left:0;border-top:1px solid rgba(255,255,255,.06)}
+}
+@media(max-width:460px){}
 @media(max-width:760px){.xa-case-grid{grid-template-columns:1fr!important}}
 
 /* Proof surfaces: crisp frames with a generous curve. The platform capture
    rides a night console with an ember hairline, like the other live moments. */
-.platform-grid{position:relative;border-radius:20px!important;border:1px solid rgba(255,255,255,.1)!important;background:var(--night)!important;box-shadow:none!important}
-.platform-grid::before{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,122,46,.45),transparent);pointer-events:none}
+.platform-grid{position:relative;border-radius:8px !important;border:1px solid rgba(255,255,255,.1)!important;background:var(--night)!important;box-shadow:none!important}
+.platform-grid::before{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(249,118,47,.45),transparent);pointer-events:none}
 .platform-shot{background:transparent!important}
 .platform-shot img{filter:drop-shadow(0 34px 60px rgba(0,0,0,.6))!important}
-.film-frame{border-radius:20px!important;border:1px solid var(--line)!important;box-shadow:none!important}
-.cta-panel{border-radius:28px!important;border-color:rgba(255,255,255,.1)!important}
+.film-frame{border-radius:8px !important;border:1px solid var(--line)!important;box-shadow:none!important}
+.cta-panel{border-radius:8px !important;border-color:rgba(255,255,255,.1)!important}
 .cta-panel>[aria-hidden]{display:none}
 
 /* Restrained detail treatment across the remaining proof bands. */
@@ -182,16 +368,19 @@ footer.night-surface{
 .how-conn .font-display{font-family:var(--font-display)!important}
 pre,code,.font-machine{font-family:var(--font-machine)!important}
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-.skip-link{position:fixed;top:12px;left:12px;z-index:1000;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:var(--radius-sm);background:#fff;color:#9A3412;font-size:14px;font-weight:700;box-shadow:0 10px 30px rgba(13,16,20,.24);opacity:0;pointer-events:none;transform:translateY(calc(-100% - 24px));transition:opacity .15s ease,transform .15s ease}
+.skip-link{position:fixed;top:12px;left:12px;z-index:1000;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:var(--radius-sm);background:#fff;color:#8E2D10;font-size:16px;font-weight:700;box-shadow:0 10px 30px rgba(18,17,16,.24);opacity:0;pointer-events:none;transform:translateY(calc(-100% - 24px));transition:opacity .15s ease,transform .15s ease}
 .skip-link:focus-visible{opacity:1;pointer-events:auto;transform:translateY(0)}
 input::placeholder{color:rgba(255,255,255,.62);opacity:1}
 
+/* Walkthrough: the dwell clock fills the active step's own rail, and the one
+   annotation card fades up after the plate has settled. */
+@keyframes demodwell{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes demofade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @keyframes zping{0%{transform:scale(1);opacity:.5}75%,100%{transform:scale(2.6);opacity:0}}
 @keyframes zpulse{0%,100%{opacity:1}50%{opacity:.35}}
 @keyframes zbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 @keyframes zdash{to{stroke-dashoffset:-16}}
 @keyframes zrise{0%{opacity:0;transform:translateY(28px)}100%{opacity:1;transform:translateY(0)}}
-@keyframes zfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes zstencil{
   0%{clip-path:inset(0 0 100% 0);opacity:0}
   40%{opacity:1}
@@ -217,53 +406,220 @@ input::placeholder{color:rgba(255,255,255,.62);opacity:1}
 @media(hover:none){.mq-row:active .mq-track{animation-play-state:paused}}
 .znav-burger{display:none!important}
 @media(max-width:980px){.znav-burger{display:inline-flex!important}}
-.cmp-scroll{scrollbar-width:thin;scrollbar-color:rgba(13,16,20,0.3) transparent}
-.cmp-scroll::-webkit-scrollbar{height:5px}
-.cmp-scroll::-webkit-scrollbar-thumb{background:rgba(13,16,20,0.28);border-radius:999px}
+/* ── Partial-ember headings ─────────────────────────────────────────────
+   A payoff phrase inside a heading may carry ember. It is a signal, not a
+   decoration: at most three headings page-wide, on the phrase that carries the
+   argument, never on a whole heading and never more than one phrase per
+   heading. Ember-dark on bone and ember-bright on charcoal, because the same
+   hue does not hold contrast on both grounds. */
+.h2-ember{font-style:normal;color:var(--ember-dark)}
+.night-surface .h2-ember,.sb-band .h2-ember,.on-dark .h2-ember{color:var(--ember-bright)}
+
+/* ── What loss costs, against what XenTag costs ─────────────────────────
+   THE STAT ROW. Bare type on the page's own bone ground — no card, no plate,
+   no band. Neither Samsara nor Motive gives statistics a standalone surface
+   anywhere; a stat row sits inside the claim section it supports. Each figure
+   is bounded by a left hairline rather than a box (Motive's cell anatomy),
+   which gives structure without drawing three identical cards. */
+.cmp-stats{list-style:none;margin:0 0 clamp(52px,5.5vw,76px);padding:0;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,72px)}
+.cmp-stats li{display:flex;flex-direction:column;gap:8px;
+  padding-left:16px;border-left:1px solid var(--line)}
+/* weight drops from 800 to 600: at this size the figure does not need to shout,
+   and 800 was reading as a poster rather than as a measurement */
+.cmp-stat-fig{font-family:var(--font-display);font-stretch:88%;font-weight:600;
+  font-size:clamp(34px,3.6vw,52px);line-height:1.04;letter-spacing:var(--ls-headline);
+  font-variant-numeric:tabular-nums;color:var(--ink)}
+.cmp-stat-label{font-family:var(--font-body);font-size:16px;font-weight:450;line-height:1.45;
+  color:var(--ink-soft);max-width:26ch}
+/* the dated source link is this page's equivalent of Motive's customer name —
+   it is the reason the figure is believable, so it stays */
+.cmp-stat-src{align-self:flex-start;font-family:var(--font-machine);font-size:11px;font-weight:500;
+  letter-spacing:var(--ls-machine);color:var(--muted);
+  text-decoration:underline;text-decoration-color:rgba(20,17,13,.2);text-underline-offset:3px;
+  transition:color .16s,text-decoration-color .16s}
+.cmp-stat-src:hover{color:var(--ember-dark);text-decoration-color:rgba(142,45,16,.5)}
+.cmp-stat-src:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+
+/* THE TABLE. anime.js's docs tables and Watermelon UI's data tables refuse the
+   same garnish, and this refuses it too: no outer frame, no fill, no zebra, no
+   vertical rules, no per-row icons, no colour in the grid, and no row hover —
+   hover on reference text implies an interaction that is not there. Horizontal
+   hairlines only, one uniform row height, and cells that never wrap. */
+.cmp-shell{position:relative}
+.cmp-wrap{overflow-x:auto;scrollbar-width:thin}
+.cmp-table{position:relative;min-width:660px}
+/* the single emphasis channel, and the only thing here that is not text.
+   Hairline edges make the raise read as mounted rather than misaligned. */
+.cmp-paper{position:absolute;z-index:0;top:0;bottom:0;left:44%;width:27%;
+  background:var(--paper);border:1px solid rgba(20,17,13,.1);
+  border-radius:var(--radius-sm);pointer-events:none}
+.cmp-row{position:relative;z-index:1;display:grid;grid-template-columns:44% 27% 29%;
+  align-items:center;min-height:66px;border-bottom:1px solid var(--line)}
+.cmp-c{padding:16px 22px;min-width:0;white-space:nowrap}
+/* flush with the prose margin, the way anime.js sets its first column */
+.cmp-crit{padding-left:0;font-family:var(--font-body);font-size:16px;font-weight:450;line-height:1.4;color:var(--ink-soft)}
+
+/* the column heads carry the contenders' names at full weight, each with a
+   one-line price sub, because the reader must never work out whose column is
+   whose. Watermelon's rule: the header sits heavier and darker than the values
+   beneath it, and it is the only place the product mark appears in the grid. */
+.cmp-head{min-height:68px;border-bottom:1px solid rgba(20,17,13,.22);align-items:end}
+.cmp-head .cmp-c{display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+  padding-top:0;padding-bottom:14px}
+.cmp-head-name{display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-display);font-stretch:96%;font-weight:700;font-size:17px;
+  letter-spacing:var(--ls-subtitle);color:var(--ink);white-space:nowrap}
+.cmp-head-name svg{flex-shrink:0;display:block}
+/* the incumbent is named at the same size, one weight lighter — equally
+   legible, so the comparison is fair, without competing for emphasis */
+.cmp-head-name-them{font-weight:500;color:var(--ink-soft)}
+.cmp-head-sub{font-family:var(--font-machine);font-size:10.5px;font-weight:500;
+  letter-spacing:var(--ls-machine);text-transform:uppercase;color:var(--muted)}
+
+.cmp-us{display:flex;align-items:baseline;gap:7px}
+.cmp-us-v{font-family:var(--font-display);font-stretch:92%;font-weight:700;font-size:19px;
+  letter-spacing:var(--ls-subtitle);font-variant-numeric:tabular-nums;color:var(--ink)}
+.cmp-sfx{font-family:var(--font-body);font-size:12px;font-weight:450;color:var(--muted)}
+/* the incumbent is quieter, never marked — no ✕, no red, no strikethrough */
+.cmp-them{font-family:var(--font-body);font-size:17px;font-weight:450;color:var(--ink-soft)}
+
+.cmp-verdict{min-height:92px;border-top:1px solid rgba(20,17,13,.22);border-bottom:0}
+.cmp-verdict .cmp-crit{font-weight:600;color:var(--ink)}
+.cmp-verdict .cmp-us-v{font-stretch:84%;font-size:clamp(28px,3vw,38px);line-height:1}
+.cmp-verdict .cmp-them{font-size:17px;color:var(--ink-soft)}
+
+/* footnotes live below the table, never inside a cell */
+.cmp-after{display:flex;align-items:center;justify-content:space-between;gap:32px;
+  flex-wrap:wrap;margin-top:28px}
+.cmp-basis{margin:0;max-width:62ch;font-family:var(--font-machine);font-size:11px;font-weight:500;
+  line-height:1.6;letter-spacing:var(--ls-machine);color:var(--muted)}
+.cmp-cta{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:13px 22px;
+  border-radius:var(--radius-sm);background:var(--ember);color:#fff;
+  font-family:var(--font-body);font-size:16px;font-weight:600;white-space:nowrap;
+  box-shadow:0 1px 0 rgba(20,17,13,.25);transition:background-color .125s ease-out}
+.cmp-cta:hover{background:var(--ember-hover);transition-duration:0s}
+.cmp-cta:focus-visible{outline:2px solid var(--ember-dark);outline-offset:2px}
+.cmp-cta svg{transition:transform .18s}
+.cmp-cta:hover svg{transform:translateX(2px)}
+
+@media(max-width:860px){
+  .cmp-stats{grid-template-columns:1fr;gap:22px;margin-bottom:44px}
+  /* A comparison only works if both values are visible at once, so here the
+     no-wrap rule is traded away rather than the second column: the criterion
+     wraps and all three columns stay on screen. Sideways scrolling is right
+     for a dense data table; it is wrong for a two-value comparison. */
+  .cmp-table{min-width:0}
+  .cmp-row{grid-template-columns:38% 32% 30%;min-height:0}
+  /* the paper band tracks the column geometry it emphasizes */
+  .cmp-paper{left:38%;width:32%}
+  .cmp-c{padding:12px 10px;white-space:normal}
+  .cmp-crit{font-size:13.5px;line-height:1.4}
+  .cmp-us-v{font-size:16px}
+  .cmp-them{font-size:13.5px}
+  .cmp-sfx{display:none}
+  .cmp-head-name{font-size:13.5px;gap:6px}
+  .cmp-head-name-them{white-space:normal;line-height:1.25}
+  .cmp-head-name svg{width:15px;height:15px}
+  .cmp-head-sub{font-size:9.5px}
+  .cmp-verdict .cmp-us-v{font-size:24px}
+  .cmp-verdict .cmp-them{font-size:16px}
+  .cmp-stat-label{max-width:none}
+  .cmp-after{flex-direction:column;align-items:flex-start;gap:20px}
+  .cmp-cta{width:100%;justify-content:center}
+}
+
+
+@media(max-width:560px){
+  .demo-card{left:12px!important;bottom:12px!important;min-width:0!important;padding:10px 14px 12px!important}
+  .demo-card>span:last-child{font-size:17px!important}
+
+  .hero-ctas a{flex:1 1 100%;justify-content:center}
+}
 @media(prefers-reduced-motion:reduce){.mq-track{animation:none!important}}
 @media(max-width:980px){.znav-links{display:none!important}.hero-grid{grid-template-columns:1fr!important}.hero-sticker{margin-top:10px}.hero-sticker>div{max-width:340px!important}.integ-grid{grid-template-columns:1fr 1fr!important}.api-grid{grid-template-columns:1fr!important}.platform-grid{grid-template-columns:1fr!important}.platform-shot{padding:8px 24px 32px!important}}
-@media(max-width:820px){.demo-inline-grid{grid-template-columns:1fr!important}.footer-grid{grid-template-columns:1fr 1fr!important}.risk-grid{grid-template-columns:1fr 1fr!important}.proof-grid{grid-template-columns:1fr!important}.price-model{grid-template-columns:1fr!important}.price-cards{grid-template-columns:1fr!important}.how-grid{grid-template-columns:1fr!important}.how-conn{grid-template-columns:1fr!important}.cmp-cost-lockup{grid-template-columns:1fr!important;text-align:left!important}.cmp-cost-lockup>div:last-child{text-align:left!important}.cmp-cost-lockup>div:last-child>div:nth-child(2){justify-content:flex-start!important}}
+@media(max-width:820px){.demo-ledger{grid-template-columns:1fr!important}.demo-index{border-right:0!important;padding:4px 0 6px!important;order:2}.demo-plate-col{padding:20px 0 8px!important;order:1}.footer-grid{grid-template-columns:1fr 1fr!important}.risk-grid{grid-template-columns:1fr 1fr!important}.proof-grid{grid-template-columns:1fr!important}.price-model{grid-template-columns:1fr!important}.price-cards{grid-template-columns:1fr!important}.how-grid{grid-template-columns:1fr!important}.how-grid>.process-step+.process-step{border-left:0;border-top:1px solid rgba(18,17,16,.09)}.how-conn{grid-template-columns:1fr!important}}
 @media(max-width:1180px){.risk-grid{grid-template-columns:1fr 1fr!important}}
 @media(max-width:900px){.ind-explorer{grid-template-columns:1fr!important}.xt-hero{grid-template-columns:1fr!important}.xt-flow{grid-template-columns:1fr!important}.xt-demos{grid-template-columns:1fr!important}}
 @media(max-width:560px){.xt-journey-step{grid-template-columns:auto 1fr!important;gap:14px!important}.xt-journey-icon{display:none!important}}
 @media(max-width:1080px){.xt-verticals{grid-template-columns:repeat(2,1fr)!important}.xt-stats{grid-template-columns:repeat(2,1fr)!important}}
-@media(max-width:680px){.footer-grid{grid-template-columns:1fr!important}.demo-rail-title{display:none!important}.integ-grid{grid-template-columns:1fr 1fr!important}.integ-grid>div{padding:16px 14px!important;gap:10px!important}}
-@media(max-width:460px){.integ-grid{grid-template-columns:1fr!important}}
-@media(max-width:520px){.znav-logo{height:34px!important}.znav-cta{padding:10px 14px!important;font-size:14px!important}}
+@media(max-width:680px){.footer-grid{grid-template-columns:1fr!important}}
+@media(max-width:760px){
+  .integ-head{display:none!important}
+  .integration-cell{grid-template-columns:1fr!important;gap:6px!important;padding:14px 18px!important}
+}
+
+@media(max-width:520px){.znav-logo{height:34px!important}.znav-cta{padding:10px 14px!important;font-size:13.5px!important}}
 @media(max-width:480px){.how-conn>div{min-width:0;flex-direction:column;align-items:flex-start!important;gap:14px!important;padding:22px!important}.how-conn>div>svg{width:92px;height:92px}}
 
-.film-play{position:absolute;left:50%;top:50%;z-index:3;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:8px 16px 8px 9px;border:1px solid rgba(255,255,255,.28);border-radius:12px;background:rgba(10,11,14,.82);color:#fff;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 12px 32px rgba(13,16,20,.35);transform:translate(-50%,-50%);transition:background .18s ease,border-color .18s ease,transform .18s ease}
-.film-play:hover{background:rgba(154,52,18,.94);border-color:rgba(255,255,255,.5);transform:translate(-50%,-50%) scale(1.02)}
-.film-play-icon{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#fff;color:#9A3412;flex-shrink:0}
+.film-play{position:absolute;left:50%;top:50%;z-index:3;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:8px 16px 8px 9px;border:1px solid rgba(255,255,255,.28);border-radius:6px;background:rgba(21,17,13,.82);color:#fff;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 12px 32px rgba(18,17,16,.35);transform:translate(-50%,-50%);transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.film-play:hover{background:rgba(142,45,16,.94);border-color:rgba(255,255,255,.5);transform:translate(-50%,-50%) scale(1.02)}
+.film-play-icon{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#fff;color:#8E2D10;flex-shrink:0}
 .product-chip,.cta-intent,.cta-submit,.cta-watch,.product-explore{min-height:44px}
-/* Pill primary actions, with a machined top highlight on dark surfaces */
-.znav-cta,.cta-submit,.film-play,.demo-playback-toggle{border-radius:999px!important}
-.znav-cta,.cta-submit{box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 2px 8px -2px rgba(13,16,20,.4)!important}
+/* Squared, chunky primary actions — equipment buttons, not pills. */
+.znav-cta,.cta-submit,.film-play,.demo-playback-toggle{border-radius:var(--radius-sm)!important}
+.znav-cta,.cta-submit{box-shadow:0 1px 0 rgba(20,17,13,.25)!important}
 
 /* Quiet lift on the primary daylight tiles */
-.product-card,.process-step{transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s ease}
-.product-card:hover,.process-step:hover{transform:translateY(-3px)}
-@media(prefers-reduced-motion:reduce){.product-card:hover,.process-step:hover{transform:none}}
+.product-card{transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s ease}
+.product-card:hover{transform:translateY(-3px)}
+@media(prefers-reduced-motion:reduce){.product-card:hover{transform:none}}
 .cta-intents{justify-content:center}
 .product-explore{padding:10px 0!important}
 .footer-link,.contact-link,.legal-link{display:inline-flex;align-items:center;min-height:36px;width:max-content;max-width:100%}
-.demo-playback-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin:18px auto 0;padding:9px 14px;border:1px solid rgba(15,17,20,.18);border-radius:9px;background:#fff;color:#2F343A;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px -18px rgba(15,17,20,.4);transition:border-color .18s ease,color .18s ease,transform .18s ease}
-.demo-playback-toggle:hover{border-color:rgba(194,65,12,.42);color:#9A3412;transform:translateY(-1px)}
+.demo-playback-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin:18px auto 0;padding:9px 14px;border:1px solid rgba(18,17,16,.18);border-radius:6px;background:#fff;color:#36332F;font-size:13.5px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px -18px rgba(18,17,16,.4);transition:border-color .18s ease,color .18s ease,transform .18s ease}
+.demo-playback-toggle:hover{border-color:rgba(188,62,16,.42);color:#8E2D10;transform:translateY(-1px)}
 .cta-form input{min-height:48px}
+
+/* ── Zoho CRM lead form (the gofleet dm-zoho embed) ──────────────────────
+   Styles the fields the embed injects into #dm-zoho-form-embed, ported from
+   the working zendutrace implementation with only the palette warmed to this
+   site's ramp. RULE: every field the embed renders stays VISIBLE — the Name
+   field is mandatory for the Zoho CRM lead; never display:none any of its
+   inputs or labels. */
+.cta-zoho .dm-zf-root,
+#dm-zoho-form-embed{--dm-zf-font:var(--font-body);font-family:var(--font-body)}
+#dm-zoho-form-embed form{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+#dm-zoho-form-embed input[type='text'],
+#dm-zoho-form-embed input[type='email']{flex:1 1 200px;box-sizing:border-box;
+  padding:15px 18px;border-radius:8px;background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:16px;
+  font-family:inherit;outline:none;min-height:48px}
+#dm-zoho-form-embed input:focus{border-color:rgba(249,118,47,0.75)}
+#dm-zoho-form-embed input::placeholder{color:rgba(255,255,255,0.5)}
+#dm-zoho-form-embed label{color:#C9C1B6;font-size:13.5px}
+#dm-zoho-form-embed button,
+#dm-zoho-form-embed [type='submit']{padding:15px 26px;border-radius:var(--radius-sm);
+  border:none;cursor:pointer;font-family:var(--font-body);font-size:16px;font-weight:700;
+  color:#fff;background:var(--ember);box-shadow:0 1px 0 rgba(20,17,13,0.3);
+  transition:transform .18s,background .18s}
+#dm-zoho-form-embed button:hover,
+#dm-zoho-form-embed [type='submit']:hover{background:var(--ember-hover,#DA4A10);transform:translateY(-1px)}
+/* Post-submit confirmation from the embed ("Thank you! We will get back to
+   you shortly!") renders near-black by default — invisible on the charcoal
+   panel. Make it bone. */
+#dm-zoho-form-embed .dm-confirmation-message,
+.cta-zoho .dm-confirmation-message,
+.dm-confirmation-message{color:#FFFFFF;font-family:var(--font-body);font-size:16.5px;
+  font-weight:600;line-height:1.5;text-align:center;margin-top:8px}
 .cta-field,.product-chip-copy{min-width:0}
 .cta-success{max-width:100%}
 .social-link{flex-shrink:0}
-.znav-mobile-menu{max-height:calc(100vh - 104px);overflow-y:auto;overscroll-behavior:contain}
+.znav-mobile-menu{max-height:calc(100vh - 122px);overflow-y:auto;overscroll-behavior:contain}
 
 @media(max-width:760px){
-  :root{--section-space:80px}
+  :root{--section-space:56px}
   .section-heading{margin-bottom:40px!important}
-  .products-section{padding:80px 20px 40px!important}
+  
   .products-grid{grid-template-columns:1fr!important}
   .product-card{padding:26px 20px!important}
   .product-card-visual{padding:16px!important}
   .ind-explorer{gap:20px!important}
   .industry-stage{min-height:430px!important}
+  .omni-grid{grid-template-columns:1fr!important;padding-top:60px!important}
+  .omni-diagram{max-width:440px;margin:0 auto}
+  .journey-label-a{left:0!important;transform:none!important}
+  .journey-label-b{left:auto!important;right:0!important;transform:none!important}
 }
 
 @media(max-width:700px){
@@ -280,7 +636,7 @@ input::placeholder{color:rgba(255,255,255,.62);opacity:1}
 }
 
 @media(max-width:560px){
-  :root{--section-space:64px}
+  :root{--section-space:46px}
   .section-shell{padding-left:20px!important;padding-right:20px!important}
   .process-step-copy{padding-left:8px!important;padding-right:8px!important}
   .platform-copy{padding:38px 24px!important}
@@ -288,8 +644,8 @@ input::placeholder{color:rgba(255,255,255,.62);opacity:1}
 }
 
 @media(max-width:640px){
-  .cta-section{padding:40px 16px 76px!important}
-  .cta-panel{padding:50px 20px!important;border-radius:20px!important}
+  
+  .cta-panel{padding:50px 20px!important;border-radius:8px !important}
   .cta-intents{flex-wrap:wrap}
   .cta-form{flex-direction:column;width:100%}
   .cta-field,.cta-submit,.cta-success{width:100%}
@@ -298,16 +654,14 @@ input::placeholder{color:rgba(255,255,255,.62);opacity:1}
 }
 
 @media(max-width:600px){
-  .znav{top:10px!important;padding:0 10px!important}
-  .znav-shell{height:60px!important;padding:0 9px 0 15px!important;gap:10px!important;border-radius:14px!important}
+  .znav-shell{height:58px!important;padding:0 12px 0 16px!important;gap:10px!important}
   .znav-logo{height:32px!important}
   .znav-actions{gap:8px!important}
   .znav-cta{display:none!important}
-  .znav-mobile-menu{top:calc(100% + 8px)!important}
 }
 
 @media(max-width:480px){
-  .video-section{padding:68px 16px 36px!important}
+  
   .film-play{padding-right:13px;white-space:nowrap}
   .film-play-icon{width:30px;height:30px}
   .cta-meta{gap:8px 12px!important}
@@ -315,11 +669,8 @@ input::placeholder{color:rgba(255,255,255,.62);opacity:1}
 }
 
 @media(max-width:400px){
-  #demo{padding-left:16px!important;padding-right:16px!important}
-  .demo-rail{padding:16px 14px 14px!important;gap:6px!important}
-  .demo-stage{min-height:430px!important;padding:52px 16px 32px!important;border-right:0!important}
-  .demo-phone-panel{padding:34px 16px!important}
-  .demo-package-stage{width:100%;max-width:270px!important}
+  #demo,#ask{padding-left:20px!important;padding-right:20px!important}
+  .demo-index{padding-right:0!important}
   .product-card{padding:22px 18px!important}
   .product-card-visual{padding:12px!important}
   .xenauth-card-mock{padding:13px!important;gap:10px!important}
@@ -338,75 +689,373 @@ input::placeholder{color:rgba(255,255,255,.62);opacity:1}
   .hero-sticker>div{animation:none!important}
 }
 
-/* ------------------------------------------------------------------ */
-/* Zoho lead form embed (served from gofleet.com into #dm-zoho-form-embed).
-   Styles the injected name/email fields + button to match the CTA panel.
-   Final tweak pass once the form renders on the live domain. */
-.cta-zoho .dm-zf-root,
-#dm-zoho-form-embed {
-  --dm-zf-font: var(--font-body);
-  font-family: var(--font-body);
-}
-#dm-zoho-form-embed form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
-#dm-zoho-form-embed input[type='text'],
-#dm-zoho-form-embed input[type='email'] {
-  flex: 1 1 200px;
-  box-sizing: border-box;
-  padding: 15px 18px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  font-size: 15px;
-  font-family: inherit;
-  outline: none;
-}
-#dm-zoho-form-embed input:focus {
-  border-color: rgba(255, 255, 255, 0.45);
-}
-#dm-zoho-form-embed input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-#dm-zoho-form-embed label {
-  color: #b9c0c8;
-  font-size: 13px;
-}
-#dm-zoho-form-embed button,
-#dm-zoho-form-embed [type='submit'] {
-  padding: 15px 26px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-body);
-  font-size: 15.5px;
-  font-weight: 700;
-  color: #fff;
-  background: #c2410c;
-  box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.4);
-  transition: transform 0.18s, background 0.18s;
-}
-#dm-zoho-form-embed button:hover,
-#dm-zoho-form-embed [type='submit']:hover {
-  background: #d2470a;
-  transform: translateY(-1px);
+@media(max-width:900px){.loss-calc-grid{grid-template-columns:1fr!important}}
+@media(max-width:480px){.loss-calc{padding:20px!important}}
+
+/* ── Third-party UI fidelity constants ──────────────────────────────────
+   These reproduce WhatsApp on an iOS handset inside the AskDemo section.
+   They are FIDELITY CONSTANTS, not design-system tokens: they deliberately
+   sit off this site's type ramp, and normalising them toward our roles would
+   make the demo read as a knock-off. See DESIGN.md "Third-party UI fidelity".
+   Rule: inside the screen, be WhatsApp; outside it, be XenTag. */
+:root{
+  --wa-name:15px;
+  --wa-msg:14.5px;
+  --wa-meta:10.5px;
+  --wa-input:15px;
+  --wa-row:13px;
+  --wa-ping:11px;
 }
 
-/* Post-submit confirmation message from the gofleet Zoho embed
-   ("Thank you! We will get back to you shortly!") — the plugin renders
-   it in near-black, invisible on our dark CTA panel. Make it white. */
-#dm-zoho-form-embed .dm-confirmation-message,
-.cta-zoho .dm-confirmation-message,
-.dm-confirmation-message {
-  color: #ffffff;
-  font-family: var(--font-body);
-  font-size: 16.5px;
-  font-weight: 600;
-  line-height: 1.5;
-  text-align: center;
-  margin-top: 8px;
+/* ── Ask on WhatsApp (outdoor tracking demo) ─────────────────────────────────
+   WhatsApp chrome measured off the reference: bubbles 10px radius with
+   9px 12px 7px padding and a 1px contact shadow, outgoing #D9FDD3, header and
+   send button #075E54, wallpaper #ECE5DD, input a 22px pill. */
+.ask-map-card{border:1px solid rgba(20,17,13,.14);border-radius:12px;background:var(--paper);overflow:hidden}
+.ask-map-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:12px 18px;border-bottom:1px solid rgba(20,17,13,.1)}
+.ask-map-head>span:first-child{font-family:var(--font-body);font-weight:700;font-size:var(--wa-msg);color:var(--ink)}
+.ask-map-count{font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:#6B6156}
+/* ── The demo network map ────────────────────────────────────────────────
+   Natural Earth 1:50m geography on an equirectangular viewBox (degrees in,
+   pixels out), zoomable to 8x. Styled as a tracking console, not an atlas:
+   water recedes, land sits one step up, borders are a hairline, and the only
+   saturated ink is the assets. Every geographic stroke is non-scaling, so a
+   hairline is a hairline at any zoom; pins hold screen size the same way. */
+.fm{position:relative;background:#E9E4D8;border-bottom:1px solid rgba(20,17,13,.1)}
+.fm-svg{display:block;width:100%;height:auto;aspect-ratio:3/1;cursor:default}
+.fm-svg.is-zoomed{cursor:grab}
+.fm-svg.is-zoomed:active{cursor:grabbing}
+.fm-water{fill:#E9E4D8}
+.fm-land{fill:#F3F0E7;stroke:rgba(20,17,13,.34);stroke-width:1;vector-effect:non-scaling-stroke;
+  stroke-linejoin:round;fill-rule:evenodd}
+.fm-lakes{fill:#E9E4D8;stroke:rgba(20,17,13,.22);stroke-width:.7;vector-effect:non-scaling-stroke}
+.fm-borders{fill:none;stroke:rgba(20,17,13,.17);stroke-width:.8;vector-effect:non-scaling-stroke;
+  stroke-linejoin:round}
+.fm-grat line{stroke:rgba(20,17,13,.055);stroke-width:.7;vector-effect:non-scaling-stroke}
+.fm-equator{stroke:rgba(20,17,13,.12);stroke-width:.8;vector-effect:non-scaling-stroke;
+  stroke-dasharray:6 6}
+
+.fm-pin{cursor:pointer}
+.fm-pin:focus{outline:none}
+.fm-hit{fill:transparent}
+/* a white halo under every pin: without it a dot on a coastline reads as part
+   of the coastline */
+.fm-halo{fill:#FFFFFF}
+.fm-dot{fill:var(--tone)}
+.fm-ring{fill:none;stroke:var(--tone);stroke-width:1.6;vector-effect:non-scaling-stroke;opacity:.6}
+.fm-pin:focus-visible .fm-hit{stroke:var(--ember);stroke-width:2;vector-effect:non-scaling-stroke}
+/* the serial fades in once zoom makes it legible */
+.fm-pin-id{font-family:var(--font-machine);font-weight:700;letter-spacing:.02em;
+  fill:#14110D;paint-order:stroke;stroke:#F3F0E7;stroke-width:.28;pointer-events:none}
+
+.fm-status{position:absolute;left:14px;top:12px;display:inline-flex;align-items:center;gap:7px;
+  max-width:calc(100% - 96px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  padding:5px 10px;border-radius:var(--radius-chip,4px);background:rgba(21,18,16,.84);
+  color:rgba(255,255,255,.92);font-size:10.5px;letter-spacing:.04em}
+.fm-status-dot{flex-shrink:0;width:6px;height:6px;border-radius:50%;background:#2FBF83;
+  box-shadow:0 0 7px rgba(47,191,131,.8)}
+
+/* zoom controls: squared equipment buttons with the canon's 1px ledge */
+.fm-controls{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:6px}
+.fm-btn{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+  border:1px solid rgba(20,17,13,.22);border-radius:var(--radius-sm);
+  background:var(--paper);color:var(--ink);cursor:pointer;
+  box-shadow:0 1px 0 rgba(20,17,13,.2);transition:background-color .125s ease-out}
+.fm-btn:hover{background:var(--bone)}
+.fm-btn:disabled{opacity:.35;cursor:default}
+.fm-btn:focus-visible{outline:2px solid var(--ember-bright);outline-offset:2px}
+
+/* the caption bar: state key on the left, provenance on the right */
+.fm-caption{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:9px 16px;border-top:1px solid rgba(20,17,13,.1);background:var(--paper)}
+.fm-key{display:inline-flex;align-items:center;gap:14px;flex-wrap:wrap}
+.fm-key-item{display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-body);font-size:12px;font-weight:500;color:var(--ink-soft);white-space:nowrap}
+.fm-key-item i{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.fm-cap-note{font-size:10.5px;letter-spacing:.04em;color:var(--muted);white-space:nowrap}
+
+@media(max-width:700px){
+  /* a 3:1 strip is ~108px tall on a phone: too short to read a pin against a
+     coastline, so the frame gets taller rather than the pins getting bigger */
+  .fm-svg{aspect-ratio:2/1}
+  .fm-status{left:10px;top:8px;max-width:calc(100% - 60px);padding:4px 8px;font-size:10px}
+  .fm-controls{right:8px;top:8px}
+  .fm-btn{width:34px;height:34px}
+  .fm-cap-note{display:none}
+  .fm-caption{padding:8px 14px}
+  .fm-key{gap:10px}
 }
+
+/* ── The link between the panel and the thread ───────────────────────────
+   The demo's whole claim is that the manifest and the bot read one state, so
+   the answered asset is named in one bar, lit on the map, and echoed in the
+   phone header. Three places, one serial. */
+.ask-focus{display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:11px 18px;border-bottom:1px solid rgba(20,17,13,.1);background:rgba(188,62,16,.045)}
+.ask-focus.is-idle{background:transparent}
+.ask-focus-lead{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ask-focus-id{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--ember-dark)}
+.ask-focus-read{font-size:11px;letter-spacing:.02em;color:var(--ink-soft)}
+.ask-focus-sep{width:3px;height:3px;border-radius:50%;background:rgba(20,17,13,.25)}
+
+/* ── The manifest, the thread, and the close ─────────────────────────────
+   Restored 2026-08-31: a mid-session stylesheet region-replacement ate this
+   whole block (everything below .ask-focus), and the functional checks never
+   caught it because the resolver and the map kept working unstyled. Rebuilt
+   from the last working version, adapted to the current row anatomy: the rows
+   gained a state chip, and the coverage photo above the manifest became the
+   drawn zoomable map (.fm, styled in its own block above).
+
+   The manifest rows are buttons: every row is itself a question you can ask,
+   the answered rows take a tinted ground and an ember serial, and one soft
+   900ms pulse marks a label phoning in. Selection never uses a side accent. */
+.ask-manifest{list-style:none;margin:0;padding:0}
+.ask-row{display:grid;width:100%;grid-template-columns:104px 1.05fr auto 1.45fr 96px;
+  align-items:baseline;gap:12px;
+  padding:8px 18px 8px 20px;border:0;border-bottom:1px solid rgba(20,17,13,.07);
+  background:none;font:inherit;text-align:left;cursor:pointer;
+  transition:background-color .18s cubic-bezier(.4,0,.2,1)}
+.ask-manifest li:last-child .ask-row{border-bottom:0}
+.ask-row:hover{background:rgba(20,17,13,.035)}
+.ask-row:focus-visible{outline:2px solid var(--ember);outline-offset:-2px}
+.ask-row.is-on,.ask-row.is-on:hover{background:rgba(188,62,16,.055)}
+/* one soft pulse when a label phones in: a single 900ms fade, never a loop */
+.ask-row.did-ping .ask-row-ping{animation:askping .9s cubic-bezier(.4,0,.2,1) 1}
+@keyframes askping{0%{color:var(--ember-dark)}100%{color:#6B6156}}
+.ask-row.is-on .ask-row-id{color:var(--ember-dark)}
+.ask-row.is-on .ask-row-id::before{box-shadow:0 0 0 3px rgba(188,62,16,.18)}
+.ask-row.is-on .ask-row-place{color:var(--ink-soft)}
+.ask-row-id{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--ink);white-space:nowrap}
+.ask-row-id::before{content:"";display:inline-block;width:7px;height:7px;margin-right:7px;
+  border-radius:50%;background:var(--tone);vertical-align:middle;
+  transition:box-shadow .18s cubic-bezier(.4,0,.2,1)}
+.ask-row-kind{font-size:13px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ask-row-place{font-size:13px;color:#6B6156;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ask-row-ping{font-size:11px;letter-spacing:.02em;color:#6B6156;white-space:nowrap;text-align:right}
+
+/* the state, as a small tinted chip in the machine register — the same wash
+   grammar as the verified chip, one wash per state, text at the state's own
+   legible-on-bone tone, never a filled pill */
+.ask-chip{display:inline-flex;align-items:center;height:18px;padding:0 7px;border-radius:4px;
+  font-family:var(--font-machine);font-size:9.5px;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;white-space:nowrap}
+.ask-chip.is-transit{background:rgba(188,62,16,.08);color:#8E2D10}
+.ask-chip.is-delivered{background:rgba(30,138,91,.1);color:#1E8A5B}
+/* alert states share the ember-dark text voice; the stronger ember-mid wash
+   is what separates an alert from plain in-transit */
+.ask-chip.is-breach,.ask-chip.is-geofence{background:rgba(228,80,17,.16);color:#8E2D10}
+.ask-chip.is-stale{background:rgba(20,17,13,.07);color:#6B6156}
+
+.ask-map-foot{padding:10px 18px;border-top:1px solid rgba(20,17,13,.1);
+  font-size:11.5px;letter-spacing:.02em;color:#6B6156;font-family:var(--font-machine)}
+
+/* ── the handset ──
+   Inside the screen, be WhatsApp; outside it, be XenTag. Every value below is
+   a fidelity constant measured off the reference (see DESIGN.md), not a
+   design-system token — normalising them makes the demo read as a knock-off:
+   header and send #075E54, outgoing bubble #D9FDD3, wallpaper #ECE5DD, tray
+   #F0EBE4, bubble radius 10px with a 1px contact shadow, 22px pill composer,
+   44px circle send, 38/30px concentric shell radii, 62x17 island, chat ink
+   #102319, read ticks #53BDEB, quick-reply pills #0A7264 on white. */
+.ask-phone-col{display:flex;flex-direction:column;align-items:center;gap:14px}
+.wa-phone{width:336px;max-width:100%;border-radius:38px;padding:9px;background:#241E18;
+  border:1px solid rgba(255,255,255,.14);box-shadow:0 2px 32px rgba(20,17,13,.35)}
+.wa-screen{position:relative;height:668px;border-radius:30px;overflow:hidden;background:#ECE5DD;
+  display:flex;flex-direction:column}
+.wa-status{position:relative;display:flex;align-items:center;justify-content:space-between;
+  padding:9px 18px 5px;background:#075E54;color:rgba(255,255,255,.92);font-size:11.5px;font-weight:700}
+.wa-island{position:absolute;left:50%;top:6px;transform:translateX(-50%);
+  width:62px;height:17px;border-radius:999px;background:#0A0A0A}
+.wa-top{display:flex;align-items:center;gap:11px;padding:6px 14px 11px;background:#075E54}
+.wa-ava{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.22);color:rgba(255,255,255,.9)}
+.wa-ava svg{width:20px;height:20px}
+.wa-id{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.wa-id strong{font-family:var(--font-body);font-size:var(--wa-name);font-weight:700;color:#fff}
+.wa-id em{font-style:normal;font-size:11.5px;color:rgba(255,255,255,.72)}
+.wa-body{flex:1;display:flex;flex-direction:column;overflow-y:auto;padding:12px 10px 8px;
+  background:#ECE5DD;scrollbar-width:thin}
+/* a thread with few messages sits above the composer, the way WhatsApp
+   bottom-anchors a new conversation */
+.wa-msgs{list-style:none;margin:auto 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.wa-msg{display:flex}
+.wa-msg.bot{justify-content:flex-start}
+.wa-msg.me{justify-content:flex-end}
+.wa-bubble{position:relative;max-width:82%;padding:9px 12px 7px;border-radius:10px;background:#fff;
+  box-shadow:0 1px 1px rgba(0,0,0,.12);font-size:var(--wa-msg,14.5px);line-height:1.46;color:#102319;
+  animation:waIn .22s cubic-bezier(.4,0,.2,1) both}
+.wa-msg.me .wa-bubble{background:#D9FDD3}
+.wa-bubble>span{display:block}
+.wa-bubble>em{display:block;margin-top:2px;text-align:right;font-style:normal;
+  font-size:10.5px;color:rgba(16,35,25,.45)}
+.wa-typing{display:flex;align-items:center;gap:4px;padding:12px 14px}
+.wa-typing i{width:6px;height:6px;border-radius:50%;background:rgba(16,35,25,.34);
+  animation:waDot 1.2s steps(1) infinite}
+.wa-typing i:nth-child(2){animation-delay:.4s}
+.wa-typing i:nth-child(3){animation-delay:.8s}
+@keyframes waIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@keyframes waDot{0%,49%{opacity:1}50%,100%{opacity:.25}}
+.wa-tick{display:inline-block;width:15px;height:9px;margin-left:4px;vertical-align:-1px}
+
+/* suggested questions — WhatsApp Business reply buttons, pinned above the
+   composer so there is always something to tap */
+.wa-quick{display:flex;flex-direction:column;gap:5px;padding:0 10px 9px;background:#ECE5DD}
+.wa-quick-label{padding:0 2px 2px;font-family:var(--font-body);font-size:10.5px;
+  letter-spacing:.02em;color:rgba(16,35,25,.68)}
+.wa-chip{display:block;width:100%;padding:8px 12px;border:0;border-radius:10px;background:#fff;
+  box-shadow:0 1px 1px rgba(0,0,0,.12);font-family:var(--font-body);font-size:13.5px;font-weight:600;
+  color:#0A7264;text-align:center;cursor:pointer;
+  transition:background-color .15s cubic-bezier(.4,0,.2,1)}
+.wa-chip:hover{background:#F4FBF8}
+.wa-chip:disabled{color:rgba(10,114,100,.45);cursor:default}
+.wa-chip:focus-visible{outline:2px solid #075E54;outline-offset:1px}
+
+/* the composer */
+.ask-foot{display:flex;align-items:center;gap:8px;padding:9px 10px 11px;background:#F0EBE4;
+  border-top:1px solid rgba(0,0,0,.06)}
+.ask-input{flex:1;min-width:0;padding:10px 16px;border-radius:22px;border:1px solid rgba(0,0,0,.09);
+  background:#fff;color:#102319;font-size:var(--wa-input);line-height:1.35;outline:none}
+.ask-input::placeholder{color:rgba(16,35,25,.45)}
+.ask-input:focus-visible{border-color:rgba(7,94,84,.55)!important;box-shadow:0 0 0 3px rgba(7,94,84,.16)}
+.ask-send{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border:none;border-radius:50%;background:#075E54;color:#fff;cursor:pointer;
+  transition:background-color .15s cubic-bezier(.4,0,.2,1),opacity .15s cubic-bezier(.4,0,.2,1)}
+.ask-send svg{width:19px;height:19px}
+.ask-send:hover{background:#0A7264}
+.ask-send:disabled{opacity:.45;cursor:default}
+.ask-send:focus-visible{box-shadow:0 0 0 2px #F0EBE4,0 0 0 4px rgba(7,94,84,.85)!important}
+
+.ask-restart{border:0;background:none;padding:0;font-family:var(--font-body);font-size:13px;
+  color:#6B6156;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.ask-restart:hover{color:var(--ink)}
+
+/* section close — the one place this section asks for something */
+.ask-cta{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;
+  margin-top:clamp(28px,3.4vw,44px);padding:22px 26px;
+  border:1px solid rgba(20,17,13,.14);border-radius:12px;background:var(--cloud)}
+.ask-cta-copy{margin:0;display:flex;flex-direction:column;gap:3px;max-width:56ch}
+.ask-cta-copy strong{font-family:var(--font-display);font-size:19px;font-weight:700;
+  letter-spacing:-.012em;color:var(--ink)}
+.ask-cta-copy span{font-size:16px;line-height:1.55;color:var(--ink-soft)}
+.ask-cta-acts{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ask-cta-go,.ask-cta-alt{display:inline-flex;align-items:center;min-height:44px;padding:11px 20px;
+  border-radius:var(--radius-sm,6px);font-family:var(--font-body);font-size:16px;font-weight:700;
+  text-decoration:none;white-space:nowrap;
+  transition:background-color .15s cubic-bezier(.4,0,.2,1),border-color .15s cubic-bezier(.4,0,.2,1)}
+.ask-cta-go{background:var(--ember);color:#fff;box-shadow:0 1px 0 rgba(20,17,13,.25)}
+.ask-cta-go:hover{background:var(--ember-hover,#DA4A10)}
+.ask-cta-alt{border:1px solid rgba(20,17,13,.22);color:var(--ink)}
+.ask-cta-alt:hover{border-color:var(--ink);background:rgba(20,17,13,.03)}
+
+/* responsive: the manifest sheds columns before it wraps, and the grid stacks
+   with the handset centred under the panel */
+/* ── equal columns: the panel and the handset stand the same height ─────
+   Above the stack breakpoint both grid children stretch to one height. The
+   slack is absorbed where it belongs: the manifest rows each grow a hair
+   (they are flex children), and the phone screen flexes taller instead of
+   holding its fixed demo height. The map's 3:1 aspect is untouched — it is
+   the equirectangular frame, and stretching it would move every pin. */
+@media(min-width:1080px){
+  .ask-grid{align-items:stretch}
+  .ask-map-card{display:flex;flex-direction:column}
+  .ask-manifest{flex:1;display:flex;flex-direction:column}
+  .ask-manifest li{flex:1;display:flex;min-height:0}
+  .ask-manifest li .ask-row{width:100%;align-items:center}
+  .ask-map-foot{margin-top:auto}
+  /* the handset NEVER resizes: the phone column's natural height (fixed
+     screen + chrome + the reserved restart slot) sets the row, and the card's
+     flexing rows absorb the difference */
+  .ask-phone-col{justify-content:flex-start}
+}
+
+@media(max-width:1080px){
+  .ask-row{grid-template-columns:100px 1fr auto 96px;row-gap:2px}
+  .ask-row-place{grid-column:2/5}
+}
+@media(max-width:1079px){
+  /* below this the card outgrows the fixed handset (rows wrap), so the
+     two-column layout stands down and the handset centres under the panel */
+  .ask-grid{grid-template-columns:1fr!important}
+  .wa-phone{margin:0 auto}
+}
+@media(max-width:560px){
+  /* serial, chip and last-ping share the top line; cargo and place stack */
+  .ask-row{grid-template-columns:1fr auto auto;padding:10px 16px;column-gap:8px}
+  .ask-row-id{grid-column:1;grid-row:1}
+  .ask-chip{grid-column:2;grid-row:1;align-self:center}
+  .ask-row-ping{grid-column:3;grid-row:1}
+  .ask-row-kind{grid-column:1/4;grid-row:2}
+  .ask-row-place{grid-column:1/4;grid-row:3}
+  .ask-cta{padding:20px}
+  .ask-cta-acts{width:100%}
+  .ask-cta-go,.ask-cta-alt{flex:1;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .wa-bubble{animation:none}
+  .wa-typing i{animation:none}
+  .ask-row.did-ping .ask-row-ping{animation:none}
+  .ask-row-id::before{transition:none}
+}
+
+/* Status in words, on the panel and every row. Colour alone is not a status:
+
+/* ── FAQ ─────────────────────────────────────────────────────────────────
+   Nine hairline rows, no card chrome, native <details> so the accordion works
+   with the keyboard and with JavaScript off. The toggle is a mono [+] / [−],
+   which is the page's own machine register rather than a borrowed chevron, and
+   the whole summary row is the 44px target. */
+/* The measure is set in px, not ch: `ch` on this container resolves against the
+   container's own 16px body font, not against the 56px Archivo inside it, which
+   collapsed the heading to one word per line. */
+/* .faq-head retired: the heading now uses .section-heading like every
+   other section, so the FAQ sits on the same left measure as the page. */
+.faq-list{max-width:860px;border-top:1px solid var(--line)}
+.faq-row{border-bottom:1px solid var(--line)}
+/* questions sit at the Subtitle role: one step under a card h3, which is right
+   for nine of them stacked */
+.faq-q{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;
+  min-height:44px;padding:22px 0;cursor:pointer;list-style:none;
+  font-family:var(--font-display);font-stretch:100%;font-weight:650;
+  font-size:20px;line-height:1.3;letter-spacing:var(--ls-subtitle);
+  color:var(--ink)}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q:hover{color:var(--ember-dark)}
+.faq-q:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+.faq-sign{flex-shrink:0;margin-top:4px;font-family:var(--font-machine);font-size:12px;font-weight:500;
+  letter-spacing:0;color:var(--muted)}
+/* drawn off [open] so the sign is correct without JavaScript */
+.faq-sign::before{content:"[+]"}
+.faq-row[open] .faq-sign::before{content:"[\2212]"}
+.faq-row[open] .faq-sign{color:var(--ember-dark)}
+.faq-a{margin:0 0 24px;max-width:64ch;padding-right:44px;
+  font-family:var(--font-body);font-size:16px;font-weight:450;line-height:1.65;color:var(--ink-soft)}
+.faq-a a{color:var(--ember-dark);text-decoration:underline;text-underline-offset:3px}
+.faq-foot{max-width:860px;margin:clamp(32px,3.4vw,44px) 0 0;
+  font-family:var(--font-body);font-size:13.5px;line-height:1.6;color:var(--muted)}
+.faq-foot a{color:var(--ember-dark);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:560px){
+  .faq-q{gap:16px;padding:18px 0}
+  .faq-a{padding-right:0;margin-bottom:20px}
+}
+
+/* ── #stakes: the loss figures, split out of the comparison ──────────────
+   The three published figures moved to their own section high on the page;
+   the ledger they justify now sits six sections down. The stat CSS above
+   (.cmp-stats and its parts) is shared verbatim rather than duplicated — the
+   only thing that changes is what sits below it. Inside #stakes the list is
+   the section's last element, so its bottom margin (sized for the gap down to
+   the table) is dropped and .section-shell's own padding governs the rhythm. */
+#stakes .cmp-stats{margin-bottom:0}
+
+/* The stats and the two dossiers read as ONE section: the ledger names the
+   loss, "Two labels. One job." answers it. The seam between them closes from
+   the full 2x section-space (~200-270px) to an intra-section gap, and because
+   both carry .section-shell rails pinned to the same container edges, the
+   hairlines run through the seam unbroken. The !important matches the base
+   .section-shell rule it overrides; the id wins on specificity. */
+#stakes.section-shell{padding-bottom:clamp(28px,3vw,40px)!important}
+/* ...and the block itself sits high: the loss figures start right off the
+   ledger strip's heels instead of a full section-space below the fold, so the
+   argument opens the moment the hero ends. */
+#stakes.section-shell{padding-top:clamp(30px,3.2vw,46px)!important}
+#products.section-shell{padding-top:clamp(20px,2.2vw,28px)!important}

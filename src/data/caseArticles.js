@@ -4,7 +4,7 @@ export const CASE_ARTICLES = {
   "dyson-x-lss": {
     "title": "Dyson x LSS",
     "subtitle": "",
-    "hero": "https://xentag.b-cdn.net/wp-content/uploads/2025/04/Dyson-OnTrac-Headphones_571H.jpg",
+    "hero": null,
     "source": "https://xentag.com/case-studies/dyson-x-lss/",
     "blocks": [
       {
@@ -21,7 +21,7 @@ export const CASE_ARTICLES = {
       },
       {
         "t": "p",
-        "text": "Dyson needed to extend its reach to a younger, hip, more creative audience, and street culture was the ideal bridge. By partnering with LSS, Dyson wanted to offer more than just a product—it needed to create a unique, personalized experience. The challenge? To authenticate the sneakers and make each pair feel special in a way that connected with the audience’s love for exclusivity."
+        "text": "Dyson needed to extend its reach to a younger, hip, more creative audience, and street culture was the ideal bridge. By partnering with LSS, Dyson wanted to offer more than just a product. It needed to create a unique, personalized experience. The challenge? To authenticate the sneakers and make each pair feel special in a way that connected with the audience’s love for exclusivity."
       },
       {
         "t": "h4",
@@ -29,7 +29,7 @@ export const CASE_ARTICLES = {
       },
       {
         "t": "p",
-        "text": "Xentag’s secure NFC tags were embedded in each custom sneaker, allowing owners to tap their phones and instantly verify authenticity, access exclusive content, and claim ownership. This simple yet powerful interaction created a personalized ownership experience that linked the physical product to Dyson’s innovative world, turning each sneaker into more than just footwear—it became a digital experience."
+        "text": "Xentag’s secure NFC tags were embedded in each custom sneaker, allowing owners to tap their phones and instantly verify authenticity, access exclusive content, and claim ownership. This simple yet powerful interaction created a personalized ownership experience that linked the physical product to Dyson’s innovative world, turning each sneaker into more than just footwear. It became a digital experience."
       },
       {
         "t": "h4",
@@ -45,7 +45,7 @@ export const CASE_ARTICLES = {
       },
       {
         "t": "p",
-        "text": "Xentag’s technology isn’t just about product authentication—it’s about creating interactive, personalized experiences that engage fans. Dyson’s collaboration with LSS was an opportunity to digitally enhance products, turning them into experiences that fans can connect with long after the event. Xentag enables brands to tap into superfan communities and create collectible products and lasting experiences."
+        "text": "Xentag’s technology isn’t just about product authentication. It’s about creating interactive, personalized experiences that engage fans. Dyson’s collaboration with LSS was an opportunity to digitally enhance products, turning them into experiences that fans can connect with long after the event. Xentag enables brands to tap into superfan communities and create collectible products and lasting experiences."
       },
       {
         "t": "h4",
@@ -54,38 +54,13 @@ export const CASE_ARTICLES = {
       {
         "t": "p",
         "text": "Looking to bring a new layer of value to your brand? With Xentag’s technology, you can easily integrate collectible experiences into your product ranges, creating an engaging digital experience for your customers. Whether it’s limited-edition drops or personalized product journeys, Xentag can help you transform your products into interactive experiences that resonate deeply with your audience"
-      },
-      {
-        "t": "img",
-        "src": "https://xentag.b-cdn.net/wp-content/uploads/2025/04/Dyson-x-LLS-x-Xentag-1024x682.jpg",
-        "alt": ""
-      },
-      {
-        "t": "img",
-        "src": "https://xentag.b-cdn.net/wp-content/uploads/2025/04/DSC00036-1024x683.jpg",
-        "alt": ""
-      },
-      {
-        "t": "img",
-        "src": "https://xentag.b-cdn.net/wp-content/uploads/2025/04/DSC00062-1024x683.jpg",
-        "alt": ""
-      },
-      {
-        "t": "img",
-        "src": "https://xentag.b-cdn.net/wp-content/uploads/2025/04/DSC00067-1024x683.jpg",
-        "alt": ""
-      },
-      {
-        "t": "img",
-        "src": "https://xentag.b-cdn.net/wp-content/uploads/2025/04/DSC00073-1024x683.jpg",
-        "alt": ""
       }
     ]
   },
   "johnnys-kicks-x-jae-tips": {
     "title": "Johnnys Kicks x Jae Tips",
     "subtitle": "The Johnny x Jae x Xentag collab is changing the way collectible sneakers are owned",
-    "hero": "https://xentag.b-cdn.net/wp-content/uploads/2024/09/Johnnys-Kicks-x-Jae-Tips.png",
+    "hero": null,
     "source": "https://xentag.com/case-studies/johnnys-kicks-x-jae-tips/",
     "blocks": [
       {
@@ -134,14 +109,14 @@ export const CASE_ARTICLES = {
       },
       {
         "t": "p",
-        "text": "The Johnny x Jae collab, powered by XenTag, redefined what it means to own and trade limited-edition merchandise. Through the seamless integration of secure NFC technology, creators now have the power to protect their art, engage directly with superfans, and earn from every trade—both today and in the future. This partnership demonstrated that XenTag is not just about authentication; it’s about giving brands and creators the tools to transform their products into timeless, valuable collectibles."
+        "text": "The Johnny x Jae collab, powered by XenTag, redefined what it means to own and trade limited-edition merchandise. Through the seamless integration of secure NFC technology, creators now have the power to protect their art, engage directly with superfans, and earn from every trade, both today and in the future. This partnership demonstrated that XenTag is not just about authentication; it’s about giving brands and creators the tools to transform their products into timeless, valuable collectibles."
       }
     ]
   },
   "cultish": {
     "title": "Cultish",
     "subtitle": "Cultish Connects Creative Minds with XenTag",
-    "hero": "https://xentag.b-cdn.net/wp-content/uploads/2022/11/cultish-v2-scaled.jpg",
+    "hero": null,
     "source": "https://xentag.com/case-studies/cultish/",
     "blocks": [
       {
@@ -169,7 +144,7 @@ export const CASE_ARTICLES = {
   "truwood": {
     "title": "TruWood",
     "subtitle": "XenTag Partners with TruWood Watches for Sustainable Impact",
-    "hero": "https://xentag.b-cdn.net/wp-content/uploads/2022/11/truwood-scaled.jpg",
+    "hero": null,
     "source": "https://xentag.com/case-studies/truwood/",
     "blocks": [
       {
@@ -213,7 +188,7 @@ export const CASE_ARTICLES = {
   "marcozo": {
     "title": "Marcozo",
     "subtitle": "How Marcozo Gave Clients a Unique Experience in Luxury Jewelry",
-    "hero": "https://xentag.b-cdn.net/wp-content/uploads/2022/11/marcozo-scaled.jpg",
+    "hero": null,
     "source": "https://xentag.com/case-studies/marcozo/",
     "blocks": [
       {

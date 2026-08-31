@@ -70,10 +70,10 @@ function BookPilotLink({ closePanel, extraStyle }) {
         gap: 9,
         padding: '15px 28px',
         borderRadius: 12,
-        fontSize: 15.5,
+        fontSize: 16,
         fontWeight: 700,
         color: '#fff',
-        background: hovered ? '#D2470A' : '#C2410C',
+        background: hovered ? '#DA4A10' : '#BC3E10',
         boxShadow: '0 2px 10px -2px rgba(0,0,0,0.4)',
         transform: hovered ? 'translateY(-1px)' : 'none',
         transition: 'transform .18s,background .18s',
@@ -101,7 +101,7 @@ function ExploreXenAuthLink() {
         gap: 9,
         padding: '15px 26px',
         borderRadius: 12,
-        fontSize: 15.5,
+        fontSize: 16,
         fontWeight: 600,
         color: '#fff',
         background: hovered ? 'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0.07)',
@@ -145,21 +145,21 @@ function CaseStudyPanel({ cs, onReadMore }) {
   return (
     <div style={{ marginTop: 22, borderRadius: 16, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.04)', padding: 'clamp(24px,3vw,36px)', textAlign: 'left', animation: 'zpop .35s cubic-bezier(.22,1,.36,1)' }}>
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 14, flexWrap: 'wrap' }}>
-        <h4 style={{ margin: 0, fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 21, color: '#fff' }}>{cs.client}</h4>
-        <span style={{ fontSize: 12.5, fontWeight: 600, color: '#2DD4BF' }}>{cs.industry}</span>
+        <h4 style={{ margin: 0, fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 20, color: '#fff' }}>{cs.client}</h4>
+        <span style={{ fontSize: 12, fontWeight: 600, color: '#2DD4BF' }}>{cs.industry}</span>
       </div>
       <div className="xa-case-grid" style={{ marginTop: 18, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(18px,3vw,34px)' }}>
         <div>
           <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }}>The challenge</div>
-          <p style={{ marginTop: 8, fontSize: 14.5, lineHeight: 1.62, color: 'rgba(255,255,255,0.75)' }}>{cs.challenge}</p>
+          <p style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.62, color: 'rgba(255,255,255,0.75)' }}>{cs.challenge}</p>
           <div style={{ marginTop: 16, fontSize: 12, fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }}>The XenAuth solution</div>
-          <p style={{ marginTop: 8, fontSize: 14.5, lineHeight: 1.62, color: 'rgba(255,255,255,0.75)' }}>{cs.solution}</p>
+          <p style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.62, color: 'rgba(255,255,255,0.75)' }}>{cs.solution}</p>
         </div>
         <div>
           <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }}>What it delivered</div>
           <ul style={{ listStyle: 'none', marginTop: 10, display: 'flex', flexDirection: 'column', gap: 10 }}>
             {cs.outcomes.map((o) => (
-              <li key={o} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 14.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.82)' }}>
+              <li key={o} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 13.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.82)' }}>
                 <svg width="13" height="13" viewBox="0 0 12 12" style={{ flexShrink: 0, marginTop: 4 }} aria-hidden="true">
                   <path d="M2 6.4 4.6 9 10 3" fill="none" stroke="#2DD4BF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -170,7 +170,7 @@ function CaseStudyPanel({ cs, onReadMore }) {
           <button
             type="button"
             onClick={onReadMore}
-            style={{ marginTop: 18, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 999, border: '1px solid rgba(45,212,191,0.45)', background: 'rgba(45,212,191,0.12)', color: '#2DD4BF', fontSize: 14, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit', transition: 'background .18s' }}
+            style={{ marginTop: 18, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 999, border: '1px solid rgba(45,212,191,0.45)', background: 'rgba(45,212,191,0.12)', color: '#2DD4BF', fontSize: 13.5, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit', transition: 'background .18s' }}
           >
             Read the full case study
             <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -257,11 +257,11 @@ function CaseArticle({ slug, onClose }) {
                 return <img key={i} src={bl.src} alt={bl.alt} loading="lazy" decoding="async" style={{ display: 'block', width: '100%', height: 'auto', borderRadius: 14, margin: '22px 0 4px', border: '1px solid rgba(255,255,255,0.1)' }} />;
               }
               if (bl.t === 'h3' || bl.t === 'h4') {
-                return <h3 key={i} style={{ margin: '26px 0 0', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 21, color: '#fff' }}>{bl.text}</h3>;
+                return <h3 key={i} style={{ margin: '26px 0 0', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 20, color: '#fff' }}>{bl.text}</h3>;
               }
               if (bl.t === 'li') {
                 return (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, margin: '10px 0 0', fontSize: 15, lineHeight: 1.66, color: 'rgba(255,255,255,0.78)' }}>
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, margin: '10px 0 0', fontSize: 16, lineHeight: 1.66, color: 'rgba(255,255,255,0.78)' }}>
                     <svg width="13" height="13" viewBox="0 0 12 12" style={{ flexShrink: 0, marginTop: 6 }} aria-hidden="true">
                       <path d="M2 6.4 4.6 9 10 3" fill="none" stroke="#2DD4BF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -269,15 +269,15 @@ function CaseArticle({ slug, onClose }) {
                   </div>
                 );
               }
-              return <p key={i} style={{ margin: '14px 0 0', fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.78)' }}>{bl.text}</p>;
+              return <p key={i} style={{ margin: '14px 0 0', fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.78)' }}>{bl.text}</p>;
             })}
           </div>
           <div style={{ marginTop: 36, paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14, flexWrap: 'wrap' }}>
-            <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)' }}>Want this for your product line?</span>
+            <span style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.5)' }}>Want this for your product line?</span>
             <button
               type="button"
               onClick={onClose}
-              style={{ padding: '10px 20px', borderRadius: 999, border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.07)', color: '#fff', fontSize: 14, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}
+              style={{ padding: '10px 20px', borderRadius: 999, border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.07)', color: '#fff', fontSize: 13.5, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}
             >
               Back to XenAuth
             </button>
@@ -296,7 +296,7 @@ function CaseStudies() {
   return (
     <div id="xa-cases" style={{ marginTop: 64, scrollMarginTop: 24 }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
-        <span style={{ fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginRight: 6 }}>Case studies</span>
+        <span style={{ fontSize: 13.5, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginRight: 6 }}>Case studies</span>
         {CASE_STUDIES.map((c) => (
           <CasePill key={c.id} active={c.id === activeCase} onClick={() => setActiveCase(c.id)}>
             {c.name}
@@ -309,15 +309,17 @@ function CaseStudies() {
   );
 }
 
+/* Vertical tiles are served locally — the xentag.b-cdn.net originals began
+   returning 403 (Aug 2026), so the repo keeps its own copies. */
 const verticalTiles = [
-  { img: 'https://xentag.b-cdn.net/wp-content/uploads/2025/12/cosmetics-vertical.jpg', alt: 'Cosmetics', name: 'Cosmetics' },
-  { img: 'https://xentag.b-cdn.net/wp-content/uploads/2025/12/pharma-vertical.jpg', alt: 'Pharma', name: 'Pharma' },
-  { img: 'https://xentag.b-cdn.net/wp-content/uploads/2022/11/luxury.jpg', alt: 'Luxury', name: 'Luxury' },
-  { img: 'https://xentag.b-cdn.net/wp-content/uploads/2022/11/wine-spirits.jpg', alt: 'Wine & Spirits', name: 'Wine & Spirits' },
-  { img: 'https://xentag.b-cdn.net/wp-content/uploads/2022/11/lifestyle.jpg', alt: 'Lifestyle', name: 'Lifestyle' },
-  { img: 'https://xentag.b-cdn.net/wp-content/uploads/2024/05/stadium-tall-1.png', alt: 'Stadiums', name: 'Stadiums' },
-  { img: 'https://xentag.b-cdn.net/wp-content/uploads/2024/05/merch-traders-tall.png', alt: 'Merch Trader Tribes', name: 'Merch Traders' },
-  { img: 'https://xentag.b-cdn.net/wp-content/uploads/2024/05/channel-partner-tall.png', alt: 'Channel Partners', name: 'Channel Partners' },
+  { img: '/images/xenauth/cosmetics.svg', alt: 'Drawn cosmetics tile: perfume flacon and jar with a tap target', name: 'Cosmetics' },
+  { img: '/images/industries/healthcare-pharma.webp', alt: 'Pharma', name: 'Pharma' },
+  { img: '/images/xenauth/luxury.jpg', alt: 'Luxury', name: 'Luxury' },
+  { img: '/images/xenauth/wine-spirits.jpg', alt: 'Wine & Spirits', name: 'Wine & Spirits' },
+  { img: '/images/xenauth/lifestyle.jpg', alt: 'Lifestyle', name: 'Lifestyle' },
+  { img: '/images/xenauth/stadiums.svg', alt: 'Drawn stadium bowl tile with a tap target at centre field', name: 'Stadiums' },
+  { img: '/images/xenauth/merch-traders.svg', alt: 'Drawn merch tile: tee and cap with a tap target', name: 'Merch Traders' },
+  { img: '/images/xenauth/channel-partners.png', alt: 'Channel Partners', name: 'Channel Partners' },
 ];
 
 const brandSteps = [
@@ -450,7 +452,7 @@ export default function XenAuthModal({ open, closePanel }) {
             cursor: 'pointer',
             background: 'rgba(20,20,22,0.85)',
             color: '#fff',
-            fontSize: 15,
+            fontSize: 16,
             lineHeight: 1,
             display: 'flex',
             alignItems: 'center',
@@ -462,7 +464,7 @@ export default function XenAuthModal({ open, closePanel }) {
         <div style={{ position: 'relative', maxWidth: 1480, margin: '0 auto', padding: 'clamp(38px,4vw,60px) clamp(22px,4vw,52px) clamp(40px,5vw,60px)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 13, marginBottom: 26 }}>
             <span style={{ width: 44, height: 44, borderRadius: 11, background: 'rgba(13,148,136,0.22)', border: '1px solid rgba(45,212,191,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <XenAuthMark size={26} color="#2DD4BF" />
+              <XenAuthMark size={28} color="#EDE8E0" accent="#2DD4BF" dark />
             </span>
             <span style={{ fontSize: 13.5, color: 'rgba(255,255,255,0.6)' }}>
               XenAuth &middot; Authentication
@@ -496,7 +498,7 @@ export default function XenAuthModal({ open, closePanel }) {
           {/* stats */}
           <div className="xt-stats" style={{ marginTop: 72, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 18 }}>
             <div style={{ borderRadius: 14, padding: 26, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)' }}>
-              <div className="font-display" style={{ fontWeight: 800, fontSize: 'clamp(30px,2.6vw,40px)', color: '#FF8A2B', lineHeight: 1 }}>$76.5B</div>
+              <div className="font-display" style={{ fontWeight: 800, fontSize: 'clamp(30px,2.6vw,40px)', color: '#F9762F', lineHeight: 1 }}>$76.5B</div>
               <p style={{ marginTop: 10, fontSize: 13.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.62)' }}>The 2025 return-fraud mark across retail, 9% of $850B in total returns.</p>
             </div>
             <div style={{ borderRadius: 14, padding: 26, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)' }}>
@@ -523,8 +525,12 @@ export default function XenAuthModal({ open, closePanel }) {
                 Every XenAuth chip carries a unique, cryptographically-secure digital identity. Brands get a live view of authentication, consumption and demand, broken out by product and batch.
               </p>
             </div>
+            {/* The platform capture is not publicly approved yet, and the canon
+                bans fabricated dashboards, so this slot carries a drawn
+                SCHEMATIC of the record (labelled as one inside the artwork)
+                until a real capture lands. */}
             <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#0A0A0C' }}>
-              <img src="https://xentag.b-cdn.net/wp-content/uploads/2022/11/xentag-ultimate-platform-v3-1024x736.jpg" alt="XenAuth authentication platform" width="1024" height="736" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', height: 'auto' }} />
+              <img src="/images/xenauth/platform-schematic.svg" alt="Schematic of the XenAuth authentication record: a tag's tap events written under one serial" width="1024" height="736" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', height: 'auto' }} />
             </div>
           </div>
 
@@ -568,18 +574,18 @@ export default function XenAuthModal({ open, closePanel }) {
               </div>
 
               <div>
-                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 16, paddingBottom: 14, borderBottom: '2px solid #FF8A2B' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 16, paddingBottom: 14, borderBottom: '2px solid #F9762F' }}>
                   <h4
                     className="font-display"
                     style={{ margin: 0, fontWeight: 800, fontSize: 'clamp(22px,2.2vw,28px)', letterSpacing: '-0.02em', color: '#fff' }}
                   >
                     For the customer
                   </h4>
-                  <span style={{ fontFamily: 'var(--font-machine)', fontSize: 11, letterSpacing: '0.06em', color: '#FF8A2B' }}>FIELD</span>
+                  <span style={{ fontFamily: 'var(--font-machine)', fontSize: 11, letterSpacing: '0.06em', color: '#F9762F' }}>FIELD</span>
                 </div>
                 <div>
                   {customerSteps.map((s) => (
-                    <JourneyStep key={s.step} {...s} accent="#FF8A2B" Icon={AuthCustomerStepIcon} />
+                    <JourneyStep key={s.step} {...s} accent="#F9762F" Icon={AuthCustomerStepIcon} />
                   ))}
                 </div>
               </div>
@@ -589,27 +595,33 @@ export default function XenAuthModal({ open, closePanel }) {
           {/* demo videos */}
           <div className="xt-demos" style={{ marginTop: 88, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
             <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#000' }}>
-              <AutoPlayVideo
-                src="https://xentag.b-cdn.net/wp-content/uploads/2022/11/ASSET2-online-video-cutter.com-1.webm"
-                controls
+              {/* the CDN clip for this card now 403s upstream; a drawn tap
+                  moment stands in rather than a dead player */}
+              <img
+                src="/images/xenauth/tap-to-reveal.svg"
+                alt="A phone tapping the XenAuth chip on a carton, with the verification confirmed on screen"
+                loading="lazy"
+                decoding="async"
                 style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '16 / 10', objectFit: 'cover' }}
-                aria-label="Tap to reveal product authentication"
               />
               <div style={{ padding: '22px 24px' }}>
                 <div className="font-display" style={{ fontWeight: 800, fontSize: 20, letterSpacing: '-0.02em', color: '#fff' }}>Tap to reveal</div>
-                <p style={{ marginTop: 6, fontSize: 14.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.62)' }}>Product info, authentication and origin in one tap, no app required.</p>
+                <p style={{ marginTop: 6, fontSize: 13.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.62)' }}>Product info, authentication and origin in one tap, no app required.</p>
               </div>
             </div>
             <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#000' }}>
-              <AutoPlayVideo
-                src="https://xentag.b-cdn.net/wp-content/uploads/2022/11/ASSET1_cropped.mp4"
-                controls
+              {/* the original CDN clip for this card is gone (403) — a real
+                  resale-floor photograph stands in rather than a dead player */}
+              <img
+                src="/images/xenauth/luxury.jpg"
+                alt="Luxury goods on a resale floor, where a tap verifies authenticity"
+                loading="lazy"
+                decoding="async"
                 style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '16 / 10', objectFit: 'cover' }}
-                aria-label="Verify authenticity anywhere"
               />
               <div style={{ padding: '22px 24px' }}>
                 <div className="font-display" style={{ fontWeight: 800, fontSize: 20, letterSpacing: '-0.02em', color: '#fff' }}>Verify anywhere</div>
-                <p style={{ marginTop: 6, fontSize: 14.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.62)' }}>Resale, recycling and warranty checks without manual inspection.</p>
+                <p style={{ marginTop: 6, fontSize: 13.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.62)' }}>Resale, recycling and warranty checks without manual inspection.</p>
               </div>
             </div>
           </div>
@@ -619,7 +631,7 @@ export default function XenAuthModal({ open, closePanel }) {
             <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 'clamp(22px,2.6vw,32px)', letterSpacing: '-0.02em', color: '#fff', textAlign: 'center' }}>
               Industry use cases
             </h3>
-            <p style={{ marginTop: 12, textAlign: 'center', fontSize: 15, color: 'rgba(255,255,255,0.6)' }}>XenAuth serves these verticals today, and the list keeps growing.</p>
+            <p style={{ marginTop: 12, textAlign: 'center', fontSize: 16, color: 'rgba(255,255,255,0.6)' }}>XenAuth serves these verticals today, and the list keeps growing.</p>
             <div className="xt-verticals" style={{ marginTop: 36, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
               {verticalTiles.map((v) => (
                 <div key={v.name} style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', aspectRatio: '3/4', border: '1px solid rgba(255,255,255,0.1)' }}>
@@ -637,7 +649,7 @@ export default function XenAuthModal({ open, closePanel }) {
           {/* CTA */}
           <div style={{ marginTop: 72, borderRadius: 20, padding: 'clamp(40px,5vw,64px)', textAlign: 'center', background: 'linear-gradient(135deg,#15161A,#0A0A0C)', border: '1px solid rgba(255,255,255,0.1)' }}>
             <span style={{ width: 56, height: 56, borderRadius: 14, background: 'rgba(13,148,136,0.22)', border: '1px solid rgba(45,212,191,0.35)', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <XenAuthMark size={30} color="#2DD4BF" />
+              <XenAuthMark size={32} color="#EDE8E0" accent="#2DD4BF" dark />
             </span>
             <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 'clamp(26px,3.4vw,44px)', lineHeight: 1.08, letterSpacing: '-0.025em', color: '#fff', maxWidth: '22ch', margin: '0 auto' }}>
               Verify authenticity. Detect fraud. Protect your brand.

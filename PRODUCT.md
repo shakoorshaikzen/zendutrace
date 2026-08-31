@@ -16,6 +16,10 @@ Marketing landing page for XenTag™ (peel-and-stick BLE + cellular smart tracki
 
 Industrial confidence. Expert, field-proven, no-nonsense — evidence over decoration. Numbers carry the argument (3,625 thefts, $35B spoiled, -2.0°C, $8/label); the tone is a seasoned ops engineer, not a startup pitch deck. Peer reference: Samsara's product-led directness.
 
+## Brand Commitments
+
+- **Visual canon (owner-pinned, Aug 2026):** the site executes the industrial-B2B category standard at the craft level of samsara.com and stripe.com — bone editorial ground with hairline page rails, warm charcoal consoles, extended-grotesque uppercase display (Archivo wdth axis), squared chunky controls, ember reserved for CTAs/live signals/underlined payoff words. No neon-dark SaaS grammar, no two-tone gradient headlines.
+
 ## Anti-references
 
 - Generic AI-generated SaaS landing pages: uppercase tracked eyebrow labels on every section, identical icon+heading+text card grids, decorative glassmorphism, gradient text.

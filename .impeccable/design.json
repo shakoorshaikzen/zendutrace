@@ -1,327 +1,685 @@
 {
- "schemaVersion": 2,
- "generatedAt": "2026-08-05T00:00:00Z",
- "title": "Design System: XenTag Landing",
- "extensions": {
-  "colorMeta": {
-   "cargo-ember": {
-    "role": "primary",
-    "displayName": "Cargo Ember",
-    "canonical": "#C2410C",
-    "tonalRamp": [
-     "#3A1204",
-     "#5C1E06",
-     "#7E2A08",
-     "#9A3412",
-     "#C2410C",
-     "#EA580C",
-     "#FF7A2E",
-     "#FFB37E"
-    ]
-   },
-   "ink": {
-    "role": "neutral",
-    "displayName": "Ink",
-    "canonical": "#0F1114",
-    "tonalRamp": [
-     "#0A0B0E",
-     "#0F1114",
-     "#1C1F23",
-     "#2F343A",
-     "#4B5259",
-     "#878E96",
-     "#B9C0C8",
-     "#F1F3F5"
-    ]
-   },
-   "signal-green": {
-    "role": "secondary",
-    "displayName": "Signal Green",
-    "canonical": "#1E8A5B",
-    "tonalRamp": [
-     "#06281B",
-     "#0C4530",
-     "#146245",
-     "#1E8A5B",
-     "#27AE74",
-     "#2FBF83",
-     "#00E5A0",
-     "#9BF0D0",
-     "#6EE7C0"
-    ]
-   },
-   "trace-blue": {
-    "role": "secondary",
-    "displayName": "Trace Blue",
-    "canonical": "#5CB3F8",
-    "tonalRamp": [
-     "#0A2A4A",
-     "#0E3F6E",
-     "#1A5C97",
-     "#0284C7",
-     "#3399DB",
-     "#5CB3F8",
-     "#8FCBFA",
-     "#C6E5FD",
-     "#9CCDFA"
-    ]
-   },
-   "verified-teal": {
-    "role": "tertiary",
-    "displayName": "Verified Teal",
-    "canonical": "#0D9488",
-    "tonalRamp": [
-     "#042C29",
-     "#07443F",
-     "#0A5F58",
-     "#0D9488",
-     "#14B3A4",
-     "#3FCCBE",
-     "#7FE0D5",
-     "#C2F1EC",
-     "#2DD4BF"
-    ]
-   },
-   "error-red": {
-    "role": "primary",
-    "displayName": "Error Red",
-    "canonical": "#E5484D",
-    "tonalRamp": [
-     "#3D0A0C",
-     "#611115",
-     "#8A181E",
-     "#B32A31",
-     "#E5484D",
-     "#F0787C",
-     "#FF9AA0",
-     "#FFD1D4"
-    ]
-   }
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-30T21:07:49.593Z",
+  "title": "Design System: XenTag Landing",
+  "extensions": {
+    "colorMeta": {
+      "ember": {
+        "role": "primary",
+        "displayName": "Cargo Ember",
+        "canonical": "#BC3E10",
+        "tonalRamp": [
+          "#5C1D08",
+          "#8E2D10",
+          "#BC3E10",
+          "#DA4A10",
+          "#E45011",
+          "#F66923",
+          "#F9762F",
+          "#F8B181"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#14110D",
+        "tonalRamp": [
+          "#121110",
+          "#14110D",
+          "#292219",
+          "#3B352D",
+          "#6B6156",
+          "#C9C1B6",
+          "#F0ECE1",
+          "#F5F2EA"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Warm Charcoal",
+        "canonical": "#151210",
+        "tonalRamp": [
+          "#121110",
+          "#14110D",
+          "#151210",
+          "#171412",
+          "#191512",
+          "#1B1714",
+          "#1D1814",
+          "#231D18"
+        ]
+      },
+      "bone": {
+        "role": "neutral",
+        "displayName": "Bone Paper",
+        "canonical": "#F5F2EA",
+        "tonalRamp": [
+          "#14110D",
+          "#3B352D",
+          "#6B6156",
+          "#9C9184",
+          "#C9C1B6",
+          "#F0ECE1",
+          "#F5F2EA",
+          "#FBF8F1"
+        ]
+      },
+      "signal-green": {
+        "displayName": "Signal Green",
+        "purpose": "#1E8A5B means 'reporting now' and is never decorative. #2FBF83 is the same state on charcoal. #166B47 (Signal Green Deep) is the ON-TINT TEXT derivation only \u2014 Signal Green on its own 12% tint measures 3.73:1, under the 4.5:1 floor for 10px status chips; the deep value measures 5.60:1. Never use it as a fill."
+      },
+      "trace-blue": {
+        "role": "secondary",
+        "displayName": "Trace Blue",
+        "canonical": "#5CB3F8",
+        "tonalRamp": [
+          "#062A44",
+          "#0A4066",
+          "#0369A1",
+          "#0284C7",
+          "#38A3E3",
+          "#5CB3F8",
+          "#93CDFA",
+          "#C9E6FD"
+        ]
+      },
+      "verified-teal": {
+        "role": "tertiary",
+        "displayName": "Verified Teal",
+        "canonical": "#0D9488",
+        "tonalRamp": [
+          "#04332F",
+          "#075F57",
+          "#0D9488",
+          "#1FBFAD",
+          "#2DD4BF",
+          "#6FE3D3",
+          "#8FD9C8",
+          "#C6F2EA"
+        ]
+      },
+      "error-red": {
+        "role": "tertiary",
+        "displayName": "Error Red",
+        "canonical": "#E5484D",
+        "tonalRamp": [
+          "#3D0A0C",
+          "#611115",
+          "#8A181E",
+          "#B32A31",
+          "#E5484D",
+          "#F0787C",
+          "#FF9AA0",
+          "#FFD1D4"
+        ]
+      },
+      "chatFidelity": {
+        "role": "third-party fidelity",
+        "displayName": "WhatsApp / iOS chrome",
+        "note": "Reproduces WhatsApp and iOS inside the AskDemo handset only. See DESIGN.md, 'Third-party UI fidelity'. Never use these outside the phone screen.",
+        "canonical": "#075E54",
+        "tonalRamp": [
+          "#000000",
+          "#0A0A0A",
+          "#075E54",
+          "#0A7264",
+          "#102319",
+          "#53BDEB",
+          "#D9FDD3",
+          "#ECE5DD",
+          "#F0EBE4",
+          "#F4FBF8"
+        ]
+      },
+      "consoleLive": {
+        "role": "modal console accents",
+        "displayName": "Trace console telemetry",
+        "note": "Live-telemetry accents inside the TraceModal/XenAuthModal night consoles only: live-signal green, its tints, Trace Blue tint, and the console's blue-black grounds. Never used on the page surfaces.",
+        "canonical": "#00E5A0",
+        "tonalRamp": [
+          "#00E5A0",
+          "#6EE7C0",
+          "#9CCDFA",
+          "#14161C",
+          "#131419"
+        ]
+      },
+      "brandMarks": {
+        "role": "quoted third-party vendor marks (integrations hub)",
+        "displayName": "Third-party brand marks",
+        "note": "Official vendor logo colours, reproduced verbatim on the neutral bone plate per DESIGN.md 'Third-party brand marks'. Quoted artifacts, not tokens \u2014 never normalise toward the palette, never use outside a vendor's own mark.",
+        "canonical": "#E01E5A",
+        "tonalRamp": [
+          "#E01E5A",
+          "#36C5F0",
+          "#2EB67D",
+          "#ECB22E",
+          "#00A1E0",
+          "#0FAAFF",
+          "#125EAB",
+          "#0F9D58",
+          "#E8A33D",
+          "#0072CE"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero h1 only: Archivo 800 clamp(34px,4.2vw,58px) uppercase at wdth 125, line-height 1.02. The footer wordmark is the same voice as an SVG."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Every section h2: Archivo 750 clamp(34px,4.4vw,56px) at wdth 110, line-height calc(1em+4px). A ratio line-height cannot be correct at both ends of a fluid clamp; a constant increment can."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card and console h3: Archivo 700 clamp(24px,2.4vw,32px) at wdth 100, calc(1em+4px). Previously h3 inherited body 1.55 and computed 32px/49.6px."
+      },
+      "price-anchor": {
+        "displayName": "Price Anchor",
+        "purpose": "The $10 lockup: 800, clamp(72px,7.5vw,108px), 0.86 line-height, tabular-nums. Compact clamp(44px,5.5vw,64px) in the comparison cost lockup."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All human-written copy: IBM Plex Sans 450 16px/1.6. Plex replaced Source Sans 3 because its 486 x-height against Archivo's 526 made body copy read pale, which is why 93 of 127 weight declarations had drifted to 700/800."
+      },
+      "caption": {
+        "displayName": "Small / Micro",
+        "purpose": "Plex 450 13.5px/1.5 and Plex 500 12px/1.4. Two steps, not the six near-duplicates (15/14.5/14/13.5/13/12.5) that used to be smeared across the page."
+      },
+      "machine": {
+        "displayName": "Machine",
+        "purpose": "JetBrains Mono 500, ONLY where values must align in a column: serials, temperatures, timestamps, the API panel, and the loss register's citation column. 12px standard, 11px for citations (never smaller), 10px for axis graduations."
+      },
+      "price-unit": {
+        "displayName": "Price unit",
+        "purpose": "The uppercase unit beside the $10 anchor: clamp(20px,1.8vw,26px) Archivo 700."
+      },
+      "panel-title": {
+        "displayName": "Panel title",
+        "purpose": "h3 inside dark console panels (API band): clamp(22px,2.4vw,30px)."
+      },
+      "panel-headline": {
+        "displayName": "Panel headline",
+        "purpose": "Heading inside a panel column (Platform console): clamp(28px,3.2vw,40px), never the section scale."
+      },
+      "stage-title": {
+        "displayName": "Stage title",
+        "purpose": "h3 over the industries photo stage: clamp(22px,2.6vw,32px)."
+      },
+      "hero-lead": {
+        "displayName": "Hero lead",
+        "purpose": "The 500-weight paragraph under the hero headline over footage: clamp(15px,1.2vw,16.5px)/1.55 at rgba(255,255,255,0.85), max 44ch \u2014 heavier than daylight body copy so it holds against moving video."
+      },
+      "manifest-row": {
+        "displayName": "Manifest Row",
+        "purpose": "13px cargo/location cells in the demo-fleet manifest."
+      },
+      "manifest-serial": {
+        "displayName": "Manifest Serial",
+        "purpose": "12px mono serial with its leading state dot."
+      },
+      "card-label": {
+        "displayName": "Card Label",
+        "purpose": "11px mono uppercase label on the walkthrough's single annotation card."
+      },
+      "card-value": {
+        "displayName": "Card Value",
+        "purpose": "20px mono value on the walkthrough's annotation card."
+      },
+      "step-caption": {
+        "displayName": "Step Caption",
+        "purpose": "19px Archivo title of a walkthrough caption-tab."
+      },
+      "price-lockup": {
+        "displayName": "Price Lockup",
+        "purpose": "The comparison section's $10-vs-$30+ cost lockup: the page's largest non-hero numerals.",
+        "fontFamily": "Archivo, Source Sans 3, Helvetica Neue, Helvetica, sans-serif",
+        "fontSize": "clamp(44px, 5.5vw, 64px)",
+        "fontWeight": 800,
+        "letterSpacing": "-0.022em",
+        "lineHeight": 0.9
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Archivo 800 CONDENSED, three tiers, all tabular. figure clamp(52px,6vw,88px) wdth 82 \u2014 the single largest figure on a surface (the stakes band's $273,990 terminal). figure-headline clamp(38px,4.6vw,62px) wdth 80 \u2014 the stakes band's three-up magnitudes. figure-major clamp(28px,3vw,38px) wdth 86 \u2014 the comparison verdict and the connectivity numbers. Condensed 800 beside the page's extended 800 headings is its primary type contrast."
+      },
+      "value": {
+        "displayName": "Value",
+        "purpose": "Archivo 700 17px wdth 92 tabular. In the comparison the XenTag value takes 20px (subtitle) and the incumbent 17px at weight 450 \u2014 the competitor column gets QUIETER, never louder, because emphasis is already spoken for by the white column."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Short all-caps machine strings: Archivo 600 11.5px at wdth 88, +0.09em. Replaces mono here \u2014 JetBrains Mono's fixed advance makes these ~1.8x wider and reads loose."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Section decks: IBM Plex Sans 450 19px/1.5, max 56ch. Retires the old 17px !important patch that was compensating for a text face rendering small."
+      },
+      "ledger-value": {
+        "displayName": "Ledger Value",
+        "purpose": "Spec-ledger stat values under the hero: Archivo 700 clamp(19px,1.7vw,24px) at wdth 92, tabular, over a 10.5px mono uppercase caption. text-transform:none is a required guard on the value \u2014 the li carries uppercase for the caption and it used to leak onto the value, stacking two all-caps registers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "console-ambient",
+        "value": "0 2px 6px rgba(20,17,13,0.08), 0 40px 80px -48px rgba(20,17,13,0.5)",
+        "purpose": "Deep soft ambient under whole charcoal consoles resting on the bone ground (walkthrough, connectivity band, integrations manifest)."
+      },
+      {
+        "name": "card-ambient",
+        "value": "0 1px 2px rgba(20,17,13,0.03), 0 28px 56px -40px rgba(20,17,13,0.35)",
+        "purpose": "Daylight paper panels (product dossiers; comparison frame at 0.3 alpha). Always paired with a 1px hairline border."
+      },
+      {
+        "name": "button-ledge",
+        "value": "0 1px 0 rgba(20,17,13,0.3)",
+        "purpose": "The squared primary CTAs' machined bottom edge (0.25 alpha via the CSS override on .znav-cta/.cta-submit)."
+      },
+      {
+        "name": "hero-label",
+        "value": "0 18px 40px -22px rgba(0,0,0,0.6), 0 8px 18px -10px rgba(0,0,0,0.45)",
+        "purpose": "The hero's physical label render floating over the footage."
+      },
+      {
+        "name": "object-drop",
+        "value": "filter: drop-shadow(0 18px 22px rgba(18,17,16,0.28))",
+        "purpose": "Drawn physical objects cast filter shadows, not card shadows \u2014 label renders; the phone uses drop-shadow(0 34px 44px rgba(21,17,13,0.7)), the platform screenshot drop-shadow(0 34px 60px rgba(0,0,0,0.6))."
+      },
+      {
+        "name": "live-glow",
+        "value": "0 0 8px rgba(47,191,131,0.8)",
+        "purpose": "Live signal dots only; the gauge fill glows 0 0 10px rgba(249,118,47,0.75). Nothing else glows."
+      },
+      {
+        "name": "menu-float",
+        "value": "0 16px 36px -18px rgba(0,0,0,0.6)",
+        "purpose": "Nav dropdown and mobile menu panels over backdrop blur."
+      },
+      {
+        "name": "ember-seam",
+        "value": "1px top hairline, linear-gradient(90deg, transparent, rgba(249,118,47,0.45), transparent), inset 10%",
+        "purpose": "Live consoles announce themselves: the CTA panel, footer and platform console carry this seam across their top edge."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Entrances and lifts: hero zrise/zstencil (0.8\u20131.05s staggered), product-card hover lift (.25s)."
+      },
+      {
+        "name": "ease-micro",
+        "value": ".16s\u2013.18s ease",
+        "purpose": "Hover color/background/transform feedback on links, buttons, chips and rows."
+      },
+      {
+        "name": "spring-standard",
+        "value": "spring(stiffness 170, damping 17)",
+        "purpose": "Framer Motion default for walkthrough objects: label peel-and-land, temperature chip."
+      },
+      {
+        "name": "spring-rail",
+        "value": "spring(stiffness 420, damping 34)",
+        "purpose": "Rail selection feedback \u2014 deliberately faster than the scene so a click lands at once. Industry tabs use spring(520, 40)."
+      },
+      {
+        "name": "spring-route",
+        "value": "spring(stiffness 55, damping 18)",
+        "purpose": "The map route draw and the traveling dot between walkthrough steps."
+      },
+      {
+        "name": "stage-ease",
+        "value": "cubic-bezier(0.22,1,0.36,1), 0.26\u20130.9s",
+        "purpose": "Industry stage cross-dissolve: incoming photo settles from scale 1.03 while the outgoing frame holds."
+      },
+      {
+        "name": "gauge-clock",
+        "value": "3.4s linear per step, 8s manual hold",
+        "purpose": "The walkthrough seam fills once, linearly, per step (STEP_MS 3400); a manual pick holds autoplay for MANUAL_HOLD_MS 8000."
+      },
+      {
+        "name": "marquee",
+        "value": "mqleft 42s (hero) / 38s (clients) linear infinite",
+        "purpose": "Logo marquees; paused on hover and touch-hold, replaced with a scrollable unmasked row under prefers-reduced-motion."
+      },
+      {
+        "name": "reduced-motion-kill",
+        "value": "animation-duration .01ms; transition-duration .01ms; scroll-behavior auto",
+        "purpose": "Global prefers-reduced-motion kill in index.css; the gauge shows a full static seam, autoplay starts paused."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "rails-off",
+        "value": "1080px"
+      },
+      {
+        "name": "nav-collapse",
+        "value": "980px"
+      },
+      {
+        "name": "grids-stack",
+        "value": "820px"
+      },
+      {
+        "name": "density-drop",
+        "value": "760px"
+      },
+      {
+        "name": "comparison-fade",
+        "value": "640px"
+      },
+      {
+        "name": "compact",
+        "value": "560px"
+      }
+    ],
+    "roundedNote": "pill (999px): scrollbar thumbs, status dots, home indicator only \u2014 controls squared at 6px. mark-compact (13px): XenAuth card mark at <=400px.",
+    "thirdPartyFidelity": {
+      "component": "AskDemo (Ask-on-WhatsApp outdoor demo)",
+      "rule": "Inside the handset screen reproduce WhatsApp/iOS exactly; outside it use the XenTag system. Fidelity constants, not tokens \u2014 do not normalise.",
+      "colors": {
+        "header": "#075E54",
+        "outgoing": "#D9FDD3",
+        "wallpaper": "#ECE5DD",
+        "composer": "#F0EBE4"
+      },
+      "radii": {
+        "handset": "38px",
+        "screen": "30px",
+        "composer": "22px",
+        "bubble": "10px"
+      },
+      "type": {
+        "bubble": "14.5px/1.46",
+        "timestamp": "10.5px",
+        "input": "15px"
+      }
+    },
+    "roundedMeta": {
+      "chatFidelity": {
+        "role": "third-party fidelity",
+        "displayName": "WhatsApp / iOS radii",
+        "note": "Handset shell and screen are concentric (38/30); composer pill 22; message bubble and quick-reply 10. Fidelity constants, not tokens.",
+        "canonical": "10px",
+        "values": [
+          "10px",
+          "22px",
+          "30px",
+          "38px"
+        ]
+      },
+      "dataBar": {
+        "role": "data furniture",
+        "displayName": "Data-bar radius",
+        "note": "2px on the 6px-tall paired-magnitude bars in the comparison ledger (and any future micro data furniture). A larger radius turns a 6px bar into a pill and changes its read; 2px keeps it a ruled mark.",
+        "canonical": "2px",
+        "values": [
+          "2px"
+        ]
+      }
+    },
+    "iconography": {
+      "grid": "24px canvas, >=1px optical padding, half-pixel snapped",
+      "stroke": "1.75px, one width per set, round caps + round joins",
+      "radii": "2px on shapes >=8px, 1px below",
+      "spacing": "2px minimum between sub-elements, <=3 elements at 16px render",
+      "color": "monochrome currentColor; single accent token on the signal element only (ember/teal); never a second filled hue",
+      "productIdentity": "products render as the object (label mock with real barcode/serial), drawn marks only for wayfinding chrome; integration logos are real brand glyphs, monochrome"
+    },
+    "tracking": {
+      "rule": "Optical tracking is a function of size, never a per-element nudge. Nine --ls-* steps crossing zero at ~17px.",
+      "steps": {
+        ">=64px": "-0.028em",
+        "48-56px": "-0.022em",
+        "34-40px": "-0.016em",
+        "26-32px": "-0.010em",
+        "20-24px": "-0.004em",
+        "17-18px": "0",
+        "15px": "+0.006em",
+        "13px": "+0.010em",
+        "11-12px mono": "+0.020em"
+      },
+      "onCharcoal": "halve the positive branch \u2014 light-on-dark blooms optically"
+    },
+    "weightLadder": {
+      "text": [
+        450,
+        500,
+        600,
+        700
+      ],
+      "rule": "Four text weights. 600 is emphasis and never appears inside a paragraph. 800 is Archivo-only and appears in exactly three places page-wide: hero h1, loss-register figures, footer wordmark.",
+      "fontSynthesis": "none \u2014 Plex stops at 700 and Archivo at 900; without this a call past either end synthesizes a faux bold"
+    },
+    "rampExemptions": [
+      "Object-printed type: text printed on a drawn physical object (the hero label render, dieline machine chips) scales with the object, not the reading ramp.",
+      "Third-party fidelity constants: the AskDemo WhatsApp thread, shipped as --wa-* custom properties."
+    ],
+    "emberPhrase": {
+      "rule": "Owner-directed, Aug 2026: reinstates a device from earlier versions of the site. Ember may colour the noun phrase that names what is being claimed \u2014 never the verb that makes the claim, and never more than a third of the heading's words.",
+      "cap": "Exactly three headings page-wide. A fourth turns a device into a tic.",
+      "token": ".h2-ember \u2014 Ember Dark #8E2D10 on bone, Ember Bright #F9762F on charcoal; the same hue does not hold contrast on both grounds.",
+      "theThree": [
+        "#compare \"Read it against what you run now\"",
+        "#integrations \"Works with the tools you already run\"",
+        "stakes band \"\u2026a shipment you are insuring yourself\""
+      ],
+      "never": "Never on the hero h1 \u2014 a two-tone extended-uppercase display line reads as gradient-adjacent, and the page's loudest voice stays one colour. Gradient text remains banned outright."
+    },
+    "productMarks": {
+      "rule": "A product mark is a scale-reduced PORTRAIT OF THE OBJECT \u2014 the same label, the same tag \u2014 never a metaphor or a generic category glyph.",
+      "fiveRules": [
+        "One envelope turned 90 degrees (both rx 2.5) \u2014 identical corner geometry does most of the family work",
+        "Two weights: contour 1.75 / detail 1.15, a 1.52:1 ratio",
+        "One accent, only on the signal element",
+        "One true quarter-arc centred on the mark own dot",
+        "Contact: XenTag dot sits ON the label edge and its arc leaves; XenAuth arc arrives from outside and stops ON the tag edge"
+      ],
+      "dark": "strokes drop to 1.60/1.05 \u2014 a light-on-dark stroke reads ~1.25x heavier",
+      "plate": "40px at radius 6px with a 26px glyph = 65% fill (the measured product-tile ratio). 55% is why the marks previously looked marooned. The plate stays NEUTRAL in both themes.",
+      "floor": "Compact variant below 24px; never render below 20px."
+    },
+    "thirdPartyBrandMarks": {
+      "rule": "Vendor logos in the integrations hub are quoted artifacts, like the WhatsApp fidelity constants. Inside the plate, be the vendor; outside it, be XenTag.",
+      "colourPolicy": "Colour lives only inside a neutral bone plate, on the mark. ~0.23% of the hub surface.",
+      "whyOnePlate": "Raw brand colours on #151210 span 1.33:1 to 11.6:1 \u2014 an 8.7x luminance spread, which is what actually reads as a sticker sheet. One identical neutral plate collapses it to zero. Never tint a plate per vendor.",
+      "plate": "--bone #F5F2EA, 34px, radius 6px, 1px rgba(20,17,13,.08); mark ~19px",
+      "colors": {
+        "Slack": [
+          "#E01E5A",
+          "#36C5F0",
+          "#2EB67D",
+          "#ECB22E"
+        ],
+        "Salesforce": [
+          "#00A1E0"
+        ],
+        "SAP": [
+          "#0FAAFF"
+        ],
+        "NetSuite": [
+          "#125EAB"
+        ],
+        "Google Sheets": [
+          "#0F9D58"
+        ],
+        "Power BI": [
+          "#E8A33D"
+        ],
+        "Geotab": [
+          "#0072CE"
+        ],
+        "Zapier": [
+          "#14110D"
+        ]
+      }
+    },
+    "comparisonTable": {
+      "references": [
+        "anime.js documentation tables (animejs.com/documentation)",
+        "Watermelon UI data tables (ui.watermelon.sh)"
+      ],
+      "sharedRefusals": "Both refuse the same garnish: no zebra (anime.js compiled CSS has zero nth-child fills), no vertical rules, no per-row icons, no colour inside the grid, no row hover on reference text, and cells that never wrap.",
+      "spec": "Horizontal 1px --line hairlines only. No outer frame, no fill. One uniform 60px row. Cells 14px 20px; first column padding-left:0 so the table reads as ruled text flush with the prose margin. Headers demoted to machine metadata: 12px JetBrains Mono uppercase .08em Muted, never a fill bar. Footnote below the table.",
+      "emphasis": "One channel, and not text: a continuous Paper column behind the XenTag values. Ember stays out of the grid entirely, exactly as Watermelon keeps its brand green out of table cells.",
+      "deleted": "criterion glyphs, magnitude bars, win-dots, uppercase group bands, radio chips, the cloud well, disabled target pills \u2014 the fix was fewer elements, not smaller ones",
+      "mobile": "The never-wrap rule is deliberately traded away below 860px: a comparison only works if both values are visible, so the criterion wraps and all three columns stay on screen rather than scrolling sideways."
+    },
+    "statRow": {
+      "rule": "Statistics never get a standalone surface. Neither Samsara nor Motive has a stats band anywhere; a stat row sits inside the claim section it supports, on the page ground, as bare type.",
+      "evidence": "A full-page sweep of Motive's 10,339px homepage found zero elements matching a stat pattern at >=26px. Samsara runs three figures in a 128px row with no card, background, divider or footnote.",
+      "spec": "Three figures at the top of #compare on bone. Each bounded by a 1px --line left rule with 16px padding (Motive cell anatomy). Figure clamp(34px,3.6vw,52px) condensed Archivo at weight 600 \u2014 dropped from 800 because at this size it reads as a poster rather than a measurement. 16px claim, 11px mono clickable source."
+    },
+    "deAiRules": [
+      "A decorative ring behind a diagram is ornament, not information.",
+      "Beams pulsing on a uniform stagger is the most recognisable generated-page tell. Structure stays; the metronome goes.",
+      "Three-line cards inside a connection diagram are copy nobody reads mid-diagram."
+    ],
+    "statusChips": {
+      "rule": "Status is a word, not a colour. Colour alone fails a colour-blind reader and fails in a screenshot, so every chip prints its state.",
+      "spec": "10px JetBrains Mono 500, uppercase, .05em, 2px/7px padding, 4px radius (the chip step) on a 7-14% tint of its own hue.",
+      "contrast": "Measured at 10px against each tint: transit ember-dark 7.16:1, breach/geofence ember-dark 6.90:1, delivered signal-green-deep 5.60:1, stale muted 5.23:1. The raw palette values fail here (Signal Green 3.73:1, Ember Mid 3.20:1) \u2014 that is why the text uses darker derivations than the tint."
+    },
+    "fleetMap": {
+      "rule": "The demo map is drawn, not photographed. It replaced a Web Mercator screenshot that could show coverage but not position.",
+      "projection": "Equirectangular by construction: the viewBox IS degrees (0 0 360 180), so x = lng + 180 and y = 90 - lat, with no projection math anywhere.",
+      "link": "One serial in three places \u2014 the pin takes a focus ring, the manifest row lights, a focus bar prints the live readings, and the phone header echoes the serial. All read the same projected state at answer time, so the panel and the thread can never disagree."
+    }
   },
-  "typographyMeta": {
-   "display": {
-    "displayName": "Display",
-    "purpose": "Hero headline only. Uppercase freight-stencil voice in Archivo; never reused on section headings."
-   },
-   "headline": {
-    "displayName": "Headline",
-    "purpose": "Section h2s, sentence case."
-   },
-   "body": {
-    "displayName": "Body",
-    "purpose": "#4B5259 on light, rgba(255,255,255,0.7) on dark. Max measure ~44rem."
-   },
-   "label": {
-    "displayName": "Label",
-    "purpose": "Tracked uppercase status chips and category tags only."
-   },
-   "machine": {
-    "displayName": "Machine",
-    "purpose": "Device-sourced values: serials, telemetry, ETAs. Tabular numerals."
-   },
-   "price-anchor": {
-    "displayName": "Price anchor",
-    "purpose": "The $10 hero/lockup price display. Archivo 800, tabular numerals, dark or light surfaces."
-   },
-   "price-unit": {
-    "displayName": "Price unit",
-    "purpose": "The \"per label\" companion line inside price lockups."
-   },
-   "lead": {
-    "displayName": "Lead",
-    "purpose": "Section-heading intro paragraphs (17px)."
-   },
-   "body-fluid": {
-    "displayName": "Body fluid",
-    "purpose": "Hero and banner body copy that scales 14-16.5px with viewport."
-   },
-   "body-small": {
-    "displayName": "Body small",
-    "purpose": "14px utility copy: footer links, skip link, compact controls."
-   }
-  },
-  "shadows": [
-   {
-    "name": "card-ambient",
-    "value": "0 1px 2px rgba(13,16,20,0.03), 0 24px 60px -34px rgba(13,16,20,0.28)",
-    "purpose": "Daylight cards at rest. Always paired with a 1px border."
-   },
-   {
-    "name": "panel-ambient",
-    "value": "0 2px 6px rgba(13,16,20,0.08), 0 60px 130px -60px rgba(13,16,20,0.55)",
-    "purpose": "Large framed consoles: walkthrough panel, media frames."
-   },
-   {
-    "name": "object-lift",
-    "value": "0 18px 44px -16px rgba(13,16,20,0.4)",
-    "purpose": "Label renders and floating artifacts; reads as physical weight."
-   },
-   {
-    "name": "live-glow",
-    "value": "0 0 12px rgba(255,122,46,0.7)",
-    "purpose": "Status/tracking dots glow in their own signal color (Ember or Signal Green)."
-   }
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The squared ember CTA \u2014 an equipment button with a machined 1px ledge and an arrow that leads on hover.",
+      "html": "<a href=\"#\" class=\"ds-btn-primary\">Get a free sample <span aria-hidden=\"true\" class=\"ds-btn-arrow\">&rarr;</span></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 17px 30px; border-radius: 6px; background: #BC3E10; color: #fff; font-family: 'Source Sans 3', 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; font-weight: 700; text-decoration: none; box-shadow: 0 1px 0 rgba(20,17,13,0.3); transition: transform .18s, background .18s; } .ds-btn-primary:hover { background: #DA4A10; transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 2px solid #F9762F; outline-offset: 2px; } .ds-btn-arrow { font-size: 16px; transition: transform .18s; } .ds-btn-primary:hover .ds-btn-arrow { transform: translateX(2px); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "The bone-paper counterpart: hairline-bordered, turns paper white on hover, leading play glyph.",
+      "html": "<a href=\"#\" class=\"ds-btn-secondary\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><circle cx=\"8\" cy=\"8\" r=\"7\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M6.5 5.5l4 2.5-4 2.5V5.5z\" fill=\"currentColor\"/></svg>Watch it work</a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 17px 26px; border-radius: 6px; background: #F5F2EA; border: 1px solid rgba(20,17,13,0.2); color: #14110D; font-family: 'Source Sans 3', 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; font-weight: 600; text-decoration: none; transition: background .18s, transform .18s; } .ds-btn-secondary:hover { background: #FFFFFF; transform: translateY(-1px); } .ds-btn-secondary:focus-visible { outline: 2px solid #F9762F; outline-offset: 2px; }"
+    },
+    {
+      "name": "The Label",
+      "kind": "custom",
+      "refersTo": "card-daylight",
+      "description": "The product itself, rendered flat: warm-white plate, brand row, barcode, mono serial and FCC line, dashed NFC tap target.",
+      "html": "<div class=\"ds-label-stage\"><div class=\"ds-label\"><div class=\"ds-label-head\"><span class=\"ds-label-logo\">XENTAG&trade;</span><span class=\"ds-label-type\">Smart tracking label</span></div><div class=\"ds-label-body\"><div class=\"ds-label-code\"><svg viewBox=\"0 0 150 30\" preserveAspectRatio=\"none\" class=\"ds-label-barcode\" aria-hidden=\"true\"><g fill=\"#121110\"><rect x=\"0\" width=\"3\" height=\"30\"/><rect x=\"5\" width=\"1.4\" height=\"30\"/><rect x=\"9\" width=\"4\" height=\"30\"/><rect x=\"15\" width=\"1.4\" height=\"30\"/><rect x=\"19\" width=\"2.6\" height=\"30\"/><rect x=\"24\" width=\"5\" height=\"30\"/><rect x=\"31\" width=\"1.4\" height=\"30\"/><rect x=\"35\" width=\"2.6\" height=\"30\"/><rect x=\"40\" width=\"4\" height=\"30\"/><rect x=\"46\" width=\"1.4\" height=\"30\"/><rect x=\"50\" width=\"2.6\" height=\"30\"/><rect x=\"55\" width=\"1.4\" height=\"30\"/><rect x=\"58\" width=\"5\" height=\"30\"/><rect x=\"66\" width=\"2.6\" height=\"30\"/><rect x=\"71\" width=\"1.4\" height=\"30\"/><rect x=\"75\" width=\"4\" height=\"30\"/><rect x=\"81\" width=\"2.6\" height=\"30\"/><rect x=\"86\" width=\"1.4\" height=\"30\"/><rect x=\"90\" width=\"2.6\" height=\"30\"/><rect x=\"95\" width=\"5\" height=\"30\"/><rect x=\"102\" width=\"1.4\" height=\"30\"/><rect x=\"106\" width=\"2.6\" height=\"30\"/><rect x=\"111\" width=\"4\" height=\"30\"/><rect x=\"117\" width=\"1.4\" height=\"30\"/><rect x=\"121\" width=\"2.6\" height=\"30\"/><rect x=\"126\" width=\"1.4\" height=\"30\"/><rect x=\"130\" width=\"4\" height=\"30\"/><rect x=\"136\" width=\"2.6\" height=\"30\"/><rect x=\"141\" width=\"1.4\" height=\"30\"/><rect x=\"145\" width=\"3\" height=\"30\"/></g></svg><div class=\"ds-label-meta\"><span>FCC ID: 2A7TQRA0001</span><strong>BLE + LTE-M</strong></div></div><div class=\"ds-label-nfc\"><span class=\"ds-label-nfc-target\"><svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M6 8a6 6 0 0 1 12 0M9 11a3 3 0 0 1 6 0\" stroke=\"#121110\" stroke-width=\"1.7\" stroke-linecap=\"round\"/><circle cx=\"12\" cy=\"15\" r=\"1.4\" fill=\"#121110\"/></svg></span><span class=\"ds-label-tap\">TAP</span></div></div></div></div>",
+      "css": ".ds-label-stage { background: #F0ECE1; padding: 26px; border-radius: 8px; } .ds-label { max-width: 410px; aspect-ratio: 13 / 7; border-radius: 12px; background: #FBF8F1; border: 1px solid rgba(18,17,16,0.1); box-shadow: 0 18px 40px -22px rgba(0,0,0,0.6), 0 8px 18px -10px rgba(0,0,0,0.45); padding: 6.5% 7%; display: flex; flex-direction: column; justify-content: space-between; } .ds-label-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; } .ds-label-logo { font-family: Archivo, 'Helvetica Neue', sans-serif; font-stretch: 110%; font-weight: 800; font-size: 20px; letter-spacing: -0.012em; color: #14110D; } .ds-label-type { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: #3B352D; text-transform: uppercase; padding-top: 4px; } .ds-label-body { display: flex; align-items: flex-end; justify-content: space-between; gap: 6%; } .ds-label-code { flex: 1; min-width: 0; } .ds-label-barcode { display: block; width: 100%; height: 28px; } .ds-label-meta { margin-top: 4px; display: flex; align-items: center; justify-content: space-between; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #3B352D; white-space: nowrap; } .ds-label-meta strong { font-weight: 700; color: #121110; } .ds-label-nfc { flex-shrink: 0; width: 18%; text-align: center; } .ds-label-nfc-target { display: flex; align-items: center; justify-content: center; aspect-ratio: 1; border-radius: 14%; border: 1.5px dashed rgba(18,17,16,0.35); } .ds-label-nfc-target svg { width: 58%; height: 58%; } .ds-label-tap { display: block; margin-top: 4px; font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: 0.04em; color: #121110; }"
+    },
+    {
+      "name": "Gauge Progress Seam",
+      "kind": "custom",
+      "refersTo": "console-dark",
+      "description": "The walkthrough's clock: a 3px seam with ticks at 20% intervals and a glowing ember fill that runs each step linearly over 3.4s.",
+      "html": "<div class=\"ds-gauge-wrap\"><div class=\"ds-gauge\" aria-hidden=\"true\"><span class=\"ds-gauge-tick\" style=\"left:20%\"></span><span class=\"ds-gauge-tick\" style=\"left:40%\"></span><span class=\"ds-gauge-tick\" style=\"left:60%\"></span><span class=\"ds-gauge-tick\" style=\"left:80%\"></span><div class=\"ds-gauge-fill\"></div></div></div>",
+      "css": ".ds-gauge-wrap { background: #121110; padding: 24px 0; border-radius: 8px; border: 1px solid rgba(20,17,13,0.2); } .ds-gauge { position: relative; height: 3px; background: rgba(255,255,255,0.08); overflow: hidden; } .ds-gauge-tick { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.16); z-index: 1; } .ds-gauge-fill { height: 100%; background: #F9762F; box-shadow: 0 0 10px rgba(249,118,47,0.75); transform-origin: left center; animation: ds-gauge-run 3.4s linear infinite; } @keyframes ds-gauge-run { from { transform: scaleX(0); } to { transform: scaleX(1); } } @media (prefers-reduced-motion: reduce) { .ds-gauge-fill { animation: none; } }"
+    },
+    {
+      "name": "Machine Chip",
+      "kind": "chip",
+      "refersTo": "chip-reg",
+      "description": "The machine voice in chip form: mono uppercase serial-and-step readout with a glowing live dot; the bordered variant carries reg marks.",
+      "html": "<div class=\"ds-machine-wrap\"><span class=\"ds-machine-chip\"><span class=\"ds-machine-dot\"></span>XT-48192 &middot; STEP 02/05</span> <span class=\"ds-reg-chip\">EU DPP READY</span></div>",
+      "css": ".ds-machine-wrap { background: #1D1814; padding: 20px; border-radius: 8px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; } .ds-machine-chip { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; color: rgba(255,255,255,0.55); font-variant-numeric: tabular-nums; } .ds-machine-dot { width: 6px; height: 6px; border-radius: 50%; background: #2FBF83; box-shadow: 0 0 8px rgba(47,191,131,0.8); } .ds-reg-chip { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; color: rgba(255,255,255,0.72); padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }"
+    },
+    {
+      "name": "Integration Manifest Table",
+      "kind": "custom",
+      "refersTo": "console-dark",
+      "description": "Integrations as a hairline-ruled spec table on charcoal \u2014 mono header, glyph tile + name, mono category, human blurb \u2014 instead of a logo wall.",
+      "html": "<div class=\"ds-manifest\"><div class=\"ds-manifest-head\" aria-hidden=\"true\"><span>System</span><span>Category</span><span>What flows there</span></div><div class=\"ds-manifest-row\"><span class=\"ds-manifest-sys\"><span class=\"ds-manifest-glyph\">S</span><span class=\"ds-manifest-name\">Slack</span></span><span class=\"ds-manifest-cat\">Alerting</span><span class=\"ds-manifest-blurb\">Route temperature breaches to the channel on shift.</span></div><div class=\"ds-manifest-row ds-manifest-row--last\"><span class=\"ds-manifest-sys\"><span class=\"ds-manifest-glyph\">G</span><span class=\"ds-manifest-name\">Geotab</span></span><span class=\"ds-manifest-cat\">Telematics</span><span class=\"ds-manifest-blurb\">Push label positions straight into your existing fleet map.</span></div></div>",
+      "css": ".ds-manifest { background: #191512; border-radius: 8px; border: 1px solid rgba(20,17,13,0.2); overflow: hidden; box-shadow: 0 2px 6px rgba(20,17,13,0.08), 0 40px 80px -48px rgba(20,17,13,0.5); } .ds-manifest-head { display: grid; grid-template-columns: minmax(120px,0.9fr) minmax(80px,0.55fr) 1.6fr; gap: 18px; padding: 14px 24px 10px; border-bottom: 1px solid rgba(255,255,255,0.09); } .ds-manifest-head span { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); } .ds-manifest-row { display: grid; grid-template-columns: minmax(120px,0.9fr) minmax(80px,0.55fr) 1.6fr; align-items: center; gap: 18px; padding: 15px 24px; border-bottom: 1px solid rgba(255,255,255,0.07); transition: background .18s ease; } .ds-manifest-row--last { border-bottom: none; } .ds-manifest-row:hover { background: rgba(255,255,255,0.07); } .ds-manifest-sys { display: flex; align-items: center; gap: 12px; min-width: 0; } .ds-manifest-glyph { flex-shrink: 0; width: 30px; height: 30px; border-radius: 6px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); display: inline-flex; align-items: center; justify-content: center; font-family: Archivo, 'Helvetica Neue', sans-serif; font-weight: 700; font-size: 13px; color: rgba(255,255,255,0.88); } .ds-manifest-name { font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif; font-weight: 600; font-size: 15px; color: rgba(255,255,255,0.94); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-manifest-cat { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.45); } .ds-manifest-blurb { font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif; font-size: 13.5px; line-height: 1.5; color: rgba(255,255,255,0.62); }"
+    },
+    {
+      "name": "Spec Ledger",
+      "kind": "custom",
+      "refersTo": "card-daylight",
+      "description": "The trust strip under the hero: five label facts as value-over-caption pairs separated by hairlines \u2014 a stat row set like a broadsheet ledger, no boxes.",
+      "html": "<ul class=\"ds-ledger\"><li class=\"ds-ledger-item\"><span>device network</span><strong>100M+ nodes</strong></li><li class=\"ds-ledger-item\"><span>cellular coverage</span><strong>29 countries</strong></li><li class=\"ds-ledger-item\"><span>battery life</span><strong>1 year</strong></li></ul>",
+      "css": ".ds-ledger { list-style: none; margin: 0; padding: 34px 24px 36px; background: #F5F2EA; border-bottom: 1px solid rgba(20,17,13,0.1); display: flex; align-items: stretch; justify-content: space-between; } .ds-ledger-item { display: flex; flex-direction: column-reverse; gap: 6px; padding: 0 28px; font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif; font-size: 13.5px; line-height: 1.4; letter-spacing: 0.01em; color: #6B6156; } .ds-ledger-item + .ds-ledger-item { border-left: 1px solid rgba(20,17,13,0.12); } .ds-ledger-item:first-child { padding-left: 0; } .ds-ledger-item:last-child { padding-right: 0; } .ds-ledger-item strong { display: block; font-family: Archivo, 'Helvetica Neue', sans-serif; font-stretch: 106%; font-weight: 800; font-size: 19px; line-height: 1.15; letter-spacing: -0.01em; color: #14110D; }"
+    },
+    {
+      "name": "Dark Email Capture",
+      "kind": "input",
+      "refersTo": "input-capture-dark",
+      "description": "The lead-capture pair on the night CTA console: translucent field with an ember focus ring beside the squared ember submit.",
+      "html": "<form class=\"ds-capture\" onsubmit=\"return false\"><input class=\"ds-capture-input\" type=\"email\" placeholder=\"Your work email\" aria-label=\"Work email\" /><button class=\"ds-capture-submit\" type=\"submit\">Claim 10 free labels <span aria-hidden=\"true\">&rarr;</span></button></form>",
+      "css": ".ds-capture { background: #151210; padding: 28px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.07); display: flex; gap: 8px; flex-wrap: wrap; } .ds-capture-input { flex: 1; min-width: 200px; min-height: 48px; padding: 15px 18px; border-radius: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif; font-size: 15px; outline: none; } .ds-capture-input::placeholder { color: rgba(255,255,255,0.62); } .ds-capture-input:focus-visible { border-color: rgba(249,118,47,0.75); box-shadow: 0 0 0 3px rgba(249,118,47,0.18); } .ds-capture-submit { padding: 15px 26px; border-radius: 6px; border: none; cursor: pointer; font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif; font-size: 15px; font-weight: 700; color: #fff; background: #BC3E10; box-shadow: 0 1px 0 rgba(20,17,13,0.3); transition: transform .18s, background .18s; white-space: nowrap; } .ds-capture-submit:hover { background: #DA4A10; transform: translateY(-1px); } .ds-capture-submit:focus-visible { outline: 2px solid #F9762F; outline-offset: 2px; }"
+    }
   ],
-  "motion": [
-   {
-    "name": "spring-standard",
-    "value": "spring(stiffness 170, damping 17)",
-    "purpose": "Framer Motion default for object movement (label peel, chips)."
-   },
-   {
-    "name": "ease-micro",
-    "value": "all .16s\u2013.18s ease",
-    "purpose": "Hover states: color, border, translateY(-1px) press."
-   },
-   {
-    "name": "rise-in",
-    "value": "zrise .7s ease-out both",
-    "purpose": "Hero content entrance; staggered by delay."
-   },
-   {
-    "name": "marquee",
-    "value": "mqleft/mqright 38\u201344s linear infinite",
-    "purpose": "Logo and stat marquees; paused on hover; disabled under prefers-reduced-motion."
-   }
-  ],
-  "breakpoints": [
-   {
-    "name": "nav-collapse",
-    "value": "980px"
-   },
-   {
-    "name": "grids-stack",
-    "value": "820px"
-   },
-   {
-    "name": "rail-icons-only",
-    "value": "680px"
-   }
-  ]
- },
- "components": [
-  {
-   "name": "Primary Button",
-   "kind": "button",
-   "refersTo": "button-primary",
-   "description": "The Ember CTA \u2014 chunky, pressable, lifts 1px on hover.",
-   "html": "<a href=\"#\" class=\"ds-btn-primary\">Book a demo &rarr;</a>",
-   "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 12px; background: #C2410C; color: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 15px; text-decoration: none; box-shadow: 0 2px 8px -2px rgba(0,0,0,0.4); transition: transform .18s, background .18s; } .ds-btn-primary:hover { background: #D2470A; transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 2px solid #FF7A2E; outline-offset: 2px; }"
-  },
-  {
-   "name": "Ghost Button (dark)",
-   "kind": "button",
-   "refersTo": "button-ghost-dark",
-   "description": "Secondary action on night surfaces.",
-   "html": "<div class=\"ds-ghost-wrap\"><a href=\"#\" class=\"ds-btn-ghost\">Get 10 free labels</a></div>",
-   "css": ".ds-ghost-wrap { background: #0A0B0E; padding: 20px; border-radius: 14px; } .ds-btn-ghost { display: inline-flex; align-items: center; padding: 14px 24px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.16); color: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 15px; text-decoration: none; transition: background .18s, border-color .18s; } .ds-btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }"
-  },
-  {
-   "name": "Live Status Pill",
-   "kind": "chip",
-   "description": "Glowing signal dot + tracked uppercase label on dark glass.",
-   "html": "<div class=\"ds-pill-wrap\"><span class=\"ds-pill-live\"><span class=\"ds-pill-dot\"></span>Live in 29 countries</span></div>",
-   "css": ".ds-pill-wrap { background: #0A0B0E; padding: 20px; border-radius: 14px; } .ds-pill-live { display: inline-flex; align-items: center; gap: 9px; padding: 9px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12.5px; } .ds-pill-dot { width: 8px; height: 8px; border-radius: 50%; background: #00E5A0; box-shadow: 0 0 8px rgba(0,229,160,0.8); }"
-  },
-  {
-   "name": "Category Chip",
-   "kind": "chip",
-   "refersTo": "chip-category",
-   "description": "Tinted tracked-uppercase tag naming a product capability.",
-   "html": "<span class=\"ds-chip-cat\">BLE + CELLULAR</span>",
-   "css": ".ds-chip-cat { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 8px; background: rgba(194,65,12,0.1); color: #9A3412; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }"
-  },
-  {
-   "name": "Intent Chip",
-   "kind": "chip",
-   "refersTo": "chip-intent",
-   "description": "Form intent toggle (free labels vs demo) \u2014 pill with aria-pressed.",
-   "html": "<div class=\"ds-intent-wrap\"><button class=\"ds-chip-intent ds-on\" aria-pressed=\"true\">10 free labels</button><button class=\"ds-chip-intent\" aria-pressed=\"false\">20-minute demo</button></div>",
-   "css": ".ds-intent-wrap { display: flex; gap: 10px; background: #0F1114; padding: 20px; border-radius: 14px; } .ds-chip-intent { padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.7); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: all .18s; } .ds-chip-intent.ds-on { border-color: rgba(255,122,46,0.65); background: rgba(255,122,46,0.16); color: #FFB37E; }"
-  },
-  {
-   "name": "Product Card",
-   "kind": "card",
-   "refersTo": "card-product",
-   "description": "Daylight feature card: ambient lift + firm 1px border.",
-   "html": "<div class=\"ds-card\"><span class=\"ds-chip-cat2\">BLE + CELLULAR</span><h3 class=\"ds-card-title\">XenTag\u2122</h3><p class=\"ds-card-body\">Peel-and-stick tracking for high-value goods with real-time location, temperature and shock.</p></div>",
-   "css": ".ds-card { max-width: 340px; border-radius: 22px; padding: 36px; background: #FFFFFF; border: 1px solid rgba(13,16,20,0.11); box-shadow: 0 1px 2px rgba(13,16,20,0.03), 0 24px 60px -34px rgba(13,16,20,0.28); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; } .ds-chip-cat2 { display: inline-flex; padding: 6px 12px; border-radius: 8px; background: rgba(194,65,12,0.1); color: #9A3412; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; } .ds-card-title { margin: 18px 0 0; font-size: 30px; font-weight: 700; color: #0F1114; } .ds-card-body { margin: 10px 0 0; font-size: 15px; line-height: 1.62; color: #4B5259; }"
-  },
-  {
-   "name": "Telemetry Stat Row",
-   "kind": "custom",
-   "description": "Machine-voice data row: label in Helvetica, value in mono tabular.",
-   "html": "<div class=\"ds-stat-wrap\"><div class=\"ds-stat\"><span class=\"ds-stat-label\">Temperature</span><span class=\"ds-stat-value\">-2.0\u00b0C</span></div></div>",
-   "css": ".ds-stat-wrap { background: #0D1013; padding: 16px; border-radius: 14px; } .ds-stat { display: flex; align-items: center; justify-content: space-between; min-width: 200px; border-radius: 10px; padding: 9px 11px; background: rgba(255,122,46,0.08); border: 1px solid rgba(255,122,46,0.25); } .ds-stat-label { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11px; color: rgba(255,255,255,0.6); } .ds-stat-value { font-family: monospace; font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; color: #FFB37E; }"
-  },
-  {
-   "name": "Email Input (dark)",
-   "kind": "input",
-   "description": "Newsletter capture on night surfaces.",
-   "html": "<div class=\"ds-input-wrap\"><input class=\"ds-input\" type=\"email\" placeholder=\"Work email\" /><button class=\"ds-input-btn\">Join</button></div>",
-   "css": ".ds-input-wrap { display: flex; gap: 8px; background: #0A0B0E; padding: 20px; border-radius: 14px; } .ds-input { flex: 1; min-width: 160px; padding: 10px 12px; border-radius: 9px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: #fff; font-size: 13px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; outline: none; } .ds-input:focus-visible { border-color: rgba(255,122,46,0.6); } .ds-input::placeholder { color: rgba(255,255,255,0.55); } .ds-input-btn { padding: 10px 14px; border-radius: 9px; border: none; background: #C2410C; color: #fff; font-weight: 600; font-size: 13px; cursor: pointer; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }"
-  },
-  {
-   "name": "The Label",
-   "kind": "custom",
-   "description": "Signature artifact: a faithful render of the physical XenTag label.",
-   "html": "<div class=\"ds-label\"><div class=\"ds-label-head\"><span class=\"ds-label-brand\">XENTAG\u2122</span><span class=\"ds-label-tag\">SMART TRACKING LABEL</span></div><div class=\"ds-label-bars\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class=\"ds-label-foot\"><span class=\"ds-label-code\">XT-48192</span><span class=\"ds-label-code\">BLE + LTE-M</span></div></div>",
-   "css": ".ds-label { width: 280px; border-radius: 14px; background: linear-gradient(128deg, #FFFFFF 0%, #F4F4F2 58%, #EDEDEA 100%); border: 1px solid rgba(13,16,20,0.14); box-shadow: 0 18px 44px -16px rgba(13,16,20,0.4); padding: 15px 17px; transform: rotate(-3deg); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; } .ds-label-head { display: flex; justify-content: space-between; align-items: baseline; } .ds-label-brand { font-weight: 700; font-size: 13px; color: #0F1114; letter-spacing: 0.02em; } .ds-label-tag { font-family: monospace; font-size: 7px; font-weight: 700; letter-spacing: 0.14em; color: #4B5259; } .ds-label-bars { display: flex; gap: 3px; align-items: stretch; height: 26px; margin-top: 12px; } .ds-label-bars span { background: #0F1114; width: 2px; } .ds-label-bars span:nth-child(3n) { width: 4px; } .ds-label-bars span:nth-child(4n) { width: 1px; } .ds-label-foot { display: flex; justify-content: space-between; margin-top: 8px; } .ds-label-code { font-family: monospace; font-size: 9px; font-weight: 700; color: #2F343A; }"
+  "narrative": {
+    "northStar": "The Broadsheet Spec Sheet",
+    "overview": "Operator-grade editorial: a $10 paper label sold like field equipment. The page reads as a broadsheet spec sheet \u2014 a bone-paper ground (#F5F2EA) whose every content section is framed by two vertical hairline rails, the way a broadsheet's column rules turn white space into a set measure. Live-platform moments (the walkthrough console, the integrations manifest, the CTA, the footer) sit on warm charcoal plates (#151210\u2013#231D18) that carry no rails because they are their own plates. Cargo Ember (#BC3E10) is the only loud voice on the page: CTAs, live routes, active states, and exactly three underlined payoff words. Everything else argues with numbers, hairlines, and real footage.\n\nThe type does the selling. Archivo's variable width axis stretches the display voice wider as it gets bigger (h1 at 118% width, h2 at 110%, h3 at 106%), all at weight 800 \u2014 the extended-grotesque uppercase of freight stencils and equipment plates. Source Sans 3 carries every human-written sentence; JetBrains Mono is reserved for machine-sourced values (serials, temperatures, ETAs, API calls). Controls are squared and chunky at 6px radius \u2014 equipment buttons, not pills. Illustration is a single isometric hairline-dieline language: wireframe cartons, pallets, and radio arcs drawn in 1.1\u20131.6px strokes, never filled cartoons.\n\nThis world explicitly refuses the neon-dark AI-SaaS grammar: no two-tone gradient headlines, no glassmorphic decoration, no uppercase eyebrow label repeated over every section, no identical icon+heading+text card grids, no fabricated dashboards or reviews.",
+    "keyCharacteristics": [
+      "Bone-paper broadsheet ground with per-section 1px vertical rails (hidden below 1080px)",
+      "Warm charcoal consoles for every live-platform moment; ember hairline seam across their top edge",
+      "Cargo Ember rationed to CTAs, live signals, and exactly three underlined payoff words",
+      "Archivo width-axis display (118%/110%/106%) at weight 800; mono strictly for machine values",
+      "Squared 6px controls with a 1px bottom ledge shadow and an arrow affordance",
+      "Hairline-first depth; deep soft ambient shadows only under whole consoles and physical objects",
+      "Isometric hairline dieline illustration system; real freight footage and label renders as imagery"
+    ],
+    "rules": [
+      {
+        "name": "The Two Worlds Rule",
+        "body": "Every surface is either bone paper or warm charcoal console. No mid-gray third theme, no cool-toned dark, no section that can't say which world it belongs to.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ember Budget Rule",
+        "body": "Cargo Ember is a signal, not a paint. On any daylight surface it appears only on CTAs, active states, live data, and payoff underlines \u2014 roughly \u226410% of the surface. If a section feels orange, it's over budget.",
+        "section": "colors"
+      },
+      {
+        "name": "The Teal Chip Rule",
+        "body": "Verified Teal exists only as small verified-state chips and the XenAuth mark's accent. It never grows into a section wash, a heading color, or a large surface.",
+        "section": "colors"
+      },
+      {
+        "name": "The Machine Voice Rule",
+        "body": "If a value comes from a device \u2014 a temperature, a battery percentage, a serial, an ETA, an event timestamp \u2014 set it in JetBrains Mono with tabular numerals. If a human wrote it, set it in Source Sans 3. Never mix within one string.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Scale Rule",
+        "body": "Every section h2 on the page is the same voice: 800 / clamp(34px,4.4vw,56px) / 1.04 / -0.012em at 110% width. Sections differentiate by content and surface, never by inventing a new heading size.",
+        "section": "typography"
+      },
+      {
+        "name": "The Three Marks Rule",
+        "body": "The .h2-mark device \u2014 a thick ember underline (0.075em thickness, 0.16em offset, text-decoration-skip-ink: none) on inherited ink \u2014 appears exactly three times: the hero payoff (\"can't afford to lose.\"), \"close that gap.\", and \"One platform.\" A payoff word is never a second text color, and no new section may add a fourth mark without retiring one.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline First Rule",
+        "body": "Reach for a 1px rule or a flat tonal step before any shadow or wash. A shadow is earned only by a whole console, a squared CTA's ledge, or a drawn physical object \u2014 never by a text block, list row, or inner tile.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do frame every bone-ground section with the .section-shell rails and keep dark bands rail-free \u2014 the contrast between measured paper and full-bleed plate is the layout's voice.",
+      "Do hold every section h2 to the One Scale (800 / clamp(34px,4.4vw,56px) / 1.04) and every machine value to JetBrains Mono tabular-nums.",
+      "Do keep controls squared at 6px with the 1px ledge shadow and an arrow affordance; panels normalize to 8px.",
+      "Do draw new illustrations in the isometric hairline-dieline language (1.1\u20131.6px wireframes, ember/teal only on the label and tap elements).",
+      "Do preserve the honest states: capture success only after a real 2xx, the failed state's mailto: fallback, prefers-reduced-motion kills (global animation kill, static gauge, unmasked scrollable marquee), and the marquee's hover/touch-hold pause.",
+      "Do signal \"live\" with green dots + glow and \"route/active\" with ember \u2014 and use warm charcoal (#151210 family) for any new dark surface, never cool gray."
+    ],
+    "donts": [
+      "Don't add a fourth .h2-mark, a second text color inside a heading, or gradient text anywhere.",
+      "Don't exceed the Ember Budget \u2014 no ember section washes, tinted backgrounds beyond the ~0.07\u20130.12 active tints, or decorative orange.",
+      "Don't reintroduce generic-SaaS furniture: uppercase eyebrow labels over every section, identical icon+heading+text grids, glassmorphism beyond the nav's functional blur, emoji-as-icon.",
+      "Don't fabricate dashboards, reviews, or success UI \u2014 the platform section shows the production screenshot, captioned as such.",
+      "Don't put box-shadows on inner tiles, rows, or drawn objects (objects get drop-shadow filters), and don't glow anything that isn't a live signal.",
+      "Don't clip wide content silently \u2014 the comparison's right-edge fade is the pattern for horizontal overflow on narrow screens."
+    ]
   }
- ],
- "narrative": {
-  "northStar": "The Label on the Crate",
-  "overview": "The physical label is the identity. Every distinctive visual on this site \u2014 barcodes, QR blocks, NFC tap targets, mono serial codes, peel-and-stick renders \u2014 comes off the surface of the product itself. The page doesn't decorate around the label; it reproduces it, at hero scale, on cards, inside phone mockups, on cartons.\n\nThe system runs two worlds. Night surfaces (#0A0B0E\u2013#15171B) carry the live-platform moments \u2014 hero over real freight footage, walkthrough console, modals, footer \u2014 where Cargo Ember and Signal Green glow like telemetry. Daylight surfaces (white and #F1F3F5) do the explaining: products, comparisons, pricing. The voice throughout is a seasoned ops engineer: numbers carry the argument, decoration is banned, and everything shown is either real footage, a real platform screenshot, or a faithful render of the physical label.",
-  "keyCharacteristics": [
-   "The label artifact (barcode + QR + NFC + serial) recurs as the brand's signature illustration",
-   "Two committed themes \u2014 night console and daylight warehouse \u2014 never a third",
-   "Cargo Ember is a working color: CTAs and live signals, not washes",
-   "Machine text (mono, tabular) whenever a number comes from a device",
-   "Tactile confidence: chunky pressable buttons, firm 1px borders, objects with weight"
-  ],
-  "rules": [
-   {
-    "name": "The Ember Budget Rule",
-    "body": "Cargo Ember is a signal, not a paint. On daylight sections it appears only on CTAs, active states, and live data \u2014 roughly \u226410% of the surface. If a section feels orange, it's over budget.",
-    "section": "colors"
-   },
-   {
-    "name": "The Two Worlds Rule",
-    "body": "Every surface is either night console or daylight warehouse. No mid-gray third theme, no section that can't say which world it belongs to.",
-    "section": "colors"
-   },
-   {
-    "name": "The Machine Voice Rule",
-    "body": "If a value comes from a device \u2014 a temperature, a battery percentage, a serial, an ETA \u2014 set it in monospace with tabular numerals. If a human wrote it, set it in Helvetica. Never mix.",
-    "section": "typography"
-   },
-   {
-    "name": "The Heavy Object Rule",
-    "body": "Shadows are oversized, diffuse, and low-opacity \u2014 weight, not float. If a shadow is small, crisp, and dark, it's wrong (that's a 2014 app).",
-    "section": "elevation"
-   },
-   {
-    "name": "The One Scale Rule",
-    "body": "Full-width section headings share one clamp. A new section does not get to invent a new heading size; it inherits clamp(28px, 3.6vw, 44px) or documents its role-based exception.",
-    "section": "typography"
-   }
-  ],
-  "dos": [
-   "Do show the product working: real footage, real platform screenshots, faithful label renders.",
-   "Do let numbers carry the argument \u2014 $6/label, 1-year battery, 29 countries \u2014 in mono/tabular where they're telemetry.",
-   "Do keep every surface in one of the two worlds: night console or daylight warehouse.",
-   "Do pair every shadow with a 1px border; ambient lift plus firm edge.",
-   "Do preserve prefers-reduced-motion handling on marquees and Framer springs.",
-   "Do show success states only after the capture endpoint confirms (2xx); failures get the honest sales@ fallback."
-  ],
-  "donts": [
-   "Don't ship \"generic AI-generated SaaS landing page\" grammar: uppercase tracked eyebrow labels on every section, identical icon+heading+text card grids, decorative glassmorphism, gradient text.",
-   "Don't use startup-cute copy \u2014 \"supercharge\", \"unleash\", emoji bullets \u2014 or emoji as UI icons anywhere.",
-   "Don't fabricate dashboards or reviews; fabricated proof is banned outright.",
-   "Don't spend Cargo Ember on decoration \u2014 no orange washes, no orange section backgrounds on daylight surfaces.",
-   "Don't use consumer-gadget gloss; this is industrial B2B. If it looks like a phone-case ad, it's off-brand.",
-   "Don't set body copy in Ink Muted (#878E96) or below rgba(255,255,255,0.45) on dark \u2014 muted tones are for idle states, not reading.",
-   "Don't claim an action succeeded before it did \u2014 no success UI ahead of a confirmed send."
-  ]
- }
 }

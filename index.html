@@ -11,19 +11,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
-    <title>XenTag &amp; XenAuth — Smart Labels by ZenduIT</title>
-    <meta name="theme-color" content="#0A0B0E" />
-    <meta name="description" content="Peel-and-stick smart labels for high-value goods. XenTag™ tracks live location, temperature and shock for $10 per label — 1-year battery, no installers. XenAuth™ adds tap-to-verify NFC authentication." />
+    <!--
+      Three variable faces, one request. Archivo opens to 400 (a 400 call used to clamp
+      silently to 500) and its condensed range 62–100 is now live type, not dead payload:
+      it carries the figure and machine-label roles. IBM Plex Sans replaces Source Sans 3
+      as the text face — x-height 516 vs 486 against Archivo's 526, so body copy stops
+      reading pale beside a heading and weight means something again. Mono narrows to one
+      weight; it is only used where values must align in a column.
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400..700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+    <title>XenTag &amp; XenAuth · Smart Labels by ZenduIT</title>
+    <meta name="theme-color" content="#151210" />
+    <meta name="description" content="Peel-and-stick smart labels for high-value goods. XenTag™ tracks live location, temperature and shock for $10 per label, with a 1-year battery and no installers. XenAuth™ adds tap-to-verify NFC authentication." />
     <link rel="canonical" href="https://xentag.vercel.app/" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://xentag.vercel.app/" />
     <meta property="og:site_name" content="XenTag" />
-    <meta property="og:title" content="XenTag &amp; XenAuth — Smart Labels by ZenduIT" />
+    <meta property="og:title" content="XenTag &amp; XenAuth · Smart Labels by ZenduIT" />
     <meta property="og:description" content="A paper-thin label that tracks high-value goods. Live location, temperature and shock for $10 per label, plus NFC tap-to-verify authentication." />
     <meta property="og:image" content="https://xentag.vercel.app/assets/xentag-film-poster.webp" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="XenTag &amp; XenAuth — Smart Labels by ZenduIT" />
+    <meta name="twitter:title" content="XenTag &amp; XenAuth · Smart Labels by ZenduIT" />
     <meta name="twitter:description" content="Peel-and-stick smart labels with live location, temperature and shock for $10 per label. 1-year battery, no installers." />
     <meta name="twitter:image" content="https://xentag.vercel.app/assets/xentag-film-poster.webp" />
     <script type="application/ld+json">
@@ -62,12 +70,79 @@
               "availability": "https://schema.org/InStock",
               "url": "https://xentag.vercel.app/"
             }
+          },
+          {
+            "//": "Mirrors the nine rows rendered by src/components/Faq.jsx. Structured data must match the visible answers verbatim, so edit both together or neither.",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What happens where there is no gateway?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The label falls back to cellular and reports on its own over LTE-M. Bluetooth is the cheap path when a fleet vehicle or a fixed gateway passes it; cellular covers everything else. Both write under the same serial, so the trail has no hole where the gateways stopped." }
+              },
+              {
+                "@type": "Question",
+                "name": "Does it feed the telematics platform we already run?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Label positions and condition events land in the fleet map your team already opens each morning, rather than in a second portal nobody logs into. The same events are available over REST, webhooks and OAuth 2.0 if you would rather pull them into your own systems." }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does the battery really last?",
+                "acceptedAnswer": { "@type": "Answer", "text": "About a year at a 60-minute reporting interval, which is the assumption behind the $10 line. Report more often and it is shorter, and sustained cold shortens it further, so a reefer lane sits nearer the low end than a dry van does. The label reports its own battery level, so you are not guessing." }
+              },
+              {
+                "@type": "Question",
+                "name": "What does the $10 include?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The label, both radios, temperature and shock logging, and tracking on the live map. Starter pricing is $10 a label plus a $3 monthly track fee per asset; volume pricing starts at $8. There is no installer to book and no gateway to buy." }
+              },
+              {
+                "@type": "Question",
+                "name": "How is this different from a consumer tracker?",
+                "acceptedAnswer": { "@type": "Answer", "text": "A consumer tracker gives you a dot on a map and needs a stranger to walk past it. This is a shipping label with two radios, a temperature and shock log kept on the label itself, and an event record you can hand to a claims adjuster." }
+              },
+              {
+                "@type": "Question",
+                "name": "Is the tap verification spoofable?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The XenAuth chip answers with a cryptographic response rather than a printed number, so photographing or reprinting the artwork does not reproduce it. A tap either verifies or it does not. There is no third state a reader can be talked into." }
+              },
+              {
+                "@type": "Question",
+                "name": "What does DPP-ready mean?",
+                "acceptedAnswer": { "@type": "Answer", "text": "It means the record is structured for a EU Digital Product Passport and reachable from the item itself. NFC carries the tap; a GS1 Digital Link QR carries the compliant pointer. We say ready rather than compliant because the delegated act for your product category sets the final requirements." }
+              },
+              {
+                "@type": "Question",
+                "name": "How accurate is the temperature log?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The label samples on its own schedule and keeps every reading, so what you get is a series rather than one measurement taken at the door. Alerts fire on the threshold you set, which is what makes a breach something you learn in transit." }
+              },
+              {
+                "@type": "Question",
+                "name": "What happens when the battery dies?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The label stops reporting and the record ends where the battery ended, with the last position and reading held. It is a single-use label, so at end of life you peel it off and recycle it rather than charging it and putting it back into service." }
+              }
+            ]
           }
         ]
       }
     </script>
   </head>
   <body>
+    <!--
+    THESIS: Operator-grade editorial — a $10 paper label sold like field equipment on a
+    broadsheet spec sheet. Refuses the neon-dark AI-SaaS hero and two-tone gradient headline.
+    OWN-WORLD: Bone paper #F5F2EA framed by hairline page rails; warm charcoal consoles
+    #151210–#231D18; Cargo Ember #BC3E10 the only loud voice (CTAs, live routes, underlined
+    payoff words); Archivo Expanded 800 uppercase display; Source Sans 3 text; JetBrains Mono
+    machine values; squared 6px chunky controls; real freight footage and label renders.
+    STORY: A skeptical ops buyer watches a paper label prove live custody, compares it to a
+    $30 hardwired tracker, and claims 10 free labels.
+    FIRST VIEWPORT: Full-bleed freight footage under warm charcoal scrim; extended-uppercase
+    bone headline with ember-underlined payoff; $10 anchor; squared ember CTA; label render
+    right; client marquee pinned to the fold.
+    FORM: User-pinned canon — Samsara × Stripe as craft bar; standing exit taken, no seed.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review,
+    the verdict, and DESIGN.md
+    -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

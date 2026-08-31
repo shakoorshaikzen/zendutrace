@@ -73,6 +73,22 @@ export default function CtaBanner({ openDemo }) {
     return () => window.removeEventListener('xt-intent', onIntent);
   }, []);
 
+  // Load gofleet's embed script AFTER this component (and therefore the
+  // placeholder div) is in the DOM. A static <script> tag in index.html runs
+  // before React renders, scans for the placeholder, finds nothing and never
+  // retries — so the form only mounts reliably when we inject the script here.
+  // Note: this is the direct /wp-content/ path, not George's /wp-json/ loader,
+  // because gofleet.com's firewall 503s script requests to the wp-json route.
+  useEffect(() => {
+    if (document.querySelector('script[data-dm-zoho-embed]')) return;
+    const s = document.createElement('script');
+    s.src = 'https://www.gofleet.com/wp-content/plugins/dm-go-zoho-forms/assets/embed/embed.js?v=3.11.01';
+    s.setAttribute('data-dm-zoho-embed', '1');
+    s.setAttribute('data-dm-zoho-api', 'https://www.gofleet.com/wp-json/dm-zoho/v1');
+    s.setAttribute('data-dm-zoho-assets', 'https://www.gofleet.com/wp-content/plugins/dm-go-zoho-forms/assets');
+    document.head.appendChild(s);
+  }, []);
+
   // Watch the embed placeholder: if gofleet's script injects the form, mark
   // loaded (even if it arrives late); if nothing shows up within 6s, offer
   // the mailto fallback so the section never sits empty.

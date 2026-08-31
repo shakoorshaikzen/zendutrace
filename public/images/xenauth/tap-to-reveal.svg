@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Placeholder for the retired CDN clip: the tap moment, drawn. -->
+  <rect width="800" height="500" fill="#101013"/>
+  <defs>
+    <pattern id="td" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(255,255,255,0.05)"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#td)"/>
+  <!-- the product carton with its tag -->
+  <g stroke="rgba(255,255,255,0.4)" stroke-width="3" fill="none" stroke-linejoin="round">
+    <path d="M150 210 l120 -70 120 70 -120 70 z"/>
+    <path d="M150 210 v130 l120 70 v-130"/>
+    <path d="M270 410 l120 -70 v-130"/>
+  </g>
+  <rect x="288" y="238" width="64" height="64" rx="10" stroke="#2DD4BF" stroke-width="3.4" fill="rgba(45,212,191,0.1)" transform="skewY(14) skewX(-24) translate(150,-18)"/>
+  <!-- the phone arriving -->
+  <g stroke="rgba(255,255,255,0.55)" stroke-width="3.4" fill="rgba(16,16,19,0.6)" stroke-linejoin="round">
+    <rect x="472" y="120" width="160" height="300" rx="26"/>
+  </g>
+  <rect x="524" y="138" width="56" height="10" rx="5" fill="rgba(255,255,255,0.25)"/>
+  <!-- the tap: arcs bridging tag and phone -->
+  <g stroke="#2DD4BF" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M430 250 a34 34 0 0 1 0 52"/>
+    <path d="M452 228 a62 62 0 0 1 0 96"/>
+  </g>
+  <circle cx="416" cy="276" r="8" fill="#2DD4BF"/>
+  <!-- verified -->
+  <circle cx="552" cy="270" r="40" stroke="#2DD4BF" stroke-width="3.4" fill="none"/>
+  <path d="M534 271 l12 13 24 -27" stroke="#2DD4BF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

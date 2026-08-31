@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+  <!-- Stadiums: drawn placeholder tile in the XenAuth dieline language.
+       Replaces a missing photograph; swap for a real shoot when one exists. -->
+  <rect width="600" height="800" fill="#101013"/>
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(255,255,255,0.05)"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="800" fill="url(#dots)"/>
+  <rect x="0.5" y="0.5" width="599" height="799" fill="none" stroke="rgba(255,255,255,0.08)"/>
+  <!-- stadium bowl in section, hairline dieline -->
+  <g stroke="rgba(255,255,255,0.38)" stroke-width="3" fill="none" stroke-linejoin="round">
+    <ellipse cx="300" cy="360" rx="216" ry="86"/>
+    <ellipse cx="300" cy="360" rx="140" ry="52" opacity="0.7"/>
+    <path d="M84 360 v54 c0 52 98 96 216 96 s216 -44 216 -96 v-54"/>
+    <path d="M160 360 v58 M300 446 v64 M440 360 v58" opacity="0.5"/>
+  </g>
+  <g stroke="rgba(255,255,255,0.16)" stroke-width="2.4" fill="none">
+    <path d="M120 322 l-26 -44 M480 322 l26 -44 M300 274 v-42"/>
+    <circle cx="300" cy="360" r="10"/>
+  </g>
+  <rect x="256" y="336" width="88" height="30" rx="6" stroke="#2DD4BF" stroke-width="3" fill="rgba(45,212,191,0.08)"/>
+  <!-- the family mark: the tap, lower right -->
+  <g stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M508 700 a26 26 0 0 1 26 15"/>
+    <path d="M496 726 a44 44 0 0 1 44 26"/>
+  </g>
+  <circle cx="547" cy="744" r="7" fill="#2DD4BF"/>
+</svg>

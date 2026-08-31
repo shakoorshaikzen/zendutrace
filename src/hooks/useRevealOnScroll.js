@@ -4,9 +4,12 @@ import { useEffect } from 'react';
 // If JavaScript, IntersectionObserver, or animations are unavailable, the page
 // remains fully readable in its default rendered state.
 //
-// Grid children stagger in left-to-right with a blur-to-sharp settle; solitary
-// blocks rise in as one. Every element stays visible at rest; the animation
-// only plays forward from a softened state once, on first intersection.
+// Grid children stagger in left-to-right; solitary blocks rise in as one. Every
+// element stays visible at rest; the animation only plays forward from a
+// softened state once, on first intersection. It is deliberately short and
+// shallow: repeated across every section a longer entrance reads as the page
+// animating itself, and it would compete with the walkthrough, which is the
+// page's one authored motion moment.
 export function useRevealOnScroll(deps = []) {
   useEffect(() => {
     if (typeof IntersectionObserver === 'undefined') return undefined;
@@ -25,13 +28,13 @@ export function useRevealOnScroll(deps = []) {
           const stagger = Number(el.dataset.xtReveal || 0);
           const animation = el.animate(
             [
-              { opacity: stagger > 0 ? 0.25 : 0.35, transform: 'translateY(16px)' },
+              { opacity: stagger > 0 ? 0.3 : 0.4, transform: 'translateY(10px)' },
               { opacity: 1, transform: 'translateY(0)' },
             ],
             {
-              duration: 700,
-              delay: Math.min((stagger - 1) * 80, 400),
-              easing: 'cubic-bezier(.22,1,.36,1)',
+              duration: 520,
+              delay: Math.min((stagger - 1) * 60, 300),
+              easing: 'cubic-bezier(.16,1,.3,1)',
               fill: 'backwards',
             }
           );
@@ -49,6 +52,8 @@ export function useRevealOnScroll(deps = []) {
       if (sec.id === 'top') return;
       const kids = Array.from(sec.children).filter((k) => k.nodeType === 1 && k.tagName !== 'CANVAS');
       kids.forEach((child) => {
+        // blocks that own their entrance (data-xt-skip) opt out of the global one
+        if (child.dataset.xtSkip !== undefined) return;
         if (child.getBoundingClientRect().top < foldGuard) return;
         const cs = getComputedStyle(child);
         const gridKids = cs.display === 'grid' ? Array.from(child.children).filter((k) => k.nodeType === 1) : [];

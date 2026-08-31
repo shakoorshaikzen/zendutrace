@@ -13,10 +13,10 @@ function GetFreeLabelsLink({ closePanel, extraStyle }) {
         gap: 9,
         padding: '15px 28px',
         borderRadius: 12,
-        fontSize: 15.5,
+        fontSize: 16,
         fontWeight: 700,
         color: '#fff',
-        background: hovered ? '#D2470A' : '#C2410C',
+        background: hovered ? '#DA4A10' : '#BC3E10',
         boxShadow: '0 2px 10px -2px rgba(0,0,0,0.4)',
         transform: hovered ? 'translateY(-1px)' : 'none',
         transition: 'transform .18s,background .18s',
@@ -40,7 +40,7 @@ function WatchLifecycleButton({ openDemo }) {
         gap: 9,
         padding: '15px 26px',
         borderRadius: 12,
-        fontSize: 15.5,
+        fontSize: 16,
         fontWeight: 600,
         color: '#fff',
         background: hovered ? 'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0.07)',
@@ -67,7 +67,7 @@ function NetworkGraphic({ mode }) {
   const cellular = mode === 'cellular';
   const accent = cellular ? '#00E5A0' : '#5CB3F8';
   return (
-    <div style={{ position: 'relative', aspectRatio: '16/7', overflow: 'hidden', background: cellular ? 'linear-gradient(140deg,#101A18,#0A0C0D)' : 'linear-gradient(140deg,#101A26,#0A0C0D)' }} aria-hidden>
+    <div style={{ position: 'relative', aspectRatio: '16/7', overflow: 'hidden', background: cellular ? 'linear-gradient(140deg,#191C17,#0A0C0D)' : 'linear-gradient(140deg,#1D1712,#0A0C0D)' }} aria-hidden>
       <svg viewBox="0 0 640 280" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
         <g stroke="rgba(255,255,255,0.06)" strokeWidth="1">
           {Array.from({ length: 11 }, (_, i) => <path key={`v-${i}`} d={`M ${i * 64} 0 V 280`} />)}
@@ -150,7 +150,7 @@ export default function TraceModal({ open, closePanel, openDemo }) {
             cursor: 'pointer',
             background: 'rgba(19,20,25,0.85)',
             color: '#fff',
-            fontSize: 15,
+            fontSize: 16,
             lineHeight: 1,
             display: 'flex',
             alignItems: 'center',
@@ -199,7 +199,7 @@ export default function TraceModal({ open, closePanel, openDemo }) {
               <p style={{ marginTop: 10, fontSize: 13.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.62)' }}>Crowdsourced BLE nodes in the XenTag network, coverage that already exists.</p>
             </div>
             <div style={{ borderRadius: 18, padding: 26, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)' }}>
-              <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 'clamp(30px,2.6vw,40px)', color: '#FF8A2B', lineHeight: 1 }}>29</div>
+              <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 'clamp(30px,2.6vw,40px)', color: '#F9762F', lineHeight: 1 }}>29</div>
               <p style={{ marginTop: 10, fontSize: 13.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.62)' }}>Countries live today, with global reach across Bluetooth and cellular coverage.</p>
             </div>
             <div style={{ borderRadius: 18, padding: 26, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)' }}>
@@ -228,14 +228,14 @@ export default function TraceModal({ open, closePanel, openDemo }) {
                 </div>
               </div>
               <div style={{ borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#0B0C10' }}>
-                <img src="/images/industries/logistics-freight.webp" alt="XenTag-labelled freight moving through a cross-dock" width="1536" height="1024" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} />
+                <img src="/images/industries/logistics-freight.webp" alt="XenTag labels moving with freight" width="1536" height="1024" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} />
                 <div style={{ padding: '20px 22px' }}>
                   <div style={{ fontWeight: 700, fontSize: 16, color: '#fff' }}>2 &middot; Move</div>
                   <p style={{ marginTop: 6, fontSize: 13.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.6)' }}>The same label stays with the shipment through handling, line haul and final mile.</p>
                 </div>
               </div>
               <div style={{ borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#0B0C10' }}>
-                <img src="/images/industries/warehousing.webp" alt="Warehouse operator monitoring a XenTag-labelled tote" width="1536" height="1024" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} />
+                <img src="/images/platform-asset-monitoring.png" alt="The production asset-monitoring platform showing mapped assets" width="1440" height="996" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} />
                 <div style={{ padding: '20px 22px' }}>
                   <div style={{ fontWeight: 700, fontSize: 16, color: '#fff' }}>3 &middot; Monitor</div>
                   <p style={{ marginTop: 6, fontSize: 13.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.6)' }}>Review location and condition events in the production asset-monitoring platform.</p>
@@ -253,7 +253,7 @@ export default function TraceModal({ open, closePanel, openDemo }) {
                   Bluetooth
                 </div>
                 <h4 style={{ marginTop: 14, fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 20, color: '#fff' }}>XenTag network labels</h4>
-                <p style={{ marginTop: 8, fontSize: 14, lineHeight: 1.6, color: 'rgba(255,255,255,0.62)' }}>Ultra-thin, year-long battery. Location relayed by 100M+ crowdsourced nodes, with no gateways to buy.</p>
+                <p style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.6, color: 'rgba(255,255,255,0.62)' }}>Ultra-thin, year-long battery. Location relayed by 100M+ crowdsourced nodes, with no gateways to buy.</p>
               </div>
             </div>
             <div style={{ borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#0B0C10' }}>
@@ -263,7 +263,7 @@ export default function TraceModal({ open, closePanel, openDemo }) {
                   Cellular
                 </div>
                 <h4 style={{ marginTop: 14, fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 20, color: '#fff' }}>Independent cellular labels</h4>
-                <p style={{ marginTop: 8, fontSize: 14, lineHeight: 1.6, color: 'rgba(255,255,255,0.62)' }}>For remote routes with no node density, position reports over the mobile network anywhere.</p>
+                <p style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.6, color: 'rgba(255,255,255,0.62)' }}>For remote routes with no node density, position reports over the mobile network anywhere.</p>
               </div>
             </div>
           </div>
@@ -273,7 +273,7 @@ export default function TraceModal({ open, closePanel, openDemo }) {
             <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 'clamp(22px,2.6vw,32px)', letterSpacing: '-0.02em', color: '#fff', textAlign: 'center' }}>
               Built for every leg of the chain
             </h3>
-            <p style={{ marginTop: 12, textAlign: 'center', fontSize: 15, color: 'rgba(255,255,255,0.6)' }}>From the plant floor to the final mile, and everything in between.</p>
+            <p style={{ marginTop: 12, textAlign: 'center', fontSize: 16, color: 'rgba(255,255,255,0.6)' }}>From the plant floor to the final mile, and everything in between.</p>
             <div className="xt-verticals" style={{ marginTop: 36, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16 }}>
               {verticals.map((v) => (
                 <div key={v.name} style={{ position: 'relative', display: 'block', borderRadius: 16, overflow: 'hidden', aspectRatio: '3/4', border: '1px solid rgba(255,255,255,0.1)' }}>

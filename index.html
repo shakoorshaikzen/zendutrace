@@ -3,7 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <script src="https://cdn.pagesense.io/js/gofleetpartner/328528a41264473caaed23028a74dbae.js"></script>
-    <script src="https://www.gofleet.com/wp-json/dm-zoho/v1/embed.js" defer></script>
+    <!-- GoFleet Zoho lead form. George's official loader lives at
+         /wp-json/dm-zoho/v1/embed.js, but gofleet.com's firewall currently
+         blocks script-tag requests to that route (HTTP 503), so we load the
+         script it points to directly, with the same settings it would set.
+         Swap back to the official loader once GoFleet unblocks it. -->
+    <script
+      src="https://www.gofleet.com/wp-content/plugins/dm-go-zoho-forms/assets/embed/embed.js?v=3.11.01"
+      data-dm-zoho-api="https://www.gofleet.com/wp-json/dm-zoho/v1"
+      data-dm-zoho-assets="https://www.gofleet.com/wp-content/plugins/dm-go-zoho-forms/assets"
+      defer
+    ></script>
     <link rel="icon" type="image/png" href="/images/xentag-mark.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

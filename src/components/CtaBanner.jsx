@@ -56,6 +56,10 @@ function IntentChip({ active, onClick, children, edge }) {
 
 export default function CtaBanner({ openDemo }) {
   const [intent, setIntentState] = useState('labels');
+  // waiting: embed not here yet (render nothing extra while it may still arrive)
+  // loaded:  gofleet's script injected the form
+  // fallback: form never arrived — show the email button instead
+  const [formState, setFormState] = useState('waiting');
   const copy = INTENTS[intent];
 
   // Nav/footer "Book a demo" buttons dispatch this so the section arrives preset.
@@ -68,6 +72,33 @@ export default function CtaBanner({ openDemo }) {
     window.addEventListener('xt-intent', onIntent);
     return () => window.removeEventListener('xt-intent', onIntent);
   }, []);
+
+  // Watch the embed placeholder: if gofleet's script injects the form, mark
+  // loaded (even if it arrives late); if nothing shows up within 6s, offer
+  // the mailto fallback so the section never sits empty.
+  useEffect(() => {
+    const el = document.getElementById('dm-zoho-form-embed');
+    if (!el) return undefined;
+    if (el.childElementCount > 0) {
+      setFormState('loaded');
+      return undefined;
+    }
+    const observer = new MutationObserver(() => {
+      if (el.childElementCount > 0) setFormState('loaded');
+    });
+    observer.observe(el, { childList: true });
+    const timer = setTimeout(() => {
+      if (el.childElementCount === 0) setFormState('fallback');
+    }, 6000);
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const mailtoHref = `mailto:sales@zenduit.com?subject=${encodeURIComponent(
+    intent === 'demo' ? 'Book a 20-minute XenTag demo' : '10 free XenTag labels',
+  )}&body=${encodeURIComponent('Name:\nWork email:\nCompany:')}`;
 
   return (
     <section id="book" className="cta-section" style={{ maxWidth: 1240, margin: '0 auto', padding: '44px 32px 94px' }}>
@@ -107,6 +138,31 @@ export default function CtaBanner({ openDemo }) {
             className="cta-zoho"
             style={{ marginTop: 32, maxWidth: '32rem', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left' }}
           />
+
+          {formState === 'fallback' && (
+            <div className="cta-fallback" style={{ marginTop: 28 }}>
+              <a
+                href={mailtoHref}
+                style={{
+                  display: 'inline-block',
+                  padding: '15px 26px',
+                  borderRadius: 12,
+                  fontFamily: "var(--font-body)",
+                  fontSize: 15.5,
+                  fontWeight: 700,
+                  color: '#fff',
+                  background: '#C2410C',
+                  textDecoration: 'none',
+                  boxShadow: '0 2px 10px -2px rgba(0,0,0,0.4)',
+                }}
+              >
+                {intent === 'demo' ? 'Request a demo by email' : 'Claim 10 free labels by email'} <span style={{ fontSize: 16 }}>&#8594;</span>
+              </a>
+              <div style={{ marginTop: 12, fontSize: 13, color: 'rgba(255,255,255,0.55)' }}>
+                Emails sales@zenduit.com directly &mdash; our request form is temporarily unavailable.
+              </div>
+            </div>
+          )}
 
           <div className="cta-meta" style={{ marginTop: 18, display: 'flex', gap: '10px 18px', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', fontSize: 13, color: 'rgba(255,255,255,0.68)' }}>
             <span>No credit card</span>

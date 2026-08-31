@@ -1,6 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import { useHover } from '../hooks/useHover';
-import { useEmailCapture } from '../hooks/useEmailCapture';
+import { useEffect, useState } from 'react';
 
 const INTENTS = {
   labels: {
@@ -11,9 +9,6 @@ const INTENTS = {
         Starter roll ships free. First shipments go live on the map the same week, then <strong style={{ color: '#FFFFFF' }}>$10 per label with tracking included</strong>.
       </>
     ),
-    request: '10 free XenTag labels',
-    button: 'Claim 10 free labels',
-    done: 'Request received. We’ll confirm by email and ship your starter roll.',
   },
   demo: {
     chip: '20-minute demo',
@@ -27,9 +22,6 @@ const INTENTS = {
         A walkthrough of the live platform built around your use case. We&rsquo;ll also ship <strong style={{ color: '#FFFFFF' }}>sample labels the same week</strong>.
       </>
     ),
-    request: 'Book a 20-minute XenTag demo',
-    button: 'Request a demo',
-    done: 'Request received. We’ll reach out by email to schedule your demo.',
   },
 };
 
@@ -62,54 +54,15 @@ function IntentChip({ active, onClick, children, edge }) {
   );
 }
 
-function SubmitButton({ label, sending }) {
-  const [hovered, hoverProps] = useHover();
-  return (
-    <button
-      type="submit"
-      className="cta-submit"
-      disabled={sending}
-      style={{
-        padding: '15px 26px',
-        borderRadius: 12,
-        border: 'none',
-        cursor: sending ? 'default' : 'pointer',
-        fontFamily: "var(--font-body)",
-        fontSize: 15.5,
-        fontWeight: 700,
-        color: '#fff',
-        background: sending ? 'rgba(194,65,12,0.6)' : hovered ? '#D2470A' : '#C2410C',
-        boxShadow: '0 2px 10px -2px rgba(0,0,0,0.4)',
-        transform: hovered && !sending ? 'translateY(-1px)' : 'none',
-        transition: 'transform .18s,background .18s',
-        whiteSpace: 'nowrap',
-      }}
-      {...hoverProps}
-    >
-      {sending ? 'Sending…' : <>{label} <span style={{ fontSize: 16 }}>&#8594;</span></>}
-    </button>
-  );
-}
-
 export default function CtaBanner({ openDemo }) {
   const [intent, setIntentState] = useState('labels');
   const copy = INTENTS[intent];
-  const { email, status, submit, onChange, reset, fallbackHref, honeypotProps } = useEmailCapture(copy.request);
-  const resetRef = useRef(reset);
-  resetRef.current = reset;
 
-  // Switching intent clears any stale error/failed message from the previous request type.
-  const setIntent = (next) => {
-    setIntentState(next);
-    reset();
-  };
-
-  // Nav/footer "Book a demo" buttons dispatch this so the form arrives preset.
+  // Nav/footer "Book a demo" buttons dispatch this so the section arrives preset.
   useEffect(() => {
     const onIntent = (e) => {
       if (e.detail === 'demo' || e.detail === 'labels') {
         setIntentState(e.detail);
-        resetRef.current();
       }
     };
     window.addEventListener('xt-intent', onIntent);
@@ -133,8 +86,8 @@ export default function CtaBanner({ openDemo }) {
               overflow: 'hidden',
             }}
           >
-            <IntentChip active={intent === 'labels'} onClick={() => setIntent('labels')} edge="start">{INTENTS.labels.chip}</IntentChip>
-            <IntentChip active={intent === 'demo'} onClick={() => setIntent('demo')} edge="end">{INTENTS.demo.chip}</IntentChip>
+            <IntentChip active={intent === 'labels'} onClick={() => setIntentState('labels')} edge="start">{INTENTS.labels.chip}</IntentChip>
+            <IntentChip active={intent === 'demo'} onClick={() => setIntentState('demo')} edge="end">{INTENTS.demo.chip}</IntentChip>
           </div>
           <h2 style={{ fontSize: 'clamp(32px,4.2vw,52px)', lineHeight: 0.98, letterSpacing: '-0.025em', color: '#FFFFFF', maxWidth: '14ch', margin: '0 auto' }}>
             {copy.heading}
@@ -143,72 +96,17 @@ export default function CtaBanner({ openDemo }) {
             {copy.sub}
           </p>
 
-          {status === 'done' ? (
-            <div
-              className="cta-success"
-              role="status"
-              aria-live="polite"
-              style={{
-                marginTop: 32,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 12,
-                padding: '18px 32px',
-                borderRadius: 14,
-                background: 'rgba(47,191,131,0.1)',
-                border: '1.5px solid rgba(47,191,131,0.45)',
-              }}
-            >
-              <span aria-hidden="true" style={{ width: 28, height: 28, borderRadius: '50%', background: '#2FBF83', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0F1114" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12.5 9.5 18 20 6" /></svg>
-              </span>
-              <span style={{ fontFamily: "var(--font-display)", fontSize: 16.5, fontWeight: 600, color: '#FFFFFF' }}>
-                {copy.done}
-              </span>
-            </div>
-          ) : (
-            <form className="cta-form" onSubmit={submit} noValidate style={{ marginTop: 32, maxWidth: '32rem', marginLeft: 'auto', marginRight: 'auto', display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
-              <input type="text" {...honeypotProps} />
-              <div className="cta-field" style={{ flex: 1, minWidth: 0 }}>
-                <label className="sr-only" htmlFor="cta-email">Work email</label>
-                <input
-                  id="cta-email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  inputMode="email"
-                  value={email}
-                  onChange={onChange}
-                  placeholder="Your work email"
-                  aria-invalid={status === 'error'}
-                  aria-describedby={status === 'error' ? 'cta-email-error' : status === 'failed' ? 'cta-email-failed' : undefined}
-                  style={{
-                    width: '100%',
-                    padding: '15px 18px',
-                    borderRadius: 12,
-                    background: 'rgba(255,255,255,0.08)',
-                    border: status === 'error' ? '1.5px solid #E5484D' : '1px solid rgba(255,255,255,0.2)',
-                    color: '#fff',
-                    fontSize: 15,
-                    outline: 'none',
-                    boxSizing: 'border-box',
-                  }}
-                />
-                {status === 'error' && (
-                  <div id="cta-email-error" role="alert" style={{ marginTop: 8, textAlign: 'left', fontSize: 13, color: '#FF9AA0', fontFamily: "var(--font-body)" }}>
-                    Enter a valid work email address.
-                  </div>
-                )}
-                {status === 'failed' && (
-                  <div id="cta-email-failed" role="alert" style={{ marginTop: 8, textAlign: 'left', fontSize: 13, color: '#FF9AA0', fontFamily: "var(--font-body)" }}>
-                    We couldn&rsquo;t send that right now. Please{' '}
-                    <a href={fallbackHref} style={{ color: '#FFB37E', textDecoration: 'underline' }}>email sales@zenduit.com</a> instead.
-                  </div>
-                )}
-              </div>
-              <SubmitButton label={copy.button} sending={status === 'sending'} />
-            </form>
-          )}
+          {/* Zoho CRM lead form (name + email), served from gofleet.com.
+              The dm-zoho loader script in index.html watches the DOM and
+              renders the form into this placeholder. The form only renders
+              on xentag.com and its subdomains (server-side allowlist), so
+              this stays empty on localhost / *.vercel.app previews. */}
+          <div
+            id="dm-zoho-form-embed"
+            data-form-id="40608"
+            className="cta-zoho"
+            style={{ marginTop: 32, maxWidth: '32rem', marginLeft: 'auto', marginRight: 'auto', textAlign: 'left' }}
+          />
 
           <div className="cta-meta" style={{ marginTop: 18, display: 'flex', gap: '10px 18px', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', fontSize: 13, color: 'rgba(255,255,255,0.68)' }}>
             <span>No credit card</span>
